@@ -1,9 +1,12 @@
 # Week 0 — Billing and Architecture
+&nbsp;
+
 &NewLine;
 &NewLine;
 
 
 # Homework Summary
+&nbsp;
 
 # Watched all week-0 videos and completed the assessment.
 # Recreated both the Conceptual and Logical architectural Diagrams.
