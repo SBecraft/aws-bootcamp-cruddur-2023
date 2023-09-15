@@ -30,7 +30,8 @@
 &NewLine;
 &NewLine;
 
-
+&NewLine;
+&NewLine;
 
 ![Napkin Cruddur Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/Napkin-Crudder%20Conceptual%20Architecture.jpg)
 
