@@ -9,3 +9,9 @@
 
 
 ![Napkin Cruddur Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/Napkin-Crudder%20Conceptual%20Architecture.jpg)
+
+
+
+
+![Cruddur Logical Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/Cruddur%20Conceptual%20Diagram.png)
+[Logical diagram for Cruddur architecture](https://lucid.app/lucidchart/57bebfea-4b09-4a46-8b30-bc077baa98f1/edit?beaconFlowId=1CE0C034F3FDD462&invitationId=inv_ce98a7c1-19bd-41c3-992f-e93a96736a0d&page=0_0#)
