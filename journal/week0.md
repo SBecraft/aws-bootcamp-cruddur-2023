@@ -12,9 +12,7 @@
 # Recreated both the Conceptual and Logical architectural Diagrams.
 # Created a Budget and a Billing Alarm.
 # Added gitpod.io and Firefox extension to GitHub account.
-# There were issues getting my LMS account set-up.  
-# Account issues put me behind in getting assignments completed.
-# Spending the weekend completing setting up AWS account.
+
 
 
 
