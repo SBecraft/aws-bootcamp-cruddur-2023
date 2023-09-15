@@ -1,6 +1,8 @@
 # Week 0 — Billing and Architecture
 &NewLine;
 &NewLine;
+
+
 # Homework Summary
 
 # Watched all week-0 videos and completed the assessment.
