@@ -54,7 +54,7 @@ Gitpod is a browser of VSCode that can be configured to load automatically from 
 
 [AWS CLI Install Instructions]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ### Install AWS CLI for GitPod 
--	Updated the ‘.gitpod.yml” file with the following task so AWS CLI runs in partial auto-prompt mode in GitPod upon launching of the GitPod environment.
+-	Updated the `.gitpod.yml` file with the following task so AWS CLI runs in partial auto-prompt mode in GitPod upon launching of the GitPod environment.
 ```sh
 tasks:
   - name: aws-cli
@@ -67,6 +67,8 @@ tasks:
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
 ```
+My updated gitpod.yml file:
+![Gitpod.io url addon](![Gitpod.io url addon]( ))
 
 ### Install AWS CLI on Home/Local Computer
 [AWS CLI Install Instructions for Various Operating Systems]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
