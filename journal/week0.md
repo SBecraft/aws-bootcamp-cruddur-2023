@@ -230,7 +230,8 @@ aws budgets create-budget \
 
 Proof I created Budgets in my AWS User account:
 
-![Proof Budgets Created in User account]()
+![Proof Budgets Created in User account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-example.png)
+
 
 
 &NewLine;
