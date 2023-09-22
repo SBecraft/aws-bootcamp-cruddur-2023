@@ -15,7 +15,7 @@ This is the starting codebase that will be used in the FREE AWS Cloud Project Bo
 
 ## Project Scenario
 
-[Cruddur Project Scenario](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/Cruddur%20Project%20Scenario.png)
+[Cruddur Project Scenario](_docs/assets/Cruddur Project Scenario.png)
 
 
 ## Instructions
