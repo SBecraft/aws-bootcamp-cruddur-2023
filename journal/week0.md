@@ -105,12 +105,9 @@ aws sts get-caller-identity
 -	Saved account preferences
 
 ### Second, create a User account Billing Alert
-![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
-
-![json code for setting up billing alarm via Command Prompt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarm-code.png)
 
 Here is a snapshot of my User account Billing Alarms located in the AWS console under Cloudwatch > Alarms.
-![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarms.png)
+![Proof of working billing alarm]()
 
 
 #### Create SNS Topic to deliver an alert email when account is overbilled
