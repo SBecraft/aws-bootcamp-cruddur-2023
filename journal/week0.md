@@ -105,7 +105,7 @@ Place image here
 Here is a snapshot of my User account Billing Alarm:
 ![Proof of working billing alarm](assets/week00-proof-of-billing-alarm.png)
 
-####Create SNS Topic to deliver an alert email when account is overbilled
+#### Create SNS Topic to deliver an alert email when account is overbilled
 [aws sns create-topic](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html)
 Used the following command in Gitpod Terminal to create topic:
 ```sh
