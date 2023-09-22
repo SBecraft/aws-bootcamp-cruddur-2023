@@ -105,6 +105,9 @@ aws sts get-caller-identity
 -	Saved account preferences
 
 ### Second, create a User account Billing Alarm
+[My alarm-config.json file]
+![json code for setting up billing alarm via Command Prompt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarm-code.png)
+
 Here is a snapshot of my User account Billing Alarm:
 ![Proof of working billing alarm](assets/week00-proof-of-billing-alarm.png)
 
