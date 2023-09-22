@@ -104,7 +104,7 @@ aws sts get-caller-identity
 -	Clicked on  Billing Preferences > Receive Billing Alerts
 -	Saved account preferences
 
-### Second, create a User account Billing Alarm
+### Second, create a User account Billing Alert
 ![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
 
 ![json code for setting up billing alarm via Command Prompt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarm-code.png)
@@ -133,19 +133,27 @@ aws sns subscribe \
 ```
 
 Checked my email and confirmed the subscription exists.
-![Proof of working billing alarm](assets/week00-proof-of-billing-alarm.png)
+
+![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscription-confirmed.png)
 
 
 ### Create Billing Alarm for CloudWatch
-[aws cloudwatch put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
+[aws cloudwatch put-metric-alarm]https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html
+
 Used the following command in GitPod Terminal to create Billing Alarm:
 
 ```sh
 aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json
 ```
-![Proof of working billing alarm](assets/week00-proof-of-billing-alarm.png)
-Instructions for how to create the alarm:
-[Create an Alarm via AWS CLI](https://aws.amazon.com/premiumsupport/knowledge-center/cloudwatch-estimatedcharges-alarm/)
+
+![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
+
+![json code for setting up billing alarm via Command Prompt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarm-code.png)
+
+Here is a snapshot of my User account Billing Alarms located in the AWS console under Cloudwatch > Alarms.
+![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarms.png)
+
+
 
 ## Create A Budget
 [aws budgets create-budget](https://docs.aws.amazon.com/cli/latest/reference/budgets/create-budget.html)
@@ -162,7 +170,7 @@ aws budgets create-budget \
     --budget file://aws/json/budget.json \
     --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
-![Proof of working billing alarm](assets/week00-proof-of-billing-alarm.png)
+![Proof Budgets Created in User account](assets/week00-proof-of-billing-alarm.png)
 
 ## Lucid Charts App Architecture Diagrams
 [Conceptual diagram for Cruddur architecture](https://lucid.app/lucidchart/1178e5b4-9c42-472d-aa73-79275784f24a/edit?viewport_loc=-857%2C3%2C3061%2C1573%2C0_0&invitationId=inv_9c09d566-cd67-41af-a5c3-2c21652d9526)
