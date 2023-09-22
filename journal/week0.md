@@ -36,7 +36,8 @@ aws sts get-caller-identity
 ```
 
   
-![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/cloudshell-screenshot.png)
+![IAM User Security Credentials Verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/cloudshell-screenshot.png)
+
 
 
 &NewLine;
