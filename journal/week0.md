@@ -38,6 +38,10 @@ aws sts get-caller-identity
   
 ![IAM User Security Credentials verified in Cloudshell]()
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 ## Set up Gitpod in GitHub account:
 Gitpod is a browser of VSCode that can be configured to load automatically from a GitHub account with a modified ‘.gitpod.yml’ file.
@@ -48,6 +52,10 @@ Gitpod is a browser of VSCode that can be configured to load automatically from 
 
 
 2.	Used Gitpod extension by pressing on green Gitpod button to open repository files on a new workspace that uses a VSCode browser.
+
+&NewLine;
+&NewLine;
+&nbsp;
  
 ## Install AWS CLI 
 [AWS CLI Reference]https://docs.aws.amazon.com/cli/latest/
@@ -75,6 +83,10 @@ tasks:
 ### Install AWS CLI on Home/Local Computer
 [AWS CLI Install Instructions for Various Operating Systems]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 ## Assign Environment Variables to Security Credentials
 I set the IAM User “awsbootcamp” security credentials for the Bash Terminal in GitPod.  
@@ -96,6 +108,10 @@ gp env AWS_DEFAULT_REGION=us-east-1
 aws sts get-caller-identity
 ```
 ![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Set Up AWS Billing Alarm
 ### First, enable Billing Alerts on User account to be able to even receive alerts.
@@ -133,6 +149,13 @@ Checked my email and confirmed the subscription exists.
 
 ![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscription-confirmed.png)
 
+Proof of subscription in AWS console:
+
+![Newly created subscription](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscriptions-console.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ### Create Billing Alarm for CloudWatch
 [aws cloudwatch put-metric-alarm]https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html
@@ -150,7 +173,9 @@ aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.js
 Here is a snapshot of my User account Billing Alarms located in the AWS console under Cloudwatch > Alarms.
 ![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarms.png)
 
-
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Create A Budget
 
@@ -200,6 +225,10 @@ Proof I created Budgets in my AWS User account:
 
 ![Proof Budgets Created in User account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-example.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 ## Lucid Charts App Architecture Diagrams
 [Conceptual diagram for Cruddur architecture](https://lucid.app/lucidchart/1178e5b4-9c42-472d-aa73-79275784f24a/edit?viewport_loc=-857%2C3%2C3061%2C1573%2C0_0&invitationId=inv_9c09d566-cd67-41af-a5c3-2c21652d9526)
@@ -207,6 +236,10 @@ Proof I created Budgets in my AWS User account:
 
 [Logical diagram for Cruddur architecture](https://lucid.app/lucidchart/57bebfea-4b09-4a46-8b30-bc077baa98f1/edit?viewport_loc=137%2C-59%2C3072%2C1521%2C0_0&invitationId=inv_ce98a7c1-19bd-41c3-992f-e93a96736a0d)
 ![Cruddur Logical Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/Cruddur%20Logical%20Diagram.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Publish Files to GitHub
 
