@@ -30,14 +30,15 @@ Table of Contents
 -	While logged into IAM User account “awsbootcamp” I launched AWS Cloudshell in the browser.
 -	Checked that my newly created IAM User credentials for “awsbootcamp” are associated with AWS CLI by running the command “aws –cli -auto-prompt”
 -	Made sure that AWS CLI via Cloudshell recognized my credentials by running the command “aws sts get-caller-identity” which displays the credentials in the terminal.
-![IAM User Security Credentials verified in Cloudshell](        )
-```json
-{
-    "UserId": "AIFBZRJIQN2ONP4ET4EK4",
-    "Account": "655602346534",
-    "Arn": "arn:aws:iam::655602346534:user/andrewcloudcamp"
-}
+
+  ```sh
+aws sts get-caller-identity
 ```
+
+  
+![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp.png)
+
+
 ## Set up Gitpod in GitHub account:
 Gitpod is a browser of VSCode that can be configured to load automatically from a GitHub account with a modified ‘.gitpod.yml’ file.
 
