@@ -113,7 +113,7 @@ aws sns create-topic --name billing-alarm
 ```
 This command returned a TopicARN
 
-![Topic Arn]()
+![Topic Arn](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/correct-topic-arn.png)
 
 Created a subscription with the TopicARN and my Email
 
