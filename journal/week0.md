@@ -161,6 +161,14 @@ aws sts get-caller-identity --query Account --output text
 
 -	Following AWS documentation, create two json files by copying and pasting the AWS code in the documentation into new files created in GitPod VSCode called "budget.json" and "budget-notifications-with-suscribers.json".
 
+![Budget code file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/create-budget-code.png)
+
+![budget json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-json-file.png)
+
+![Budget with SNS Notifications file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/budget-notifications-with-subscribers.json)
+
+![budget with sns notificationscode file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example.png)
+
 
 
 
