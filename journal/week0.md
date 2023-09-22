@@ -36,7 +36,7 @@ aws sts get-caller-identity
 ```
 
   
-![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp.png)
+![IAM User Security Credentials verified in Cloudshell]()
 
 
 ## Set up Gitpod in GitHub account:
@@ -44,12 +44,14 @@ Gitpod is a browser of VSCode that can be configured to load automatically from 
 
 1.	Added https://gitpod.io/# in front of my git hub account URL and confirmed the Workspace creation.
 
-![IAM User Security Credentials verified in Cloudshell](        )
+![Gitpod.io url addon]( https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/gitpod-io.png)
+
 
 2.	Used Gitpod extension by pressing on green Gitpod button to open repository files on a new workspace that uses a VSCode browser.
  
 ## Install AWS CLI 
-[AWS CLI Reference]  https://docs.aws.amazon.com/cli/latest/
+[AWS CLI Reference]https://docs.aws.amazon.com/cli/latest/
+
 [AWS CLI Install Instructions]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ### Install AWS CLI for GitPod 
 -	Updated the ‘.gitpod.yml” file with the following task so AWS CLI runs in partial auto-prompt mode in GitPod upon launching of the GitPod environment.
@@ -67,34 +69,29 @@ tasks:
 ```
 
 ### Install AWS CLI on Home/Local Computer
-Manually run these commands to perform the AWS CLI install on home computer:
-```sh
-      cd /workspace
-      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-      unzip awscliv2.zip
-      sudo ./aws/install
-```
+[AWS CLI Install Instructions for Various Operating Systems]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
 
 ## Assign Environment Variables to Security Credentials
-I set the IAM User security credentials for “awsbootcamp”.  This can be done from either the GitPod terminal or the Command Prompt terminal on home computer.
+I set the IAM User “awsbootcamp” security credentials for the Bash Terminal in GitPod.  
 
 ```sh
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
 export AWS_DEFAULT_REGION=us-east-1
 ```
-Next, I set the IAM User security credentials environment variables for “awsbootcamp”. 
+Next, I set the IAM User “awsbootcamp” security credentials environment variables so GitPod will remember the credentials every time I relaunch Workspaces.
 
 ```sh
 gp env AWS_ACCESS_KEY_ID=""
 gp env AWS_SECRET_ACCESS_KEY=""
 gp env AWS_DEFAULT_REGION=us-east-1
 ```
-###  Verified that GitPod Terminal or the home computer terminal recognize “awsbootcamp” as the user of the terminal with the command:
+###  Verified that GitPod Terminal recognizes “awsbootcamp” as the User after Workspace relaunch with the command:
 ```sh
 aws sts get-caller-identity
 ```
-Place image here
+![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp.png)
 
 ## Set Up AWS Billing Alarm
 ### First, enable Billing Alerts on User account to be able to even receive alerts.
