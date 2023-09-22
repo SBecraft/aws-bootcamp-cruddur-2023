@@ -159,7 +159,13 @@ Here is a snapshot of my User account Billing Alarms located in the AWS console 
 aws sts get-caller-identity --query Account --output text
 ```
 
--	Following AWS documentation, create two json files by copying and pasting the AWS code in the documentation into new files created in GitPod VSCode called ‘budget.json’ and ‘budget-notifications-with-suscribers.json’
+-	Following AWS documentation, create two json files by copying and pasting the AWS code in the documentation into new files created in GitPod VSCode called ‘budget.json’ and ‘budget-notifications-with-suscribers.json’.
+-	
+![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
+
+![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
+
+  
 -	Used the following commands in GitPod VSCode terminal to create Budget and Notifications:
 ```sh
 aws budgets create-budget \
