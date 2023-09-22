@@ -68,8 +68,7 @@ tasks:
       cd $THEIA_WORKSPACE_ROOT
 ```
 
-My updated gitpod.yml file:
-![Updated GitPod File](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/.gitpod.yml)
+![VIEW MY UPDATED gitpod.yml FILE](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/.gitpod.yml)
 
 
 
