@@ -163,7 +163,12 @@ aws sts get-caller-identity --query Account --output text
 -	
 ![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
 
+![budget json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-json-file.png
+)
+
 ![My alarm-config.json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/alarm-config.json)
+
+![budget with sns notifications](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example.png)
 
   
 -	Used the following commands in GitPod VSCode terminal to create Budget and Notifications:
