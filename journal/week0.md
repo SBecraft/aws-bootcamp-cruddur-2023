@@ -67,8 +67,11 @@ tasks:
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
 ```
+
 My updated gitpod.yml file:
-![Gitpod.io url addon](![Gitpod.io url addon]( ))
+![Updated GitPod File](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/.gitpod.yml)
+
+
 
 ### Install AWS CLI on Home/Local Computer
 [AWS CLI Install Instructions for Various Operating Systems]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
