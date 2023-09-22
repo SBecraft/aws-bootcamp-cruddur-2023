@@ -199,7 +199,8 @@ aws sts get-caller-identity --query Account --output text
 
 ![Budget with subscribers json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/budget-notifications-with-subscribers.json)
 
-![Budget with subscribers](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example.png)
+![Budget with subscribers](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example2.png)
+
 
 
 
@@ -229,7 +230,7 @@ aws budgets create-budget \
 
 Proof I created Budgets in my AWS User account:
 
-![Proof Budgets Created in User account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example2.png)
+![Proof Budgets Created in User account]()
 
 
 &NewLine;
