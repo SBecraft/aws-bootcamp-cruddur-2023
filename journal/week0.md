@@ -6,7 +6,7 @@ Table of Contents
 -	[Set up GitPod extension on GitHub account](#set-up-gitpod-in-github-account)
 -	[Install AWS CLI](#install-aws-cli)
 -	[Assign Environment Variables to Security Credentials](#assign-environment-variables-to-security-credentials)
--	[Set Up AWS Billing](#set-up-aws-billing)
+-	[Set Up AWS Billing Alarm](#set-up-aws-billing-alarm)
 -	[Create A Budget](#create-a-budget)
 -	[Lucid Charts App Architecture Diagrams](#lucid-charts-app-architecture-diagrams)
 -	[Publish Files to GitHub](#publish-files-to-github)
