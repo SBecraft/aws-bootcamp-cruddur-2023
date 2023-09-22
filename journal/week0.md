@@ -160,7 +160,8 @@ aws sts get-caller-identity --query Account --output text
 ```
 
 -	Following AWS documentation, create two json files by copying and pasting the AWS code in the documentation into new files created in GitPod VSCode called ‘budget.json’ and ‘budget-notifications-with-suscribers.json’.
--	
+
+
 ![Budget code file]()
 
 ![budget json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-json-file.png)
@@ -169,8 +170,23 @@ aws sts get-caller-identity --query Account --output text
 
 ![budget with sns notifications](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example.png)
 
-  
--	Used the following commands in GitPod VSCode terminal to create Budget and Notifications:
+
+Created the environment variable ACCOUNT_ID to represent "awsbootcamp" User 12-digit ID.
+
+![Account ID Env variable](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/create-budget-terminal.png)
+
+Use the following commands to create ACCOUNT_ID:
+
+```sh
+ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+export ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+env | grep ACCOUNT_
+export AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+gp env AWS_ACCOUNT_ID=" <place AWS account ID number here between quotation marks> "
+```
+
+
+-	Used the following commands in GitPod VSCode terminal to create Budget and Notifications with new environment variable ACCOUNT_ID:
 ```sh
 aws budgets create-budget \
     --account-id AccountID \
