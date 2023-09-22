@@ -15,7 +15,7 @@ This is the starting codebase that will be used in the FREE AWS Cloud Project Bo
 
 ## Project Scenario
 
-[Cruddur Project Scenario](_docs/assets/Cruddur Project Scenario.png)
+![Cruddur Project Scenario](_docs/assets/Cruddur-Project-Scenario.png)
 
 
 ## Instructions
