@@ -31,7 +31,7 @@ Table of Contents
 -	Checked that my newly created IAM User credentials for “awsbootcamp” are associated with AWS CLI by running the command “aws –cli -auto-prompt”
 -	Made sure that AWS CLI via Cloudshell recognized my credentials by running the command “aws sts get-caller-identity” which displays the credentials in the terminal.
 
-  ```sh
+```sh
 aws sts get-caller-identity
 ```
 
@@ -45,6 +45,7 @@ Gitpod is a browser of VSCode that can be configured to load automatically from 
 1.	Added https://gitpod.io/# in front of my git hub account URL and confirmed the Workspace creation.
 
 ![IAM User Security Credentials verified in Cloudshell](        )
+
 2.	Used Gitpod extension by pressing on green Gitpod button to open repository files on a new workspace that uses a VSCode browser.
  
 ## Install AWS CLI 
