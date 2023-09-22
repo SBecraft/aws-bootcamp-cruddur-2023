@@ -62,34 +62,36 @@ tasks:
       unzip awscliv2.zip
       sudo ./aws/install
       cd $THEIA_WORKSPACE_ROOT
-‘’’
+```
 
 ### Install AWS CLI on Home/Local Computer
 Manually run these commands to perform the AWS CLI install on home computer:
-‘’’
+```sh
       cd /workspace
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip awscliv2.zip
       sudo ./aws/install
-‘’’
+```
 
 ## Assign Environment Variables to Security Credentials
 I set the IAM User security credentials for “awsbootcamp”.  This can be done from either the GitPod terminal or the Command Prompt terminal on home computer.
-```
+
+```sh
 export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
 export AWS_DEFAULT_REGION=us-east-1
 ```
-Next, I set the IAM User security credentials environment variables for “awsbootcamp”.  
-```
+Next, I set the IAM User security credentials environment variables for “awsbootcamp”. 
+
+```sh
 gp env AWS_ACCESS_KEY_ID=""
 gp env AWS_SECRET_ACCESS_KEY=""
 gp env AWS_DEFAULT_REGION=us-east-1
 ```
 ###  Verified that GitPod Terminal or the home computer terminal recognize “awsbootcamp” as the user of the terminal with the command:
-‘’’
+```sh
 aws sts get-caller-identity
-‘’’
+```
 Place image here
 
 ## Set Up AWS Billing Alarm
@@ -110,7 +112,9 @@ Used the following command in Gitpod Terminal to create topic:
 aws sns create-topic --name billing-alarm
 ```
 This command returned a TopicARN
+
 Created a subscription with the TopicARN and my Email
+
 ```sh
 aws sns subscribe \
     --topic-arn TopicARN \
@@ -125,6 +129,7 @@ Checked my email and confirmed the subscription exists.
 ### Create Billing Alarm for CloudWatch
 [aws cloudwatch put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
 Used the following command in GitPod Terminal to create Billing Alarm:
+
 ```sh
 aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json
 ```
@@ -138,6 +143,7 @@ Instructions for how to create the alarm:
 ```sh
 aws sts get-caller-identity --query Account --output text
 ```
+
 -	Following AWS documentation, create two json files by copying and pasting the AWS code in the documentation into new files created in GitPod VSCode called ‘budget.json’ and ‘budget-notifications-with-suscribers.json’
 -	Used the following commands in GitPod VSCode terminal to create Budget and Notifications:
 ```sh
