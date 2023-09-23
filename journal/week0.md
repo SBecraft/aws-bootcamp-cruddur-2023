@@ -232,7 +232,10 @@ Proof I created Budgets in my AWS User account:
 
 ![Proof Budgets Created in User account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-example.png)
 
-
+If you want to check what you created, run this command:
+```sh
+aws budgets describe-budget --account-id 111122223333 --budget-name my-budget
+```
 &NewLine;
 &NewLine;
 &nbsp;
@@ -277,10 +280,7 @@ git push
 To create a new folder in a repository click “create a new file.” Type your new folder’s name in the area where you would write the file name, and at the end of the file name type a “/” to initilize it as a folder. After this you can create a new file in the folder.
 
 
-If you want to check what you created, run this command:
-```sh
-aws budgets describe-budget --account-id 111122223333 --budget-name my-budget
-```
+
 
 &NewLine;
 &NewLine;
