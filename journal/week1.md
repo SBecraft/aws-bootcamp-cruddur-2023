@@ -581,8 +581,8 @@ It is better to use Managed Container services like AWS services like AWS ECS, A
 &nbsp;
 
 ## References
-[Docker Compose Overview] https://docs.docker.com/compose/
+- [Docker Compose Overview] https://docs.docker.com/compose/
 &NewLine;
 &NewLine;
 &nbsp;
-[Debugging Connection Refused] https://pythonspeed.com/articles/docker-connection-refused/
+- [Debugging Connection Refused] https://pythonspeed.com/articles/docker-connection-refused/
