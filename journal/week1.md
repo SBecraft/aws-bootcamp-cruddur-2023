@@ -1,18 +1,19 @@
 # Week 1 — App Containerization
 
 Table of Contents
-•	[Week-1 Technical Tasks Overview](#week-1-technical-tasks-overview)
-•	[VSCode Docker Extension](#vscode-docker-extension)
-•	[Containerize Backend](#containerize-backend)
-•	[Containerize Frontend](#containerize-frontend)
-•	[Container Security and why](#container-security-and-why)
-•	[Docker Architecture and Security Components](#docker-architecture-and-security-components)
-•	[Top 10 Container Security Best Practices](#top-10-container-security-best-practices)
-•	[Snyk OpenSource Security](#snyk-opensource-security)
-•	[AWS Secret Manager](#aws-secret-manager)
-•	[AWS Inspector/Clair](#aws-inspector-clair)
-•	[Value of Managed Container Services](#value-of-managed-container-services)
-•	[References](#references)
+-	[Week-1 Technical Tasks Overview](#week-1-technical-tasks-overview)
+-	[VSCode Docker Extension](#vscode-docker-extension)
+-	[Containerize Backend](#containerize-backend)
+-	[Containerize Frontend](#containerize-frontend)
+-	[Container Security and why](#container-security-and-why)
+-	[Docker Architecture and Security Components](#docker-architecture-and-security-components)
+-	[Top 10 Container Security Best Practices](#top-10-container-security-best-practices)
+-	[Snyk OpenSource Security](#snyk-opensource-security)
+-	[AWS Secret Manager](#aws-secret-manager)
+-	[AWS Inspector/Clair](#aws-inspector-clair)
+-	[Value of Managed Container Services](#value-of-managed-container-services)
+-	[References](#references)
+
 
 
 ## WEEK-1 Technical Tasks Overview:
@@ -580,5 +581,8 @@ It is better to use Managed Container services like AWS services like AWS ECS, A
 &nbsp;
 
 ## References
-{Docker Compose Overview] Docker Compose overview | Docker Docs
+[Docker Compose Overview] https://docs.docker.com/compose/
+&NewLine;
+&NewLine;
+&nbsp;
 [Debugging Connection Refused] https://pythonspeed.com/articles/docker-connection-refused/
