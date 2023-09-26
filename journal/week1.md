@@ -507,6 +507,19 @@ docker compose up
 
 ![PostgreSQL in gitpod.yml](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/postgresql-in-gitpodyml.png)
 
+### Connect to Server ViA DATABASE Explorer
+-	Before continuing my attempt at connecting to the database server by command line, I will connect by Gitpod `DATABASE`.
+-	Click on DATABASE icon on left vertical taskbar.
+-	Click `+` or `create connection` to create new connection to database server.
+-	I made a successful connection to the database server.
+-	There database is empty and will be populated in Week 2.
+
+![success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/succcess-connection-db.png)
+
+
+-	Now I continue with trying to connect to the database server via command line.
+
+
 -	Again, run the 4 lines of gitpod.yml Postgre coded SEPARATELY in Terminal.
 
 
