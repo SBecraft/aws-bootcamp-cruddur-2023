@@ -2,6 +2,7 @@
 
 Table of Contents
 -   [Technical Tasks](#technical-tasks)
+-   [Cruddur Project Description](#cruddur-project-description)
 -	[AWS Setup](#aws-setup)
 -	[Use AWS CloudShell](#use-aws-cloudshell)
 -	[Set up GitPod extension on GitHub account](#set-up-gitpod-in-github-account)
@@ -27,7 +28,8 @@ Week-0 lays the foundation for the entire bootcamp by:
 - Launching AWS CloudShell and looking at AWS CLI
 - Generating AWS credentials
 
-    
+## Cruddur Project Description
+[Cruddur Project Business Use Case]
 
 ## AWS Setup
 -	Created AWS account and signed in as the Root user.
