@@ -54,14 +54,15 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 
 
 ## AWS Setup
--	Created AWS account and signed in as the Root user.
+-	Signed in as Root user (I already have an AWS account so I didn't need to create one)
 -	Navigated to IAM Security in AWS console and set up multi-factor authentication for Root for added account security
 ### As Root create new IAM User with Admin Access:
 -	From within IAM Users console I createa a new Admin Group and gave it “Administrator Access”.
 -	From within IAM Users I created a new user called “awsbootcamp” with “Administrator Access” that I added to the Admin group.
 -	Enabled AWS console access for the new IAM User
 -	Created alias for new user “awsbootcamp” as “my-aws-bootcamp”.
--	Clicked into new User “awsbootcamp”, clicked on Security Credentials and Create Access Keys
+-	Clicked into new account for User “awsbootcamp”
+-	Clicked on Security Credentials and Created Access Keys
 -	Chose AWS CLI Access and saved the CSV with the User credentials.
 ### Assign MFA to New User:
 -	Logged out of Root user and logged back in under new IAM User “aswbootcamp”.
