@@ -526,7 +526,18 @@ docker compose up
 psql --host localhost
 ```
 
--	I was prompted for password
+-	I was prompted for password, but the password didn’t work and I received error that “psql: error: connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "gitpod"”
+-	Tried again using the command:
+```sh
+psql -Upostgres --host localhost
+```
+-	Now I can access postgres
+[psql Upostgress]()
+
+-	Now in Postgres
+-	At `postgres=#’ prompt type `\l` to see default tables
+-	Commit Database explorer to repository
+
 
 ![psql localhost](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-localhost.png)
 
