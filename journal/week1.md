@@ -339,7 +339,8 @@ cd ..
 &NewLine;
 &nbsp;
 
-![Change into Dockerfile before pip](  )
+![Change into Dockerfile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/change-into-Dockerfile2.png)
+
 
 &NewLine;
 &NewLine;
