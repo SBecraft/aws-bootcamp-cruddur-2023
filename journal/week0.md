@@ -3,7 +3,7 @@
 Table of Contents
 - [Technical Tasks](#technical-tasks)
 - [Cruddur Project Description](#cruddur-project-description)
-- [AWS Well-Architected Framework](#aws-well-architected-framework)
+- [AWS Well Architected Framework](#aws-well-architected-framework)
 -	[AWS Setup](#aws-setup)
 -	[Use AWS CloudShell](#use-aws-cloudshell)
 -	[Set up GitPod extension on GitHub account](#set-up-gitpod-in-github-account)
@@ -37,10 +37,19 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 [Cruddur Project Business Use Case]https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.docx
 
 
-## AWS Well-Architected Framework
+## AWS Well Architected Framework
 
+[Reference]https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html
 
+"The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. By using the Framework you will learn architectural best practices for designing and operating reliable, secure, efficient, cost-effective, and sustainable systems in the cloud."
 
+- Six pillars of the AWS well architected framework
+1. Operational Excellence
+2. Security
+3. Reliability
+4. Performance Efficiency
+5. Cost Optimization
+6. Sustainability
 
 
 
