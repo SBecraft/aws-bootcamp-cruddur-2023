@@ -539,14 +539,6 @@ psql -Upostgres --host localhost
 -	At `postgres=#’ prompt type `\l` to see default tables
 -	Commit Database explorer to repository
 
-
-![psql localhost](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-localhost.png)
-
--	Now in Postgres
--	At `postgres=#` prompt type `\l` to see default tables
--	Commit Database explorer to repository
-
-
 &NewLine;
 &NewLine;
 &nbsp;
