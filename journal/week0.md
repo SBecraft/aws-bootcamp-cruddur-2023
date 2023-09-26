@@ -1,8 +1,8 @@
 # Week 0 — Billing and Architecture
 
 Table of Contents
--   [Technical Tasks](#technical-tasks)
--   [Cruddur Project Description](#cruddur-project-description)
+- [Technical Tasks](#technical-tasks)
+- [Cruddur Project Description](#cruddur-project-description)
 -	[AWS Setup](#aws-setup)
 -	[Use AWS CloudShell](#use-aws-cloudshell)
 -	[Set up GitPod extension on GitHub account](#set-up-gitpod-in-github-account)
@@ -29,7 +29,7 @@ Week-0 lays the foundation for the entire bootcamp by:
 - Generating AWS credentials
 
 ## Cruddur Project Description
-[Cruddur Project Business Use Case]
+[Cruddur Project Business Use Case]https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.docx
 
 ## AWS Setup
 -	Created AWS account and signed in as the Root user.
@@ -258,6 +258,18 @@ aws budgets describe-budget --account-id 111122223333 --budget-name my-budget
 
 
 ## Lucid Charts App Architecture Diagrams
+
+-	The Lucid Charts web-based application provides a means to construct diagrams and flowcharts to understand organizational architecture and how processes interact.
+&NewLine;
+&NewLine;
+&nbsp;
+
+Types of organizational architecture diagrams to model:
+-	Conceptual: Basic diagram by stakeholders and architects. Organizes the architecture with concepts and rules. General service description without labels.
+-	Logical: Diagram that describes the relationships between organizational system components.  High level overview and detailed information about individual components that the conceptual diagram does not provide. Maps out the software, hardware, and network components and how they interact without defining labels.
+-	Physical: Diagram that goes beyond the logical diagram by providing granular details like IP addresses and names of cloud provider services, and so on.
+
+
 [Conceptual diagram for Cruddur architecture](https://lucid.app/lucidchart/1178e5b4-9c42-472d-aa73-79275784f24a/edit?viewport_loc=-857%2C3%2C3061%2C1573%2C0_0&invitationId=inv_9c09d566-cd67-41af-a5c3-2c21652d9526)
 ![Cruddur Conceptual Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Conceptual%20Diagram.png)
 
