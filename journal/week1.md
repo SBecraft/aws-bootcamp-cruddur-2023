@@ -498,17 +498,14 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```sh
 docker compose up
 ```
--	Added `PostgreSQL` extension to Gitpod
 
-![PostgresSQL extension]( )
+-	Added `PostgreSQL` extension to Gitpod and to the file `gitpod.yml`
 
--	Added `PostgreSQL` extension to the file `gitpod.yml`
-
-![Add PostgreSQL Ext to gitpod.yml](  )
+![Add PostgreSQL Ext to gitpod.yml](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/add-postgresql-to-gitpodyml.png)
 
 -	Proof PostgresSQL extension added to gitpod.yml file
 
-![PostgreSQL in gitpod.yml](  )
+![PostgreSQL in gitpod.yml](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/postgresql-in-gitpodyml.png)
 
 -	Again, run the 4 lines of gitpod.yml Postgre coded SEPARATELY in Terminal.
 
