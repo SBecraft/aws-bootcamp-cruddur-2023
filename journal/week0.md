@@ -3,6 +3,7 @@
 Table of Contents
 - [Technical Tasks](#technical-tasks)
 - [Cruddur Project Description](#cruddur-project-description)
+- [AWS Well-Architected Framework](#aws-well-architected-framework)
 -	[AWS Setup](#aws-setup)
 -	[Use AWS CloudShell](#use-aws-cloudshell)
 -	[Set up GitPod extension on GitHub account](#set-up-gitpod-in-github-account)
@@ -12,7 +13,6 @@ Table of Contents
 -	[Create A Budget](#create-a-budget)
 -	[Lucid Charts App Architecture Diagrams](#lucid-charts-app-architecture-diagrams)
 -	[Publish Files to GitHub](#publish-files-to-github)
--	[Napkin Conceptual Architecture Diagram](#napkin-conceptual-architecture-diagram)  
 
 ## Technical Tasks
 Week-0 lays the foundation for the entire bootcamp by:
@@ -29,7 +29,20 @@ Week-0 lays the foundation for the entire bootcamp by:
 - Generating AWS credentials
 
 ## Cruddur Project Description
+
+Cruddur is an ephemeral social media micro-blogging platform that allows users to post updates, thoughts, and photos that automatically expire after a period of time, ensuring that personal information and conversations stay relevant and in the moment.
+&NewLine;
+&nbsp;
+
 [Cruddur Project Business Use Case]https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.docx
+
+
+## AWS Well-Architected Framework
+
+
+
+
+
 
 ## AWS Setup
 -	Created AWS account and signed in as the Root user.
@@ -270,13 +283,23 @@ Types of organizational architecture diagrams to model:
 -	Physical: Diagram that goes beyond the logical diagram by providing granular details like IP addresses and names of cloud provider services, and so on.
 
 
-[Conceptual diagram for Cruddur architecture](https://lucid.app/lucidchart/1178e5b4-9c42-472d-aa73-79275784f24a/edit?viewport_loc=-857%2C3%2C3061%2C1573%2C0_0&invitationId=inv_9c09d566-cd67-41af-a5c3-2c21652d9526)
+[My Conceptual diagram for Cruddur architecture](https://lucid.app/lucidchart/1178e5b4-9c42-472d-aa73-79275784f24a/edit?viewport_loc=-857%2C3%2C3061%2C1573%2C0_0&invitationId=inv_9c09d566-cd67-41af-a5c3-2c21652d9526)
 ![Cruddur Conceptual Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Conceptual%20Diagram.png)
 
 
 
-[Logical diagram for Cruddur architecture](https://lucid.app/lucidchart/57bebfea-4b09-4a46-8b30-bc077baa98f1/edit?viewport_loc=137%2C-59%2C3072%2C1521%2C0_0&invitationId=inv_ce98a7c1-19bd-41c3-992f-e93a96736a0d)
+[My Logical diagram for Cruddur architecture](https://lucid.app/lucidchart/57bebfea-4b09-4a46-8b30-bc077baa98f1/edit?viewport_loc=137%2C-59%2C3072%2C1521%2C0_0&invitationId=inv_ce98a7c1-19bd-41c3-992f-e93a96736a0d)
 ![Cruddur Logical Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Logical%20Diagram.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+- My Napkin Conceptual Architecture Diagram
+
+![Cruddur Conceptual Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Napkin-Crudder%20Conceptual%20Architecture.jpg)
+
+
 
 
 &NewLine;
@@ -315,7 +338,7 @@ To create a new folder in a repository click “create a new file.” Type your 
 &nbsp;
 
 
-## Napkin Conceptual Architecture Diagram
+## My Napkin Conceptual Architecture Diagram
 
 ![Cruddur Conceptual Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Napkin-Crudder%20Conceptual%20Architecture.jpg)
 
