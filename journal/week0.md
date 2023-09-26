@@ -72,7 +72,7 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 -	While logged into IAM User account “awsbootcamp” I launched AWS Cloudshell in the browser.
 -	Checked that my newly created IAM User credentials for “awsbootcamp” are associated with AWS CLI by running the command:
 ```sh
-“aws –cli -auto-prompt”
+aws –cli -auto-prompt
 ```
 -	Made sure that AWS CLI via Cloudshell recognized my credentials by running the command “aws sts get-caller-identity” which displays the credentials in the terminal.
 
