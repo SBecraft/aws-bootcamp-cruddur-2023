@@ -528,7 +528,7 @@ psql --host localhost
 
 -	I was prompted for password
 
-![psql localhost](  )
+![psql localhost](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-localhost.png)
 
 -	Now in Postgres
 -	At `postgres=#’ prompt type `\l` to see default tables
