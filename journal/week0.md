@@ -140,6 +140,11 @@ export AWS_ACCESS_KEY_ID=""
 export AWS_SECRET_ACCESS_KEY=""
 export AWS_DEFAULT_REGION=us-east-1
 ```
+
+Now I can view the AWS environment variables from the Gitpod CLI with the following command:
+```sh
+env | grep AWS_
+```
 Next, I set the IAM User “awsbootcamp” security credentials environment variables so GitPod will remember the credentials every time I relaunch Workspaces.
 
 ```sh
