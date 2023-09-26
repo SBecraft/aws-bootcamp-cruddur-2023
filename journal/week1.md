@@ -401,7 +401,7 @@ Docker-compose up
 &NewLine;
 &nbsp;
 
-Note:  Exclude `services:` if you are putting the DynamoDB Local code into a pre-existing .yml file that already has `services:` listed in the file code. If not, leave it in.
+NOTE:  Exclude `services:` if you are putting the DynamoDB Local code into a pre-existing .yml file that already has `services:` listed in the file code. If not, leave it in.
 
 -	DynamoDB Local:
  
@@ -460,7 +460,7 @@ NOTE:
 -	DnyamoDB Local is running on port 8000 and Postgres is running on port 5432.
 -	Don’t open port 38487 since it has to do with Gitpod and not with DynamoDB and PostGres.
 
-!Correct Unlocked Ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/correct-unlocked-ports.png)
+![Correct Unlocked Ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/correct-unlocked-ports.png)
 
 -	Open a new terminal and run the command ‘aws` to confirm AWS CLI is still installed.
 ![AWS CLI Confirmed](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/aws-cli-confirmed.png)
@@ -475,8 +475,7 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 
 
 -	Next the Postgres client is installed into Gitpod.
--	Place the following Postgres driver code into `gitpod.yml` right after “cd $THEIA….”
--	
+-	Place the following Postgres driver code into `gitpod.yml` right after “cd $THEIA….”  
 ```sh
   - name: postgres
     init: |
