@@ -42,6 +42,10 @@ Table of Contents
 &nbsp;
 
 Usually Gitpod is pre-installed with the Docker extension.
+&NewLine;
+&NewLine;
+&nbsp;
+
 I did not have the Docker extension, so I added it to my Gitpod VSCode.
 &NewLine;
 &NewLine;
@@ -53,8 +57,15 @@ Note:  `workdir` container command is referring to /backend-flask within the con
 &NewLine;
 &nbsp;
 Backend Containerized Dockerfile based off the following image file:
+&NewLine;
+&NewLine;
+&nbsp;
+
 [Add Dockerfile Instructions]https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/week-1/journal/week1.md
 
+&NewLine;
+&NewLine;
+&nbsp;
 
 ```sh
 FROM python:3.10-slim-buster
@@ -73,8 +84,19 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 ### Add Dockerfile
 Working from inside Container
+&NewLine;
+&NewLine;
+&nbsp;
+
 Make a new folder inside container
+&NewLine;
+&NewLine;
+&nbsp;
+
 WORKDIR /backend-flask
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![Show backend-flask folder](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/shows%20docker%20image%20built%20successfully.png)
 
@@ -84,6 +106,10 @@ WORKDIR /backend-flask
 
 
 Created new file within the backend-flask directory:
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![Backend-flask Container with code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/backend-flask-container-code.png)
 
 &NewLine;
@@ -91,7 +117,15 @@ Created new file within the backend-flask directory:
 &nbsp;
 
 Used command `ls` to list files/directories to see backend-flask  directory on local host.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Used command `cd` backend-flask/ to change into the backend-flask directory
+&NewLine;
+&NewLine;
+&nbsp;
+
 Used command `ls` to see that the file called Dockerfile is listed in my backend-flask directory
 &NewLine;
 &NewLine;
@@ -105,9 +139,25 @@ Used command `ls` to see that the file called Dockerfile is listed in my backend
 
 
 FROM python:3.10-slim-buster
+&NewLine;
+&NewLine;
+&nbsp;
+
 Outside Container -> Inside Container
+&NewLine;
+&NewLine;
+&nbsp;
+
 This contains the libraries to install to run the Cruddur app
+&NewLine;
+&NewLine;
+&nbsp;
+
 Install the python libraries used for the app
+&NewLine;
+&NewLine;
+&nbsp;
+
 RUN pip3 install -r requirements.txt
 ```sh
 Pip3 install -r requirements.txt
@@ -116,7 +166,13 @@ Pip3 install -r requirements.txt
 &NewLine;
 &NewLine;
 &nbsp;
+
+
 Proof of successful Python install:
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![successful python install](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/successful%20python%20install.png)
 
 &NewLine;
@@ -125,7 +181,15 @@ Proof of successful Python install:
 
 
 Next I ran the python3 flask module with local host and port 4567
+&NewLine;
+&NewLine;
+&nbsp;
+
 cmd (command), -m for module (flask)
+&NewLine;
+&NewLine;
+&nbsp;
+
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 ```sh
  python3 -m flask run –host=0.0.0.0  --port 4567
@@ -142,8 +206,20 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 &nbsp;
 
 EXPOSE ${PORT}
-After running the flask module I unlocked port 4567 from PORTS tab in Gitpod Terminal
+&NewLine;
+&NewLine;
+&nbsp;
+
+After running the flask module I unlocked port 4567 from PORTS tab in Gitpod Terminal.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Next, click on URL listed for port 4567 in PORTS tab.
+&NewLine;
+&NewLine;
+&nbsp;
+
 I received a 404 error which is good because it means the server is getting requests and is running, but it is saying nothing is showing up.  I needed to set up environment variables and some other things before it completely works. I need to set frontend and backend variables for the endpoints.
 
 
@@ -163,8 +239,12 @@ I received a 404 error which is good because it means the server is getting requ
 &NewLine;
 &nbsp;
 
-Set frontend and backend environment variable for the endpoints which will remain set when the container is running
-ENV FLASK_ENV=development
+Set frontend and backend environment variable for the endpoints which will remain set when the container is running.
+&NewLine;
+&NewLine;
+&nbsp;
+
+
 ```sh
 export FRONTEND_URL="*"
 ```
@@ -173,8 +253,12 @@ export BACKEND_URL="*"
 ```
 
 Clicking on the URL under PORTs tab should’ve taken me to webpage with data, but I did not see that. 
+&NewLine;
+&NewLine;
+&nbsp;
+
 I then copied the URL next to open port 4567, pasted it into a browser, and added `/api/activities/home` and got the following output:
-I got back JSON which is the output I should see.
+
 &NewLine;
 &NewLine;
 &nbsp;
@@ -185,7 +269,16 @@ I got back JSON which is the output I should see.
 &NewLine;
 &nbsp;
 
-Note: Difference between RUN and CMD. 
+I got back JSON which is the output I should see.
+&NewLine;
+&NewLine;
+&nbsp;
+
+Note: Difference between RUN and CMD.
+&NewLine;
+&NewLine;
+&nbsp;
+
 RUN is used to create a layer in an image file.  CMD essentially is the command the container is going to run when it starts up. RUN as set of processes need to put in the container image and build the image.
 
 &NewLine;
@@ -193,6 +286,10 @@ RUN is used to create a layer in an image file.  CMD essentially is the command 
 &nbsp;
 
 To stop the server press `CTRL + C` to quit, which sends a kill command to the server.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Two other ways to stop server is to click on the trashcan icon at top right of terminal screen.  Or click on 3 bars in upper left of Gitpod and click on terminal and run new terminal.
 &NewLine;
 &NewLine;
@@ -219,8 +316,20 @@ env | grep _URL
 
 ### Build Container
 Next step is to build a docker container.
+&NewLine;
+&NewLine;
+&nbsp;
+
 But first we need to make sure we are in are app and not in the backend-flask folder.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Ran the `pwd` command to see my working directory. Then, ran `cd .. ` to move up one directory.
+&NewLine;
+&NewLine;
+&nbsp;
+
 I am now working in the main directory.
 ```sh
 Pwd
@@ -249,7 +358,13 @@ docker build -t  backend-flask ./backend-flask
 &NewLine;
 &NewLine;
 &nbsp;
+
 Proof that docker image was created:
+&NewLine;
+&NewLine;
+&nbsp;
+
+
 ![Proof of docker image](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/proof-of-docker-image.png)
 
 &NewLine;
@@ -260,6 +375,10 @@ To get HELP for docker build:
 ```sh
 Docker build –help
 ```
+&NewLine;
+&NewLine;
+&nbsp;
+
 Be sure to tag version for an image. Ex. `docker build -t backend-flask:version 1.0.0 ./backend-flask`
 
 
@@ -292,6 +411,9 @@ docker run --rm -p 4567:4567 -it backend-flask
 &nbsp
 
 I got a 404-ERROR as expected because I still need to reset the environment variables.
+&NewLine;
+&NewLine;
+&nbsp;
 
 Stop the container either by `CTRL + C`.  OR click on the container file under CONTAINERS in the docker extension, right click on STOP.
 &NewLine;
@@ -318,8 +440,16 @@ docker run --rm -p 4567:4567 -it -e FRONTEND_URL=’*’ -e BACKEND_URL=’*’ 
 &NewLine;
 &nbsp;
 
-I got a 404-ERROR after running the container
-Then, I added  `/app/activites/home` to the end of the URL in order to access data on server
+I got a 404-ERROR after running the container.
+&NewLine;
+&NewLine;
+&nbsp;
+
+Then, I added  `/app/activites/home` to the end of the URL in order to access data on server.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Go into new Bash terminal  and run command `docker ps` to see running containers.
 ```sh
 docker ps
@@ -359,9 +489,21 @@ cd ..
 &NewLine;
 &nbsp;
 
-Now create a docker file at `front-end-react-js/Dockerfile` 
-Click on `frontend-react-js` directory in Gitpod, right click and choose NEW FILE
-Name the new file `Dockerfile`
+Now create a docker file at `front-end-react-js/Dockerfile`.
+&NewLine;
+&NewLine;
+&nbsp;
+
+Click on `frontend-react-js` directory in Gitpod, right click and choose NEW FILE.
+&NewLine;
+&NewLine;
+&nbsp;
+
+Name the new file `Dockerfile`.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Copy and paste the following code into the newly created ‘Dockerfile`:
 ```sh
 FROM node:16.18
@@ -384,7 +526,15 @@ CMD ["npm", "start"]
 &nbsp;
 
 Created a `docker-compose.yml` file at root of my project (main).
+&NewLine;
+&NewLine;
+&nbsp;
+
 This .yml file allows for the running of multiple containers at the same time.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Docker Compose is a multi-container deployment with Infrastructure As Code (IAC) that makes it much easier to run containers that need to run together logically.
 
 &NewLine;
@@ -392,6 +542,10 @@ Docker Compose is a multi-container deployment with Infrastructure As Code (IAC)
 &nbsp;
 
 The standard way of using Docker is with a Docker file, but it is not good for running multiple parts of an application.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Docker came up with Docker Compose as a solution to running multiple parts of a project.
 
 &NewLine;
@@ -441,7 +595,15 @@ Docker-compose up
 &nbsp;
 
 The frontend container(s) is on port 3000
+&NewLine;
+&NewLine;
+&nbsp;
+
 The backend container(s) is on port 4567
+&NewLine;
+&NewLine;
+&nbsp;
+
 Make sure both are unlocked.
 
 &NewLine;
@@ -454,11 +616,21 @@ Make sure both are unlocked.
 &NewLine;
 &nbsp;
 
-Click on the frontend URL and you will see the Cruddur application.  We now have access to the web application.  The frontend and backend can communicate with each other.
-
+Click on the frontend URL and you will see the Cruddur application.
 &NewLine;
 &NewLine;
 &nbsp;
+
+We now have access to the web application.
+&NewLine;
+&NewLine;
+&nbsp;
+
+The frontend and backend can communicate with each other.
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 ![Cruddur app homepage](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/cruddur-app.png)
 
@@ -468,14 +640,24 @@ Click on the frontend URL and you will see the Cruddur application.  We now have
 &nbsp;
 
 # Container Security and Why
-What is Container Security?   It is the practice of protecting your applications hosted on compute services like Containers. Examples include Single Page Applications (SPAs), Microservices, and APIs.
+What is Container Security?
+&NewLine;
+&NewLine;
+&nbsp;
+
+It is the practice of protecting your applications hosted on compute services like Containers.
+&NewLine;
+&NewLine;
+&nbsp;
+
+Examples include Single Page Applications (SPAs), Microservices, and APIs.
 
 &NewLine;
 &NewLine;
 &nbsp;
 
 
-Note:  Containers can also run outside of the cloud.
+NOTE:  Containers can also run outside of the cloud.
 &NewLine;
 &NewLine;
 &nbsp;
@@ -551,6 +733,10 @@ Docker Client is the laptop that Docker is installed as a service to run that ha
 &nbsp;
 
 Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries for this AWS bootcamp.
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![Snyk Login](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/bootcamp-snyk-libraries-login.png)
 
 
@@ -579,7 +765,16 @@ Choose GitHUb, Public Repository, and skip automation settings.
 &nbsp;
 
 There are no images in the my aws-bootcamp-cruddur-2023 yet.
+&NewLine;
+&NewLine;
+&nbsp;
+
 [Get repository at](https://github.com/snyk-labs/docker-goof)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 Create a new fork that is `SBecraft/docker-goof`
 
 &NewLine;
@@ -643,6 +838,10 @@ Snyk reported that my `SBecraft/docker-goof` repository had 289 vulnerabilities 
 &nbsp;
 
 Click onto the `Docker` project file to see what is causing vulnerabilities in it specifically.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and not image files.
 
 &NewLine;
@@ -654,6 +853,10 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 
 ## AWS Secret Manager
 Stores Secrets in EC2 in the AWS Cloud Computing platform.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Another option is Hashicorp Vault to keep Secrets without having to keep secrets in a dockerfile permanently.  It is good practice not to keep secrets indefinitely in those docker files.
 
 &NewLine;
@@ -676,6 +879,10 @@ Next, I logged into my AWS User account “awsbootcamp”.  This is not my root 
 
 ### Create a secret 
 I clicked on `Store a new secret` on AWS Secrets Manager webpage.
+&NewLine;
+&NewLine;
+&nbsp;
+
 I chose `Other type of event` for an API
 
 &NewLine;
@@ -683,6 +890,10 @@ I chose `Other type of event` for an API
 &nbsp;
 
 Next, I chose `Key/value` under Key/Value Pairs and put `Password` and `DockerFile` as key-value pair.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Kept `aws/secretsmanager` under Encryption Key option. Then, clicked “next".
 
 &NewLine;
@@ -711,6 +922,10 @@ Configure secret with Secret name `docker/password/dev` and Tag as key value pai
 
 ### Configure rotation of Secret
 Turn on `Automatic rotation` and click “next” if you like, but lamda will have to be configured.
+&NewLine;
+&NewLine;
+&nbsp;
+
 This is ok to do because the Secret is not stored in a Docker file.  It is used temporarily for an API call, so it is ok if Secrets Manager rotates Secrets.
 
 &NewLine;
@@ -723,6 +938,10 @@ I did not use `Automatic rotation” per the bootcamp instructor so that we coul
 &nbsp;
 
 Proof I created a Secret in AWS Secret Manager:
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 ![Saved Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/saved-secret-secretmanager.png)
 
@@ -733,7 +952,15 @@ Proof I created a Secret in AWS Secret Manager:
 
 ## AWS Inspector/Clair
 Can use AWS Inspector or Clair to check if a docker image is vulnerable, but it is good to know that Clair runs in the background of AWS Inspector.  
+&NewLine;
+&NewLine;
+&nbsp;
+
 Clair is open-source Container Image Seccurity Analyzer by CoreOS.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Amazon Inspector has integration with ECS, EC2 and ECR (registry) to scan Container images.
 
 &NewLine;
@@ -766,8 +993,16 @@ On Activate Inspector page click on “Activate Inspector` in lower right-hand c
 &nbsp;
 
 ### Image Scan with Snyk
-Can run scan of all containers with Snyk
+Can run scan of all containers with Snyk.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Install Docker desktop if CLI is challenging.
+&NewLine;
+&NewLine;
+&nbsp;
+
 Refer to the following webpage for instructions on using Docker Compose to scan Containers.
 &NewLine;
 &NewLine;
