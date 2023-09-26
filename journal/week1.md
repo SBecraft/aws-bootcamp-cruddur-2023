@@ -20,7 +20,7 @@ Table of Contents
 
 -	Create a new GitHub repo
 -	Launch the repo within a Gitpod workspace
--	Configure Gitpod.yml configuration, eg. I’m VSCode Extensions
+-	Configure Gitpod.yml configuration
 -	Clone the frontend and backend repo
 -	Explore the codebases
 -	Ensure we can get the apps running locally
@@ -53,7 +53,9 @@ Note:  `workdir` container command is referring to /backend-flask within the con
 &NewLine;
 &nbsp;
 Backend Containerized Dockerfile based off the following image file:
-[Add Dockerfile Instructions] https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/week-1/journal/week1.md
+[Add Dockerfile Instructions]https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/week-1/journal/week1.md
+
+
 ```sh
 FROM python:3.10-slim-buster
 WORKDIR /backend-flask
@@ -74,14 +76,33 @@ Working from inside Container
 Make a new folder inside container
 WORKDIR /backend-flask
 
-Used command “ls” to list files/directories to see backend-flask  directory on local host.
-Used command “cd backend-flask/ to change into the backend-flask directory
-Used command “ls” to see that the file called Dockerfile is listed in my backend-flask directory
-
+![Show backend-flask folder](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/shows%20docker%20image%20built%20successfully.png)
 
 &NewLine;
 &NewLine;
 &nbsp;
+
+
+Created new file within the backend-flask directory:
+![Backend-flask Container with code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/backend-flask-container-code.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+Used command `ls` to list files/directories to see backend-flask  directory on local host.
+Used command `cd` backend-flask/ to change into the backend-flask directory
+Used command `ls` to see that the file called Dockerfile is listed in my backend-flask directory
+&NewLine;
+&NewLine;
+&nbsp;
+
+![Show backend-flask dir and Dockerfile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/change-into-Dockerfile-before-pip.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 FROM python:3.10-slim-buster
 Outside Container -> Inside Container
@@ -91,6 +112,12 @@ RUN pip3 install -r requirements.txt
 ```sh
 Pip3 install -r requirements.txt
 ```
+
+&NewLine;
+&NewLine;
+&nbsp;
+Proof of successful Python install:
+![successful python install](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/successful%20python%20install.png)
 
 &NewLine;
 &NewLine;
@@ -108,16 +135,33 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 &NewLine;
 &nbsp;
 
+![Python3 flask](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/python3-flask.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 EXPOSE ${PORT}
 After running the flask module I unlocked port 4567 from PORTS tab in Gitpod Terminal
 Next, click on URL listed for port 4567 in PORTS tab.
-I received a 404 error which is good because it means the server is getting requests and is running, but it is saying nothing is showing up.  I needed to set up environment variables and some other things before it completely works. I need to set front end and back end variables for the endpoints.
+I received a 404 error which is good because it means the server is getting requests and is running, but it is saying nothing is showing up.  I needed to set up environment variables and some other things before it completely works. I need to set frontend and backend variables for the endpoints.
 
 
 &NewLine;
 &NewLine;
 &nbsp;
 
+![404 Errors](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/404-errors.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+![404 Not Found Need Env Vars](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/404-URL-Running-Need-Env-Vars.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 Set frontend and backend environment variable for the endpoints which will remain set when the container is running
 ENV FLASK_ENV=development
@@ -129,13 +173,27 @@ export BACKEND_URL="*"
 ```
 
 Clicking on the URL under PORTs tab should’ve taken me to webpage with data, but I did not see that. 
-I then copied the URL next to open port 4567, pasted it into a browser, and added /api/activities/home and got the following output:
-I got back JSON which is the output I should see. 
+I then copied the URL next to open port 4567, pasted it into a browser, and added `/api/activities/home` and got the following output:
+I got back JSON which is the output I should see.
+&NewLine;
+&NewLine;
+&nbsp;
+
+![Env Vars python3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/env-vars-python3.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 Note: Difference between RUN and CMD. 
 RUN is used to create a layer in an image file.  CMD essentially is the command the container is going to run when it starts up. RUN as set of processes need to put in the container image and build the image.
 
-To stop the server press CTRL + C to quit, which sends a kill command to the server
-Two other ways to stop server is to click on the trashcan icon at top right of terminal screen.  Or click on 3 bars in upper left of Gitpod to the left of EXPLORER, click on terminal and run new terminal.
+&NewLine;
+&NewLine;
+&nbsp;
+
+To stop the server press `CTRL + C` to quit, which sends a kill command to the server.
+Two other ways to stop server is to click on the trashcan icon at top right of terminal screen.  Or click on 3 bars in upper left of Gitpod and click on terminal and run new terminal.
 &NewLine;
 &NewLine;
 &nbsp;
@@ -145,6 +203,10 @@ Unset the backend and frontend environment variables in case they cause issue wh
 Unset FRONTEND
 Unset BACKEND
 ```
+&NewLine;
+&NewLine;
+&nbsp;
+
 Check that the backend and frontend variables are gone.
 ```sh
 env | grep _URL
@@ -168,6 +230,12 @@ cd ..
 &NewLine;
 &nbsp;
 
+![Change into Dockerfile before pip](  )
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 Run the command to build the container (-t is for tag image)
 ```sh
 docker build -t  backend-flask ./backend-flask
@@ -175,6 +243,19 @@ docker build -t  backend-flask ./backend-flask
 &NewLine;
 &NewLine;
 &nbsp;
+
+![Build backend container](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/build-backend-container.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+Proof that docker image was created:
+![Proof of docker image](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/proof-of-docker-image.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 To get HELP for docker build:
 ```sh
 Docker build –help
@@ -196,14 +277,26 @@ docker run --rm -p 4567:4567 -it backend-flask
 &NewLine;
 &NewLine;
 &nbsp;
+
+![Port 4567 unlocked](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/port4567-unlocked.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+![Image after running container](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/image-after-running-container.png)
+
+
+&NewLine;
+&NewLine;
+&nbsp
+
 I got a 404-ERROR as expected because I still need to reset the environment variables.
 
 Stop the container either by `CTRL + C`.  OR click on the container file under CONTAINERS in the docker extension, right click on STOP.
 &NewLine;
 &NewLine;
 &nbsp;
-
-
 
 
 Set the frontend and backend environment variables locally.
@@ -235,7 +328,7 @@ docker ps
 &NewLine;
 &nbsp;
 
-Need to kill container to remove it. Can use - -rm at end of RUN command to kill container right after is run.
+Need to kill container to remove it. Can use `--rm` at end of RUN command to kill container right after is run.
 &NewLine;
 &NewLine;
 &nbsp;
@@ -249,7 +342,7 @@ cd frontend-react-js/
 &NewLine;
 &nbsp;
 
-I ran an NPM install before building the frontend container because it needs to copy the contents of node modules
+Next, I ran an NPM install before building the frontend container because it needs to copy the contents of node modules
 ```sh
 npm i
 ```
@@ -257,6 +350,7 @@ npm i
 &NewLine;
 &NewLine;
 &nbsp;
+
 Change back to the main directory (aws-bootcamp-cruddur-2023)
 ```sh
 cd ..
@@ -277,6 +371,13 @@ WORKDIR /frontend-react-js
 RUN npm install
 EXPOSE ${PORT}
 CMD ["npm", "start"]
+```
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+![Front-end react js and Dockerfile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/backend-dockerfile-image.png)
 
 &NewLine;
 &NewLine;
@@ -286,8 +387,16 @@ Created a `docker-compose.yml` file at root of my project (main).
 This .yml file allows for the running of multiple containers at the same time.
 Docker Compose is a multi-container deployment with Infrastructure As Code (IAC) that makes it much easier to run containers that need to run together logically.
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 The standard way of using Docker is with a Docker file, but it is not good for running multiple parts of an application.
 Docker came up with Docker Compose as a solution to running multiple parts of a project.
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 `docker-compose.yml` file:
 ```sh
@@ -334,27 +443,39 @@ Docker-compose up
 The frontend container(s) is on port 3000
 The backend container(s) is on port 4567
 Make sure both are unlocked.
+
 &NewLine;
 &NewLine;
 &nbsp;
-![Image of ports 3000 and 4567](  )
-Click on the frontend URL and you will see the Cruddur application.  We now have access to the web application.  The frontend and backend are able to communicate with each other.
+
+![Image of ports 3000 and 4567](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/both-ports-open.png)
+
 &NewLine;
 &NewLine;
 &nbsp;
-![Cruddur app homepage](  )
+
+Click on the frontend URL and you will see the Cruddur application.  We now have access to the web application.  The frontend and backend can communicate with each other.
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+![Cruddur app homepage](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/cruddur-app.png)
+
+
 &NewLine;
 &NewLine;
 &nbsp;
 
 # Container Security and Why
 What is Container Security?   It is the practice of protecting your applications hosted on compute services like Containers. Examples include Single Page Applications (SPAs), Microservices, and APIs.
+
 &NewLine;
 &NewLine;
 &nbsp;
 
 
-Note:  containers can also run outside of the cloud.
+Note:  Containers can also run outside of the cloud.
 &NewLine;
 &NewLine;
 &nbsp;
@@ -388,21 +509,33 @@ Docker Client is the laptop that Docker is installed as a service to run that ha
 &NewLine;
 &NewLine;
 &nbsp;
-![Docker Components](   )
+
+![Docker Components](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/docker-components.png)
+
 &NewLine;
 &NewLine;
 &nbsp;
 
+![Docker components 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/docker-components%20(2).png)
+
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ### Container Security Components
-![Container Security Components](  )
+
+![Container Security Components](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/container-security-components.png)
+
 
 &NewLine;
 &NewLine;
 &nbsp;
 
 ## Top 10 Container Security Best Practices
-![Top 10 Container Security Best Practices](  )
+
+![Top 10 Container Security Best Practices](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/top-ten-security-best-practices.png)
+
 
 &NewLine;
 &NewLine;
@@ -412,13 +545,14 @@ Docker Client is the laptop that Docker is installed as a service to run that ha
 -	Added to provide Container Security by finding opensource vulnerabilities in your Dockerfile itself before using it..
 -	Snyk OpenSource and Snyk Container Security are available for personal projects.
 -	Used to find vulnerabilities in docker files
-![Snyk](   )
+  
 &NewLine;
 &NewLine;
 &nbsp;
 
 Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries for this AWS bootcamp.
-![Snyk Login] (   )
+![Snyk Login](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/bootcamp-snyk-libraries-login.png)
+
 
 &NewLine;
 &NewLine;
@@ -427,14 +561,19 @@ Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries f
 
 
 ### Authorize Snyk login with GitHub
-![Authorize Snyk] (   )
+
+![Authorize Snyk](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/authorize-snyk.png)
+
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-Choose GitHUb, Public Repository, and skip automation settings
+Choose GitHUb, Public Repository, and skip automation settings.
 
-![ github-successfully-connected-snyk]( )
+![github-successfully-connected-snyk](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/github-successfully-connected-snyk.png)
+
+
 &NewLine;
 &NewLine;
 &nbsp;
@@ -442,38 +581,69 @@ Choose GitHUb, Public Repository, and skip automation settings
 There are no images in the my aws-bootcamp-cruddur-2023 yet.
 [Get repository at](https://github.com/snyk-labs/docker-goof)
 Create a new fork that is `SBecraft/docker-goof`
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 In Description wrote “Vulnerable Docker Repository for Testing”
-Click “Create fork”
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+Click `Create fork`
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 Now I have a `docker-goof` repository under my GitHub account
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-![Docker-goof repository in my GitHub](     )
+![Docker-goof repository in my GitHub](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/docker-goof-repository-suzette.png)
+
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-S/Becraft/docker-goof is now in Snyk app as a repository
-Click on S/Becraft/docker-goof 
+S/Becraft/docker-goof is now in Snyk app as a repository.
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+Click on `S/Becraft/docker-goof` 
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 Click on `Import and Scan`
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-Snyk reported that my SBecraft/docker-goof repository had 289 vulnerabilities across 6 projects.
+Snyk reported that my `SBecraft/docker-goof` repository had 289 vulnerabilities across 6 projects.
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-![ Snyk reported vulnerabilities](   )
+![Snyk reported vulnerabilities](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/snyk-reported-vulnerabilities.png)
+
 
 &NewLine;
 &NewLine;
 &nbsp;
 
 Click onto the `Docker` project file to see what is causing vulnerabilities in it specifically.
-Note:  Snyk is looking at files within the SBeraft/docker-goof repository and not image files.
+Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and not image files.
 
 &NewLine;
 &NewLine;
@@ -485,12 +655,19 @@ Note:  Snyk is looking at files within the SBeraft/docker-goof repository and no
 ## AWS Secret Manager
 Stores Secrets in EC2 in the AWS Cloud Computing platform.
 Another option is Hashicorp Vault to keep Secrets without having to keep secrets in a dockerfile permanently.  It is good practice not to keep secrets indefinitely in those docker files.
-Next, I logged into my AWS User account “awsbootcamp”.  This is not my root account.  It is good practice not to use Root for daily tasks.
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-![AWS Secrets Manager Console](  )
+Next, I logged into my AWS User account “awsbootcamp”.  This is not my root account.  It is good practice not to use Root for daily tasks.
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+![AWS Secrets Manager Console](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/aws-secrets-manager-homepage.png)
+
 
 &NewLine;
 &NewLine;
@@ -500,27 +677,55 @@ Next, I logged into my AWS User account “awsbootcamp”.  This is not my root 
 ### Create a secret 
 I clicked on `Store a new secret` on AWS Secrets Manager webpage.
 I chose `Other type of event` for an API
-Next, I chose `Key/value` under Key/Value Pairs and put Password and DockerFile as key-value pair.
-Kept `aws/secretsmanager` under Encryption Key option. Then, clicked “next’
+
 &NewLine;
 &NewLine;
 &nbsp;
+
+Next, I chose `Key/value` under Key/Value Pairs and put `Password` and `DockerFile` as key-value pair.
+Kept `aws/secretsmanager` under Encryption Key option. Then, clicked “next".
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+![Create Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/create-secret-type.png)
+
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 
 Configure secret with Secret name `docker/password/dev` and Tag as key value pair `Purpose` and `Docker-test`
 &NewLine;
 &NewLine;
 &nbsp;
 
+![Configure Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/configure-secret.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+
 ### Configure rotation of Secret
 Turn on `Automatic rotation` and click “next” if you like, but lamda will have to be configured.
 This is ok to do because the Secret is not stored in a Docker file.  It is used temporarily for an API call, so it is ok if Secrets Manager rotates Secrets.
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 I did not use `Automatic rotation” per the bootcamp instructor so that we could avoid setting up Lamda at this time and move on to AWS Inspector.  I created the Secret without automatic rotation.
 &NewLine;
 &NewLine;
 &nbsp;
 
-![Saved Secret](   )
+Proof I created a Secret in AWS Secret Manager:
+
+![Saved Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/saved-secret-secretmanager.png)
+
 
 &NewLine;
 &NewLine;
@@ -530,24 +735,31 @@ I did not use `Automatic rotation” per the bootcamp instructor so that we coul
 Can use AWS Inspector or Clair to check if a docker image is vulnerable, but it is good to know that Clair runs in the background of AWS Inspector.  
 Clair is open-source Container Image Seccurity Analyzer by CoreOS.
 Amazon Inspector has integration with ECS, EC2 and ECR (registry) to scan Container images.
+
 &NewLine;
 &NewLine;
 &nbsp;
 
-![Amazon Inspector Console]( )
+![Amazon Inspector Console](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/amazon-inspector-console.png)
+
 
 &NewLine;
 &NewLine;
 &nbsp;
 
 Click on `Get Started`
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 On Activate Inspector page click on “Activate Inspector` in lower right-hand corner of webpage.
 &NewLine;
 &NewLine;
 &nbsp;
 
+![Inspector Successful Setup](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/inspector-successful-setup.png)
 
-![Inspector Successful Setup](  )
 
 &NewLine;
 &NewLine;
@@ -561,20 +773,26 @@ Refer to the following webpage for instructions on using Docker Compose to scan 
 &NewLine;
 &nbsp;
 
-{Docker Compose Overview] Docker Compose overview | Docker Docs
+[Docker Compose Overview]https://docs.docker.com/compose/
 
 &NewLine;
 &NewLine;
 &nbsp;
+
 ## Value of Managed Container Services 
 Problem with Docker Container or Docker Compose is every time you want to make a change you have to stop the machine. The problem with this you can only build one application.  It cannot build more than one machine from one file.  And if you want to make any security updates you have to shut down the machine, make the update, and turn the machine back on.  This may upset the customer.
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 It is better to use Managed Container services like AWS services like AWS ECS, AWS, EKS, AWS Fargate, AWS APP Runner, or AWS CoPilot. 
 &NewLine;
 &NewLine;
 &nbsp;
 
+![Running Containers in AWS](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/running-containers-in-aws.png)
 
-![Running Containers in AWS](    )
 
 &NewLine;
 &NewLine;
