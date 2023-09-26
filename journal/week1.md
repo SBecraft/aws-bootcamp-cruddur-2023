@@ -70,7 +70,7 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 ### Add Dockerfile
 - Working from inside Container
-- Make a new folder inside container
+- Make a new folder 
 - WORKDIR /backend-flask
 
 ![Show backend-flask folder](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/shows%20docker%20image%20built%20successfully.png)
