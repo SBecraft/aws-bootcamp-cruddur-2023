@@ -130,7 +130,7 @@ Proof of successful Python install:
 
 EXPOSE ${PORT}
 
-- After running the flask module I unlocked port 4567 from PORTS tab in Gitpod Terminal.
+- After running the flask module I unlocked port 4567 in the PORTS tab in Gitpod Terminal.
 - Next, click on URL listed for port 4567 in PORTS tab.
 - I received a 404 error which is good because it means the server is getting requests and is running, but it is saying nothing is showing up.  I needed to set up environment variables and some other things before it completely works. I need to set frontend and backend variables for the endpoints.
 
