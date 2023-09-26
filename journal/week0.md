@@ -1,6 +1,7 @@
 # Week 0 — Billing and Architecture
 
 Table of Contents
+-   [Technical Tasks](#technical-tasks)
 -	[AWS Setup](#aws-setup)
 -	[Use AWS CloudShell](#use-aws-cloudshell)
 -	[Set up GitPod extension on GitHub account](#set-up-gitpod-in-github-account)
@@ -12,6 +13,20 @@ Table of Contents
 -	[Publish Files to GitHub](#publish-files-to-github)
 -	[Napkin Conceptual Architecture Diagram](#napkin-conceptual-architecture-diagram)  
 
+## Technical Tasks
+Week-0 lays the foundation for the entire bootcamp by:
+- Discussing the format of the bootcamp
+- Going over the business use-case of our project
+- Looking at an architectural diagram of what we plan to build
+- Showcase how to use Lucid Charts to build architectures
+- Talk about C4 Models
+- Running through the cloud services we will utilize
+- Testing that we can access our AWS accounts
+- Settings up AWS free-tier and understand how to track spend in AWS
+- eg . AWS Budgets, AWS Cost Explorer, Billing Alarms
+- Understanding how to look at monthly billing reports
+- Launching AWS CloudShell and looking at AWS CLI
+- Generating AWS credentials
 
     
 
