@@ -5,6 +5,7 @@ Table of Contents
 -	[VSCode Docker Extension](#vscode-docker-extension)
 -	[Containerize Backend](#containerize-backend)
 -	[Containerize Frontend](#containerize-frontend)
+-	[Adding DynamoDB Local and Postgres](#adding-dynamodb-local-and-postgres)
 -	[Container Security and why](#container-security-and-why)
 -	[Docker Architecture and Security Components](#docker-architecture-and-security-components)
 -	[Top 10 Container Security Best Practices](#top-10-container-security-best-practices)
@@ -384,6 +385,117 @@ Docker-compose up
 - The frontend and backend can communicate with each other.
 
 ![Cruddur app homepage](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/cruddur-app.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
+## Adding DynamoDB Local and Postgres
+
+-	DynamoDb Local and Postgres will be used in future labs.
+-	I am bringing them in as containers to be referenced externally.
+-	I added both DynamoDB Local and Postgre to my `docker-compose.yml` file.
+-	First, I added the DynamoDB Local code at the bottom of the docker-compose file just ablove the comment “the name flag is a hack to change the default prepend folder”
+
+  
+&NewLine;
+&NewLine;
+&nbsp;
+
+Note:  Exclude `services:` if you are putting the DynamoDB Local code into a pre-existing .yml file that already has `services:` listed in the file code. If not, leave it in.
+
+-	DynamoDB Local:
+ 
+```sh
+services:
+  dynamodb-local:
+    # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
+    # We needed to add user:root to get this working.
+    user: root
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+    image: "amazon/dynamodb-local:latest"
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./docker/dynamodb:/home/dynamodblocal/data"
+    working_dir: /home/dynamodblocal
+```
+
+-	Next, I added the following Postgres .yml code to my docker-compose file right below the last line of the newly added DynamoDB code.
+```sh
+db:
+    image: postgres:13-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data
+```
+
+
+
+-	Then, I added the following code to docker-compose to the very end of the file just below “name:cruddur”:
+```sh
+volumes:
+  db:
+    driver: local
+```
+NOTE: 
+-	`driver: local` in the db volume is referencing the database volume ` db:/var/lib/postgresql/data` in the Postgres code. I’ll be coyping the database data and storing it on my local machine.
+-	You can see from the ` ./docker/dynamodb:/home/dynamodblocal/data` code in DynamoDB Local that `./docker/dynamodb` maps to `/home/dynamodblocal/data`.
+
+
+![DynamoDB Local and Postgres Code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/dynamodb-postgres-code-add.png)
+
+-	Now to run the docker-compose.yml file with docker `compose up` to run DynamoDB Local and Postgres to see how they interact with the other services in the file.
+-	Right-click on  `docker-compose.yml`
+-	Click on `Compose Up` to run the services
+
+![Compose Up](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/compose-up.png)
+
+-	Go to PORTS tab in Gitpod terminal that ran DynamoDB and Postgres and unlock ports 4567, 5432, and 8000 to make them Public and accessible. 
+-	DnyamoDB Local is running on port 8000 and Postgres is running on port 5432.
+-	Don’t open port 38487 since it has to do with Gitpod and not with DynamoDB and PostGres.
+
+!Correct Unlocked Ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/correct-unlocked-ports.png)
+
+-	Open a new terminal and run the command ‘aws` to confirm AWS CLI is still installed.
+![AWS CLI Confirmed](   )
+
+
+-	Now to check that I can interact with the database using database task code from the challenge “100 Days of Cloud” at  https://github.com/100DaysOfCloud/challenge-dynamodb-local
+-	I chose List Tables task with the following code:
+```sh
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+```
+![List Tables](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/list-tables.png)
+
+
+-	Next the Postgres client is installed into Gitpod.
+-	Place the following Postgres driver code into `gitpod.yml` right after “cd $THEIA….”
+-	
+```sh
+  - name: postgres
+    init: |
+      curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+      echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+      sudo apt update
+      sudo apt install -y postgresql-client-13 libpq-dev
+```
+
+-	Run each of the 4 lines of Postgres code separately in the Bash Terminal.
+
+![4 Lines of Postgres code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/4-lines-postgres-code.png)
+
+-	The code added gpg key to read from a remote repository and installed the Debian package.
+-	I tried to connect to client with the command ‘psql’, but I received the error ` connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory`
+-	I shut down docker  wtth `Compose Down’ and spun it back up with `Compose Up`
+-	Checked the ports to make sure they are open and confirmed they are open to public.
+-	 Commit changes to `gitpod.yml`, exited Gitpod, then reopened Gitpod to make sure it recognizes added 4 lines of Postgres code.
+
 
 &NewLine;
 &NewLine;
