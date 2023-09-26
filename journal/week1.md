@@ -463,7 +463,7 @@ NOTE:
 !Correct Unlocked Ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/correct-unlocked-ports.png)
 
 -	Open a new terminal and run the command ‘aws` to confirm AWS CLI is still installed.
-![AWS CLI Confirmed](   )
+![AWS CLI Confirmed](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/aws-cli-confirmed.png)
 
 
 -	Now to check that I can interact with the database using database task code from the challenge “100 Days of Cloud” at  https://github.com/100DaysOfCloud/challenge-dynamodb-local
