@@ -51,9 +51,6 @@ Note:  `workdir` container command is referring to /backend-flask within the con
 &NewLine;
 &nbsp;
 Backend Containerized Dockerfile based off the following image file:
-&NewLine;
-&NewLine;
-&nbsp;
 
 [Add Dockerfile Instructions]https://github.com/omenking/aws-bootcamp-cruddur-2023/blob/week-1/journal/week1.md
 
