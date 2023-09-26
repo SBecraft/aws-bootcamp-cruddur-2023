@@ -532,7 +532,7 @@ psql --host localhost
 psql -Upostgres --host localhost
 ```
 -	Now I can access postgres
--	
+  
 [psqlUpostgress](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-Upostgress.png)
 
 -	Now in Postgres
