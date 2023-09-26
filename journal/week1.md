@@ -41,15 +41,9 @@ Table of Contents
 &NewLine;
 &nbsp;
 
-Usually Gitpod is pre-installed with the Docker extension.
-&NewLine;
-&NewLine;
-&nbsp;
+- Usually Gitpod is pre-installed with the Docker extension.
+- I did not have the Docker extension, so I added it to my Gitpod VSCode.
 
-I did not have the Docker extension, so I added it to my Gitpod VSCode.
-&NewLine;
-&NewLine;
-&nbsp;
 
 ## Containerize Backend
 Note:  `workdir` container command is referring to /backend-flask within the container and the container shares the host operating system kernel.
@@ -770,7 +764,7 @@ There are no images in the my aws-bootcamp-cruddur-2023 yet.
 &NewLine;
 &nbsp;
 
-[Get repository at](https://github.com/snyk-labs/docker-goof)
+[Get repository at]https://github.com/snyk-labs/docker-goof
 
 &NewLine;
 &NewLine;
