@@ -22,8 +22,7 @@ Week-0 lays the foundation for the entire bootcamp by:
 - Talk about C4 Models
 - Running through the cloud services we will utilize
 - Testing that we can access our AWS accounts
-- Settings up AWS free-tier and understand how to track spend in AWS
-- eg . AWS Budgets, AWS Cost Explorer, Billing Alarms
+- Settings up AWS free-tier and understand how to track spend in AWS: eg . AWS Budgets, AWS Cost Explorer, Billing Alarms
 - Understanding how to look at monthly billing reports
 - Launching AWS CloudShell and looking at AWS CLI
 - Generating AWS credentials
