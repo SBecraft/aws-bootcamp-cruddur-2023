@@ -485,7 +485,7 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
       sudo apt install -y postgresql-client-13 libpq-dev
 ```
 
--	Run each of the 4 lines of Postgres code separately in the Bash Terminal.
+-	Run each of the 4 lines of Postgres code SEPARATELY in the Bash Terminal.
 
 ![4 Lines of Postgres code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/4-lines-postgres-code.png)
 
@@ -493,7 +493,49 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 -	I tried to connect to client with the command ‘psql’, but I received the error ` connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory`
 -	I shut down docker  wtth `Compose Down’ and spun it back up with `Compose Up`
 -	Checked the ports to make sure they are open and confirmed they are open to public.
--	 Commit changes to `gitpod.yml`, exited Gitpod, then reopened Gitpod to make sure it recognizes added 4 lines of Postgres code.
+-	Commit changes to `gitpod.yml`, exited Gitpod, then reopened Gitpod to make sure it recognizes added 4 lines of Postgres code.
+-	I reloaded `docker-compose.yml` using the command ~docker compose up``
+```sh
+docker compose up
+```
+-	Added `PostgreSQL` extension to Gitpod
+
+![PostgresSQL extension]( )
+
+-	Added `PostgreSQL` extension to the file `gitpod.yml`
+
+![Add PostgreSQL Ext to gitpod.yml](  )
+
+-	Proof PostgresSQL extension added to gitpod.yml file
+
+![PostgreSQL in gitpod.yml](  )
+
+-	Again, run the 4 lines of gitpod.yml Postgre coded SEPARATELY in Terminal.
+
+
+```sh
+  - name: postgres
+    init: |
+      curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
+      echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" |sudo tee  /etc/apt/sources.list.d/pgdg.list
+      sudo apt update
+      sudo apt install -y postgresql-client-13 libpq-dev
+```
+
+-	Still unable to connect to the database with command `psql`.
+-	Need to provide local host option with “psql’
+
+```sh
+psql --host localhost
+```
+
+-	I was prompted for password
+
+![psql localhost](  )
+
+-	Now in Postgres
+-	At `postgres=#’ prompt type `\l` to see default tables
+-	Commit Database explorer to repository
 
 
 &NewLine;
