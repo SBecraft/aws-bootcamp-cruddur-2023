@@ -1,7 +1,7 @@
 # Week 2 — Distributed Tracing
 
 Table of Contents
--	[Week-2 Technical Tasks Overview](#week-2-technical-tasks-overview)
+-	[Week-2 Technical Tasks](#week-2-technical-tasks)
 -	[Honeycomb](#honeycomb)
 -	[References](#references)
 
@@ -151,6 +151,6 @@ Industry standard is to separate development containers from production containe
 
 
 ## References
-[Honeycomb.io] https://ui.honeycomb.io
-[Honeycomb Documentation for Python] https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/
+- [Honeycomb.io] https://ui.honeycomb.io
+- [Honeycomb Documentation for Python] https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/
 
