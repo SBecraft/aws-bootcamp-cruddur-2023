@@ -1,7 +1,7 @@
 # Week 2 — Distributed Tracing
 
 Table of Contents
--	[Week-2 Technical Tasks](#week-2-technical-tasks)
+-	[Technical Tasks](#technical-tasks)
 -	[Honeycomb](#honeycomb)
 -	[References](#references)
 
