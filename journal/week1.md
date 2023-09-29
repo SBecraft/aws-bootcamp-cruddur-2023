@@ -1,7 +1,7 @@
 # Week 1 — App Containerization
 
 Table of Contents
--	[Week-1 Technical Tasks](#week-1-technical-tasks)
+-	[Technical Tasks](#technical-tasks)
 -	[VSCode Docker Extension](#vscode-docker-extension)
 -	[Containerize Backend](#containerize-backend)
 -	[Containerize Frontend](#containerize-frontend)
