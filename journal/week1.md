@@ -17,7 +17,7 @@ Table of Contents
 
 
 
-## WEEK-1 Technical Tasks 
+## Technical Tasks 
 
 -	Create a new GitHub repo
 -	Launch the repo within a Gitpod workspace
