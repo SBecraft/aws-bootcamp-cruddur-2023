@@ -35,12 +35,12 @@ All parts of the Cruddur project should use the same Honeycomb API key.  However
 -	Ran the export command to mark `HONEYCOMB_API_KEY` and `HONEYCOMB_SERVICE_NAME` as environment variables. Note: service name is associated with the docker.compose.yml and the backend container.
 
 ```sh
-export HONEYCOMB_API_KEY="40M9NgWQivhNArSpvxgYsB"
+export HONEYCOMB_API_KEY=" "
 export HONEYCOMB_SERVICE_NAME="Cruddur"
 ```
 -	Made HONEYCOMB_API_KEY` and `HONEYCOMB_SERVICE_NAME` global variables.
 ```sh
-gp env HONEYCOMB_API_KEY="40M9NgWQivhNArSpvxgYsB"
+gp env HONEYCOMB_API_KEY="  "
 gp env HONEYCOMB_SERVICE_NAME="Cruddur"
 ```
 -	Checked that `HONEYCOMB_API_KEY` and `HONEYCOMB_SERVICE_NAME`  variables are set using the `grep` command.. 
