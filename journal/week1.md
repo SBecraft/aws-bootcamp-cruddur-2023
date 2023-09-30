@@ -1,7 +1,7 @@
 # Week 1 — App Containerization
 
 Table of Contents
--	[Week-1 Technical Tasks Overview](#week-1-technical-tasks-overview)
+-	[Technical Tasks](#technical-tasks)
 -	[VSCode Docker Extension](#vscode-docker-extension)
 -	[Containerize Backend](#containerize-backend)
 -	[Containerize Frontend](#containerize-frontend)
@@ -17,7 +17,7 @@ Table of Contents
 
 
 
-## WEEK-1 Technical Tasks Overview:
+## Technical Tasks 
 
 -	Create a new GitHub repo
 -	Launch the repo within a Gitpod workspace

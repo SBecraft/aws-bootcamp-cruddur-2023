@@ -30,4 +30,7 @@ ports:
   - name: xray-daemon
     port: 2000
     visibility: public
+<<<<<<< HEAD
     
+=======
+>>>>>>> 476871af605ef9b4b4c499cd2ced1dc2b9171a1a

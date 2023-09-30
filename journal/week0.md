@@ -351,14 +351,6 @@ To create a new folder in a repository click “create a new file.” Type your 
 
 
 
-&NewLine;
-&NewLine;
-&nbsp;
-
-
-## My Napkin Conceptual Architecture Diagram
-
-![Cruddur Conceptual Diagram](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Napkin-Crudder%20Conceptual%20Architecture.jpg)
 
 
 
