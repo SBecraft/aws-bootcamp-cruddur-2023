@@ -8,7 +8,7 @@ Table of Contents
 
 
 ## Technical Tasks
-The fractional CTO has suggested that we implement distributed tracing first because as we begin to add cloud services it will become difficult to pinpoint issues and we want to keep pace with the (probably unrealistic) development timeline.
+The fractional CTO has suggested that we implement distributed tracing first because as we begin to add cloud services it will become difficult to pinpoint issues and we want to keep pace with the development timeline.
 
 - Instrument our backend flask application to use Open Telemetry (OTEL) with Honeycomb.io as the provider
 - Run queries to explore traces within Honeycomb.io
