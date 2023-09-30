@@ -140,7 +140,7 @@ NOTE:  There is a line of code in the `Dockerfile` that runs an npm install, so 
 Industry standard is to separate development containers from production containers. The containers for development and production come from different images.  Production containers are based on a much more slimmed-down image than that used for development which includes many tools not needed for production.
 
 -	Changed into main directory with `cd ..`
--	Run container by right-clicking on `docker.-compose.yml`and then clicking on `Compose Up`
+-	Run container by right-clicking on `docker-compose.yml`and then clicking on `Compose Up`
 
 
 
