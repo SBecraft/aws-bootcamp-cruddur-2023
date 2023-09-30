@@ -60,7 +60,7 @@ OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
 
 
 ### Set Up Honeycomb Instrumentation
--	Went into Honeycomb account under `bootcamp` environment and clicked on `Home ‘in the left-hand taskbar.
+-	Went to the Honeycomb website and into my Honeycomb account under `bootcamp` data set environment and clicked on `Home ‘in the left-hand taskbar.
 -	Clicked on `Python` to get the Honeycomb OTEL python istall package to put into `requirements.txt` located in the `backend-flask` directory.
 -	Copy and paste following into `requirements.txt`
 ```sh
