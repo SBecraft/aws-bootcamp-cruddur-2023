@@ -23,7 +23,7 @@ The fractional CTO has suggested that we implement distributed tracing first bec
 Honeycomb is  
 ### Create Honeycomb Account
 -	Created a free tier Honeycomb account at https://ui.honeycomb.io
--	Clicked on `Environment` > `Manage Environments` > `Create Environment`
+-	From within my Honeycomb account I clicked on `Environment` > `Manage Environments` > `Create Environment`
 -	Named new data set environment `bootcamp’ and made it purple for Cruddur. 
 -	Clicked `Create Environment’ to complete data set environment set-up.
 
