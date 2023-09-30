@@ -136,11 +136,11 @@ cd frontend-react-js/
 ```sh
 npm i
 ```
-NOTE:  There is a line of code in the `Dockerfile” that runs an npm install, so it would seem unnecessary to have to run npm -I again. But, in the aws bootcamp we used the same Dockerfile for development and production, which requires running `npm -i`  each time we open the container.  
+NOTE:  There is a line of code in the `Dockerfile` that runs an npm install, so it would seem unnecessary to have to run npm i again. But, in the aws bootcamp we used the same Dockerfile for development and production, which requires running `npm i` each time we open the container.  
 Industry standard is to separate development containers from production containers. The containers for development and production come from different images.  Production containers are based on a much more slimmed-down image than that used for development which includes many tools not needed for production.
 
 -	Changed into main directory with `cd ..`
--	Run container by right-clicking on ‘docker.-compose.yml`and then clicking on `Compose Up`
+-	Run container by right-clicking on `docker.-compose.yml`and then clicking on `Compose Up`
 
 
 
