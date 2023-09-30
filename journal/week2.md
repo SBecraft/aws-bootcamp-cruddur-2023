@@ -28,7 +28,6 @@ Honeycomb is
 -	Clicked `Create Environment’ to complete data set environment set-up.
 
  ###  Set Honeycomb API Key Environment Variable
-The honeycomb API keys for data set bootcamp will
 All parts of the Cruddur project should use the same Honeycomb API key.  However, the different parts of the project, or services, should have different names.
 -	Copied the `bootcamp` Honeycomb data set API key.
 -	In Gitpod, created a text file as a notepad and pasted API key.
