@@ -103,8 +103,9 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ![add to app py](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-to-app-py.png)
 
 -	Initialize tracing and an exporter that can send data to Honeycomb
-Add the following code to the `app.py` file below the Honeycomb app.py section.
+- Add the following code to the `app.py` file below the Honeycomb app.py section.
 ```sh
+
 #Honeycomb
 # Initialize tracing and an exporter that can send data to Honeycomb
 provider = TracerProvider()
