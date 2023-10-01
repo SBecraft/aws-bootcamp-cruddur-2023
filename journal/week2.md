@@ -20,7 +20,7 @@ The fractional CTO has suggested that we implement distributed tracing first bec
 - Install WatchTower and write a custom logger to send application log data to CloudWatch Log group
 
 ## Honeycomb
-Honeycomb is  
+ 
 ### Create Honeycomb Account
 -	Created a free tier Honeycomb account at https://ui.honeycomb.io
 -	From within my Honeycomb account I clicked on `Environment` > `Manage Environments` > `Create Environment`
@@ -116,7 +116,7 @@ tracer = trace.get_tracer(__name__)
 ```
 ![initialize tracing](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/intialize%20tracing.png)
 -	Intialize automatic instrumentation with Flask
-Add the following code to the `app.py` file below the “initialize tracing….” Code.
+- Add the following code to the `app.py` file below the “initialize tracing….” Code.
 ```sh
 #Honeycomb
 # Initialize automatic instrumentation with Flask
