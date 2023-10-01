@@ -102,10 +102,9 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ```
 ![add to app py](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-to-app-py.png)
 
--	Initialize tracing and an exporter that can send data to Honeycomb
-- Add the following code to the `app.py` file below the Honeycomb app.py section.
+####	Initialize tracing and an exporter that can send data to Honeycomb
+- Add the following code to the `app.py` file below the # Honeycomb - from opentelemetry - code block.
 ```sh
-
 #Honeycomb
 # Initialize tracing and an exporter that can send data to Honeycomb
 provider = TracerProvider()
@@ -115,8 +114,9 @@ trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 ```
 ![initialize tracing](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/intialize%20tracing.png)
--	Intialize automatic instrumentation with Flask
-- Add the following code to the `app.py` file below the “initialize tracing….” Code.
+
+####	Intialize automatic instrumentation with Flask
+- Add the following code to the `app.py` file below the “initialize tracing….” code block.
 ```sh
 #Honeycomb
 # Initialize automatic instrumentation with Flask
