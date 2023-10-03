@@ -158,7 +158,7 @@ Industry standard is to separate development containers from production containe
 
 
 
-##### Solution: 
+##### SOLUTION: 
 
 - While in frontend-react-js directory, make sure you have nvm manager installed already in Gitpod VSCode (Node Version Manager):
 ```sh
@@ -195,7 +195,7 @@ nvm install 16.20.2
 nvm alias default 16.20.2
 ```
 
-- 
+
 
 
 
