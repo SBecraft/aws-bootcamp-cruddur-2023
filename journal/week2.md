@@ -143,7 +143,8 @@ Industry standard is to separate development containers from production containe
 -	Run container by right-clicking on `docker-compose.yml`and then clicking on `Compose Up`
 -	Go to PORTS Tab to see ports and make sure that port 3000 and port 4567 are open.  If not, unlock them in order to access frontend Cruddur URL and backend app data.
 -	I received a failed to compile error and that React must be in scope when using JSX. As a result, I could not access the frontend URL or the backend data.  And, the PORTs tab did not display port information.
-  ![Failed to Compile]()
+-	
+  ![Failed to Compile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/failed-to-compile.png)
 
  #### How I Resolved the Failed to Compile Error
 
