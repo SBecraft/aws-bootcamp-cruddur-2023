@@ -141,6 +141,61 @@ Industry standard is to separate development containers from production containe
 
 -	Changed into main directory with `cd ..`
 -	Run container by right-clicking on `docker-compose.yml`and then clicking on `Compose Up`
+-	Go to PORTS Tab to see ports and make sure that port 3000 and port 4567 are open.  If not, unlock them in order to access frontend Cruddur URL and backend app data.
+-	I received a failed to compile error and that React must be in scope when using JSX. As a result, I could not access the frontend URL or the backend data.  And, the PORTs tab did not display port information.
+  ![Failed to Compile]()
+
+ #### How I Resolved the Failed to Compile Error
+
+- I had to resolve issues with (1) not seeing ports in PORTS tab and (2) no service available on frontend port 3000, after running docker Compose Up.
+- When trying to access front end port 3000 to see Cruddur URL I received the message "Failed to Compile" and "React must be in scope when using JSX   react/react-in-jsx-scope"
+- Ruled out any breakpoints in the "scripts" part of my package.json file.
+- Ran debugging of package.json file. Received error about hashing algoritm.
+- Researched this issue and found that this error occurs when using Node.js version 17 or higher, which does not support the MD4 hash algorithm any longer.
+
+  
+- RECOMMENDATION: downgrade your current Node.js version to 16 or lower, which is the current, long-term version, using the Node Version Manager (nvm). 
+
+
+
+- Solution: 
+
+- While in frontend-react-js directory, make sure you have nvm manager installed already in Gitpod VSCode (Node Version Manager):
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+
+- While in frontend-react-js directory, display your current/default node version:
+```sh
+node -v
+```
+
+- While in frontend-react-js directory, find what node versions are available:
+```sh
+nvm list
+```
+
+- While in frontend-react-js directory, if you currently have version 18, try using version 16 to see if it resolves issues with not seeing services on frontend port 3000:
+```sh
+nvm use 16.20.2
+```
+
+- From the (main) directory:
+```sh
+Run docker-compose.yml --> Compose Up 
+```
+
+- If port information is now visible in the PORTS tab of the Bash Terminal then install node version 16.20.2 while in frontend-react-js directory:
+```sh
+nvm install 16.20.2 
+```
+
+- While in frontend-react-js directory, make node version 16.20.2 the DEFAULT version for your Gitpod VSCode:
+```sh
+nvm alias default 16.20.2
+```
+
+- 
 
 
 
