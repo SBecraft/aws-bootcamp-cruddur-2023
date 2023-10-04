@@ -105,7 +105,7 @@ Gitpod is a browser of VSCode that can be configured to load automatically from 
 &nbsp;
  
 ## Install AWS CLI 
-[AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/)
+[AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/)
 
 [AWS CLI Install Instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
