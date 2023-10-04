@@ -207,6 +207,6 @@ nvm alias default 16.20.2
 
 
 ## References
-- [Honeycomb.io] https://ui.honeycomb.io
-- [Honeycomb Documentation for Python] https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/
+- [Honeycomb.io Website](https://ui.honeycomb.io)
+- [Honeycomb Documentation for Python](https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/)
 
