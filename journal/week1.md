@@ -118,6 +118,9 @@ Proof of successful Python install:
 
 ![successful python install](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/successful%20python%20install.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
 
 - Next I ran the python3 flask module with local host and port 4567
 - cmd (command), -m for module (flask)
@@ -126,7 +129,15 @@ Proof of successful Python install:
  python3 -m flask run –host=0.0.0.0  --port 4567
 ```
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![Python3 flask](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/python3-flask.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 EXPOSE ${PORT}
 
