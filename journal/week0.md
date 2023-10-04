@@ -34,7 +34,7 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 &NewLine;
 &nbsp;
 
-[Cruddur Project Business Use Case]https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.docx
+[Cruddur Project Business Use Case](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.docx)
 
 
 ## AWS Well Architected Framework
