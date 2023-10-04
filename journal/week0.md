@@ -124,8 +124,6 @@ tasks:
       cd $THEIA_WORKSPACE_ROOT
 ```
 
-![VIEW MY UPDATED gitpod.yml FILE](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/.gitpod.yml)
-
 
 
 ### Install AWS CLI on Home/Local Computer
@@ -182,7 +180,7 @@ Here is a snapshot of my User account Billing Alert Preferences I created in the
 
 #### Create SNS Topic to deliver an alert email when account is overbilled
 
-[aws sns create-topic](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html)
+[AWS SNS Create-Topic Documentation](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html)
 
 Used the following command in Gitpod Terminal to create topic:
 ```sh
@@ -214,7 +212,7 @@ Proof of subscription in AWS console:
 &nbsp;
 
 ### Create Billing Alarm for CloudWatch
-[aws cloudwatch put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
+[AWS Cloudwatch Put-Metric-Alarm Documentation](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
 
 Used the following command in GitPod Terminal to create Billing Alarm:
 
@@ -339,11 +337,13 @@ To publish files or folders to GitHub from Terminal:
 git status
 ```
 It will respond with a list of files that have been added since the last commit. 
+
 3.	Add new file/folder: 
 ```sh
 git add --all or git add *
 ```
 This command stages the files for publishing.
+
 4.	Confirm files were added: 
 ```sh
 git status
@@ -353,6 +353,7 @@ git status
 git commit -m "commit message"
 ``` 
 This will commit changes and add a description to the commit version. 
+
 6.	Push changes to GitHub: 
 ```sh
 git push
