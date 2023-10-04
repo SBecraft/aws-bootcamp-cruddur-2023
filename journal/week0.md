@@ -39,7 +39,7 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 
 ## AWS Well Architected Framework
 
-[Reference](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
+[AWS Well-Architected Framework Documentation](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
 
 "The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. By using the Framework you will learn architectural best practices for designing and operating reliable, secure, efficient, cost-effective, and sustainable systems in the cloud."
 
