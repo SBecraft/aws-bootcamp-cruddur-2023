@@ -772,7 +772,7 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 &nbsp;
 
 ## References
-- [Docker Compose Overview Documentation] https://docs.docker.com/compose/
+- [Docker Compose Overview Documentation](https://docs.docker.com/compose/)
 &NewLine;
 &NewLine;
 &nbsp;
