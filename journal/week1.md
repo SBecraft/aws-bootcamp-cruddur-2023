@@ -37,7 +37,7 @@ Table of Contents
 
 
 ## VSCode Docker Extension
-[VSCode with Containers Overview] https://code.visualstudio.com/docs/containers/overview
+[VSCode with Containers Overview](https://code.visualstudio.com/docs/containers/overview)
 &NewLine;
 &NewLine;
 &nbsp;
@@ -649,7 +649,7 @@ Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries f
 
 - There are no images in the my aws-bootcamp-cruddur-2023 yet.
 
-[Get repository at]https://github.com/snyk-labs/docker-goof
+[Get Snyk-Labs Docker-Goof Repository](https://github.com/snyk-labs/docker-goof)
 
 
 - Create a new fork that is `SBecraft/docker-goof`
@@ -753,7 +753,7 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 - Install Docker desktop if CLI is challenging.
 - Refer to the following webpage for instructions on using Docker Compose to scan Containers.
 
-[Docker Compose Overview]https://docs.docker.com/compose/
+[Docker Compose Overview Documentation](https://docs.docker.com/compose/)
 
 &NewLine;
 &NewLine;
@@ -772,8 +772,8 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 &nbsp;
 
 ## References
-- [Docker Compose Overview] https://docs.docker.com/compose/
+- [Docker Compose Overview Documentation] https://docs.docker.com/compose/
 &NewLine;
 &NewLine;
 &nbsp;
-- [Debugging Connection Refused] https://pythonspeed.com/articles/docker-connection-refused/
+- [Debugging Docker "Connection Refused" Error](https://pythonspeed.com/articles/docker-connection-refused/)
