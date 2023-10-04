@@ -39,7 +39,7 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 
 ## AWS Well Architected Framework
 
-[Reference]https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html
+[Reference](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html)
 
 "The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. By using the Framework you will learn architectural best practices for designing and operating reliable, secure, efficient, cost-effective, and sustainable systems in the cloud."
 
@@ -105,9 +105,10 @@ Gitpod is a browser of VSCode that can be configured to load automatically from 
 &nbsp;
  
 ## Install AWS CLI 
-[AWS CLI Reference]https://docs.aws.amazon.com/cli/latest/
+[AWS CLI Reference](https://docs.aws.amazon.com/cli/latest/)
 
-[AWS CLI Install Instructions]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+[AWS CLI Install Instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
 ### Install AWS CLI for GitPod 
 -	Updated the `.gitpod.yml` file with the following task so AWS CLI runs in partial auto-prompt mode in GitPod upon launching of the GitPod environment.
 ```sh
@@ -128,7 +129,7 @@ tasks:
 
 
 ### Install AWS CLI on Home/Local Computer
-[AWS CLI Install Instructions for Various Operating Systems]https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+[AWS CLI Install Instructions for Various Operating Systems](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 
 &NewLine;
 &NewLine;
@@ -180,7 +181,9 @@ Here is a snapshot of my User account Billing Alert Preferences I created in the
 
 
 #### Create SNS Topic to deliver an alert email when account is overbilled
+
 [aws sns create-topic](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html)
+
 Used the following command in Gitpod Terminal to create topic:
 ```sh
 aws sns create-topic --name billing-alarm
@@ -211,7 +214,7 @@ Proof of subscription in AWS console:
 &nbsp;
 
 ### Create Billing Alarm for CloudWatch
-[aws cloudwatch put-metric-alarm]https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html
+[aws cloudwatch put-metric-alarm](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
 
 Used the following command in GitPod Terminal to create Billing Alarm:
 
@@ -327,26 +330,38 @@ Types of organizational architecture diagrams to model:
 ## Publish Files to GitHub
 
 To publish files or folders to GitHub from Terminal:
-1.	Terminal should read: 
+1.	Terminal should read:
+```sh 
 /workspace/repo-name
-2.	Type: 
+```
+2.	Type:
+```sh
 git status
+```
 It will respond with a list of files that have been added since the last commit. 
 3.	Add new file/folder: 
+```sh
 git add --all or git add *
+```
 This command stages the files for publishing.
 4.	Confirm files were added: 
-git status 
+```sh
+git status
+```
 5.	Commit changes: 
-git commit -m "commit message" 
+```sh
+git commit -m "commit message"
+``` 
 This will commit changes and add a description to the commit version. 
 6.	Push changes to GitHub: 
-git push 
+```sh
+git push
+```
 7.	Check GitHub URL and see the file/folder just uploaded.
 
 
 
-To create a new folder in a repository click “create a new file.” Type your new folder’s name in the area where you would write the file name, and at the end of the file name type a “/” to initilize it as a folder. After this you can create a new file in the folder.
+To create a new folder in a repository click `create a new file`. Type your new folder’s name in the area where you would write the file name, and at the end of the file name type a `/` to initilize it as a folder. After this you can create a new file in the folder.
 
 
 
