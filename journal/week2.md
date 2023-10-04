@@ -151,7 +151,7 @@ Industry standard is to separate development containers from production containe
 - I had to resolve issues with (1) not seeing ports in PORTS tab and (2) no service available on frontend port 3000, after running docker Compose Up.
 - When trying to access front end port 3000 to see Cruddur URL I received the message "Failed to Compile" and "React must be in scope when using JSX   react/react-in-jsx-scope"
 - Ruled out any breakpoints in the "scripts" part of my package.json file.
-- Ran debugging of package.json file. Received error about hashing algoritm.
+- Ran debugging of package.json file. Received error about MD4 hashing algoritm incompatibility with Node version 18.
 - Researched this issue and found that this error occurs when using Node.js version 17 or higher, which does not support the MD4 hash algorithm any longer.
 
   
