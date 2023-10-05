@@ -680,6 +680,7 @@ Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries f
 
 Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and not image files.
 
+
 ## AWS Secret Manager
 - Stores Secrets in EC2 in the AWS Cloud Computing platform.
 - Another option is Hashicorp Vault to keep Secrets without having to keep secrets in a dockerfile permanently.
