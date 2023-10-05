@@ -31,11 +31,6 @@ Table of Contents
 -	Ensure we can orchestrate multiple containers to run side by side
 -	Mount directories so we can make changes while we code
 
-&NewLine;
-&NewLine;
-&nbsp;
-
-
 ## VSCode Docker Extension
 [VSCode with Containers Overview](https://code.visualstudio.com/docs/containers/overview)
 &NewLine;
@@ -64,10 +59,6 @@ EXPOSE ${PORT}
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 ```
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ### Add Dockerfile
 - Working from inside Container
 - Make a new folder 
@@ -94,22 +85,12 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 FROM python:3.10-slim-buster
 - Outside Container -> Inside Container
-&NewLine;
-&NewLine;
-&nbsp;
-
 - This contains the libraries to install to run the Cruddur app
 - Install the python libraries used for the app
-
 - RUN pip3 install -r requirements.txt
 ```sh
 Pip3 install -r requirements.txt
 ```
-
-&NewLine;
-&NewLine;
-&nbsp;
-
 
 Proof of successful Python install:
 &NewLine;
@@ -129,10 +110,6 @@ Proof of successful Python install:
  python3 -m flask run –host=0.0.0.0  --port 4567
 ```
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![Python3 flask](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/python3-flask.png)
 
 &NewLine;
@@ -150,17 +127,9 @@ EXPOSE ${PORT}
 
 ![404 Not Found Need Env Vars](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/404-URL-Running-Need-Env-Vars.png)
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 - Here is the 404 Error displayed in the terminal.
 
 ![404 Errors](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/404-errors.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - Set frontend and backend environment variable for the endpoints which will remain set when the container is running.
 
@@ -176,15 +145,7 @@ export BACKEND_URL="*"
 
 - I then copied the URL next to open port 4567, pasted it into a browser, and added `/api/activities/home` and got the following output:
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![Env Vars python3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/env-vars-python3.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - I got back JSON which is the output I should see.
 &NewLine;
@@ -197,9 +158,7 @@ Note: There is a difference between RUN and CMD. RUN is used to create a layer i
 &nbsp;
 - To stop the server press `CTRL + C` to quit, which sends a kill command to the server.
 - Two other ways to stop server is to click on the trashcan icon at top right of terminal screen.  Or click on 3 bars in upper left of Gitpod and click on terminal and run new terminal.
-&NewLine;
-&NewLine;
-&nbsp;
+
 
 - Unset the backend and frontend environment variables in case they cause issue when I run a new container file.
 ```sh
@@ -211,9 +170,7 @@ Unset BACKEND
 ```sh
 env | grep _URL
 ```
-&NewLine;
-&NewLine;
-&nbsp;
+
 ### Build Container
 Next step is to build a docker container.
 - First we need to make sure we are in are app and not in the backend-flask folder.
@@ -224,24 +181,13 @@ Pwd
 cd ..
 ```
 - I am now working in the main directory.
-&NewLine;
-&NewLine;
-&nbsp;
 
 ![Change into Dockerfile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/change-into-Dockerfile2.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - Run the command to build the container (-t is for tag image)
 ```sh
 docker build -t  backend-flask ./backend-flask
 ```
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 ![Build backend container](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/build-backend-container.png)
 
@@ -269,16 +215,9 @@ Docker build –help
 ```sh
 docker run --rm -p 4567:4567 -it backend-flask
 ```
-&NewLine;
-&NewLine;
-&nbsp;
 
 - Screenshot of PORTS tab in terminal that displays port 4567 is open to the public.
 ![Port 4567 unlocked](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/port4567-unlocked.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - I got a 404-ERROR as expected because I still need to reset the environment variables.
 
@@ -343,9 +282,6 @@ RUN npm install
 EXPOSE ${PORT}
 CMD ["npm", "start"]
 ```
-&NewLine;
-&NewLine;
-&nbsp;
 
 ![Front-end react js and Dockerfile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/backend-dockerfile-image.png)
 
@@ -364,7 +300,6 @@ This .yml file allows for the running of multiple containers at the same time.
 &nbsp;
 
 Docker Compose is a multi-container deployment with Infrastructure As Code (IAC) that makes it much easier to run containers that need to run together logically.
-
 &NewLine;
 &NewLine;
 &nbsp;
@@ -375,7 +310,6 @@ The standard way of using Docker is with a Docker file, but it is not good for r
 &nbsp;
 
 Docker came up with Docker Compose as a solution to running multiple parts of a project.
-
 &NewLine;
 &NewLine;
 &nbsp;
@@ -419,25 +353,13 @@ Docker-compose up
 - The backend container(s) is on port 4567
 - Make sure both are unlocked.
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![Image of ports 3000 and 4567](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/both-ports-open.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - Click on the frontend URL and you will see the Cruddur application.
 - We now have access to the web application.
 - The frontend and backend can communicate with each other.
 
 ![Cruddur app homepage](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/cruddur-app.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 ## Adding DynamoDB Local and Postgres
 
@@ -509,9 +431,6 @@ NOTE:
 -	Now to run the docker-compose.yml file with docker `compose up` to run DynamoDB Local and Postgres to see how they interact with the other services in the file.
 -	Right-click on  `docker-compose.yml`
 -	Click on `Compose Up` to run the services
-&NewLine;
-&NewLine;
-&nbsp;
 
 ![Compose Up](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/compose-up.png)
 
@@ -522,10 +441,6 @@ NOTE:
 -	Go to PORTS tab in Gitpod terminal that ran DynamoDB and Postgres and unlock ports 4567, 5432, and 8000 to make them Public and accessible. 
 -	DnyamoDB Local is running on port 8000 and Postgres is running on port 5432.
 -	Don’t open port 38487 since it has to do with Gitpod and not with DynamoDB and PostGres.
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 ![Correct Unlocked Ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/correct-unlocked-ports.png)
 
@@ -539,15 +454,7 @@ NOTE:
 aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![List Tables](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/list-tables.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 -	Next the Postgres client is installed into Gitpod.
 -	Place the following Postgres driver code into `gitpod.yml` right after “cd $THEIA….”  
@@ -567,10 +474,6 @@ aws dynamodb list-tables --endpoint-url http://localhost:8000
 
 ![4 Lines of Postgres code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/4-lines-postgres-code.png)
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 -	The code added gpg key to read from a remote repository and installed the Debian package.
 -	I tried to connect to client with the command ‘psql’, but I received the error ` connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: No such file or directory`
 -	I shut down docker  wtth `Compose Down’ and spun it back up with `Compose Up`
@@ -585,9 +488,6 @@ docker compose up
 
 ![Add PostgreSQL Ext to gitpod.yml](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/add-postgresql-to-gitpodyml.png)
 
-&NewLine;
-&NewLine;
-&nbsp;
 -	Proof PostgresSQL extension added to gitpod.yml file
 
 ![PostgreSQL in gitpod.yml](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/postgresql-in-gitpodyml.png)
@@ -603,10 +503,6 @@ docker compose up
 -	I made a successful connection to the database server.
 -	The database is empty and will be populated in Week 2.
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/succcess-connection-db.png)
 
 &NewLine;
@@ -614,7 +510,6 @@ docker compose up
 &nbsp;
 
 -	Now I continue with trying to connect to the database server via command line.
-
 
 -	Again, run the 4 lines of gitpod.yml Postgre coded SEPARATELY in Terminal.
 
@@ -644,17 +539,9 @@ psql -Upostgres --host localhost
   
 ![psqlUpostgress](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-Upostgress.png)
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 -	Now in Postgres
 -	At `postgres=#’ prompt type `\l` to see default tables
 -	Made remaining commits to main repository
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 # Container Security and Why
 What is Container Security?
@@ -699,10 +586,6 @@ Docker Client is the laptop that Docker is installed as a service to run that ha
 
 - Containers share the Host's operating system kernel.
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![Docker components 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/docker-components%20(2).png)
 
 
@@ -745,10 +628,6 @@ Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries f
 - Choose GitHUb, Public Repository, and skip automation settings.
 - Click `Authorize snyk`. 
 
-&NewLine;
-&NewLine;
-&nbsp;
-
 ![Authorize Snyk](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/authorize-snyk.png)
 
 &NewLine;
@@ -764,12 +643,11 @@ Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries f
 &nbsp;
 
 - There are no images in the my aws-bootcamp-cruddur-2023 yet.
+&NewLine;
+&NewLine;
+&nbsp;  
 
 [Get Snyk-Labs Docker-Goof Repository](https://github.com/snyk-labs/docker-goof)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - Create a new fork that is `SBecraft/docker-goof`
 - In Description wrote “Vulnerable Docker Repository for Testing”
@@ -800,22 +678,13 @@ Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries f
 
 Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and not image files.
 
-&NewLine;
-&NewLine;
-&nbsp;
-
-
-
-
 ## AWS Secret Manager
 - Stores Secrets in EC2 in the AWS Cloud Computing platform.
 - Another option is Hashicorp Vault to keep Secrets without having to keep secrets in a dockerfile permanently.
 - It is good practice not to keep secrets indefinitely in those docker files.
-
 &NewLine;
 &NewLine;
 &nbsp;
-
 - I logged into my AWS User account “awsbootcamp”.  This is not my root account.  It is good practice not to use Root for daily tasks.
 
 ![AWS Secrets Manager Console](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/aws-secrets-manager-homepage.png)
@@ -834,10 +703,6 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 ![Create Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/create-secret-type.png)
 
 - Configure secret with Secret name `docker/password/dev` and Tag as key value pair `Purpose` and `Docker-test`
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 ![Configure Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/configure-secret.png)
 
@@ -864,10 +729,6 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 - Amazon Inspector has integration with ECS, EC2 and ECR (registry) to scan Container images.
 
 ![Amazon Inspector Console](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/amazon-inspector-console.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 - Click on `Get Started`
 - On Activate Inspector page click on “Activate Inspector` in lower right-hand corner of webpage.
