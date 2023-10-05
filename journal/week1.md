@@ -170,7 +170,9 @@ Unset BACKEND
 ```sh
 env | grep _URL
 ```
-
+&NewLine;
+&NewLine;
+&nbsp;
 ### Build Container
 Next step is to build a docker container.
 - First we need to make sure we are in are app and not in the backend-flask folder.
