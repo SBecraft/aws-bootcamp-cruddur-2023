@@ -146,6 +146,10 @@ Industry standard is to separate development containers from production containe
 -	
   ![Failed to Compile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/failed-to-compile.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
  #### How I Resolved the Failed to Compile Error
 
 - I had to resolve issues with (1) not seeing ports in PORTS tab and (2) no service available on frontend port 3000, after running docker Compose Up.
@@ -157,7 +161,9 @@ Industry standard is to separate development containers from production containe
   
 - RECOMMENDATION: downgrade your current Node.js version to 16 or lower, which is the current, long-term version, using the Node Version Manager (nvm). 
 
-
+&NewLine;
+&NewLine;
+&nbsp;
 
 ##### SOLUTION: 
 
