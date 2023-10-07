@@ -243,7 +243,7 @@ docker run --rm -p 4567:4567 -it -e FRONTEND_URL=’*’ -e BACKEND_URL=’*’ 
 - I got a 404-ERROR after running the container.
 
 
-- Then, I added  `/app/activites/home` to the end of the URL in order to access data on server.
+- Then, I added  `/api/activities/home ` to the end of the URL in order to access data on server.
 - Go into new Bash terminal  and run command `docker ps` to see running containers.
 ```sh
 docker ps
