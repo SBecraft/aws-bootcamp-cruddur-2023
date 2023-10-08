@@ -7,7 +7,7 @@ Table of Contents
 -	[Honeycomb](#honeycomb)
 -	[Add react-js to gitpod.yml](#add-react-js-to-gitpod.yml)
 -	[AWS X-Ray](#aws-x-ray)
--	[How To Tag Work By Week]
+-	[How To Tag Work](#how-to-tag-work)
 -	[How I Resolved the Failed to Compile Error](#how-i-resolved-the-fail-to-compile-error)
 -	[References](#references)
 
@@ -445,7 +445,7 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 
 
 
-## How to Tag Work by Weeks
+## How to Tag Work 
 ```sh
 git tag week-2
 git push --tags
