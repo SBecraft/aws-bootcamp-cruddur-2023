@@ -3,7 +3,7 @@
 Table of Contents
 - [Week-2 Technical Tasks Overview](#week-2-technical-tasks-overview)
 -	[Observability](#observability)
--	[Observability Security](#observability-security)
+-	[Observability SecurityConsiderations](#observability-security-considerations)
 -	[Honeycomb](#honeycomb)
 -	[Add react-js to gitpod.yml](#add-react-js-to-gitpod.yml)
 -	[AWS X-Ray](#aws-x-ray)
@@ -62,7 +62,7 @@ To enable observability in AWS you need instrumentation, which is what helps you
 -	Cloud platforms introduce Infrastructure as Code, Platform as a Service, and Software as a Service which add extra levels of complexity and additional logs.
 
 
-## Observability Security 
+## Observability Security Considerations
 AWS observability tools are not security tools, but you can use logs,  AWS serverless event driven architecture,  or AWS services for threat detection (Amazon GuardDuty) to provide application security.  
 &NewLine;
 &NewLine;
