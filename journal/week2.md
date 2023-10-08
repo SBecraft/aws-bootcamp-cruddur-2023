@@ -81,7 +81,7 @@ AWS observability tools are not security tools, but you can use logs,  AWS serve
 
   
 ### Amazon Detective
-![Amazon Detective Documentation](Amazon Detective Documentation)
+![Amazon Detective Documentation](https://docs.aws.amazon.com/detective/)
 -	AWS tool to investigate, analyze and identify root cause of potential security issues
 -	Adds security to observability
 -	Automatically collects log data from AWS resources
