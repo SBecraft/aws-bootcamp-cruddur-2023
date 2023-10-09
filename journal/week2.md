@@ -638,14 +638,6 @@ def rollbar_test():
 ```
 ![rollbar endpoint]()
 
-
-
-
-## How to Tag Work by Weeks
-```sh
-git tag week-2
-git push --tags
-```
 ### Rollbar Cruddur Project Instrumentation Results
 -	Docker Compose Up to run backend Container.
 -	Went to Cruddur Backend URL and added /api/activites/home
