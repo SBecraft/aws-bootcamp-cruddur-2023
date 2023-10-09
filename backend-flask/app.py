@@ -31,12 +31,10 @@ import watchtower
 import logging
 
 # Rollbar---------------
-from flask import got_request_exception
-from time import strftime
 import os
 import rollbar
 import rollbar.contrib.flask
-
+from flask import got_request_exception
 
 # Configuring Logger to Use CloudWatch
 #LOGGER.setLevel(logging.DEBUG)
