@@ -431,18 +431,287 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 
 ![aws xray query success]( )
 
+### Instrumenting AWS X-Ray Subsegments
+Implemented an X-Ray subsegment for the service called `user activities` so when a Cruddur app user hits a specific API route, that data will be sent to AWS X-Ray to be queried and analyzed.
+-	To instrument AWS X-Ray subsegments I needed to import the X-Ray recorder.  To do so I added the following code to the `user_activities.py` file that is located at `/backend-flask/services/user_activities.py`
+```sh
+from aws_xray_sdk.core import xray_recorder
+```
+-	Added `try:` below line `def run(user_handle):`
+-	Then, I added code for the x-ray recorder to begin subsegment
+```sh
+subsegment = xray_recorder.begin_subsegment('mock-data')
+```
+-	Defined a dictionary for results and added defined subsegment metadata.
+```sh
+# xray ---
+      dict = {
+        "now": now.isoformat(),
+        "results-size": len(model['data'])
+      }
+      subsegment.put_metadata('key', dict, 'namespace')
+```
+-	Finally, closed the subsegment
+```sh
+finally:  
+    #  # Close the segment
+      xray_recorder.end_subsegment()
+```
+![subsegment code](   )
+
+-	Add X-Ray recorder capture code to @app.route(s)  as follows:
+@app.route("/api/activities/home", methods=['GET'])
+`@xray_recorder.capture('activities_home')`
+def data_home():
+  data = HomeActivities.run()
+  return data, 200
+&NewLine;
+&NewLine;
+&nbsp;
+@app.route("/api/activities/@<string:handle>", methods=['GET'])
+`@xray_recorder.capture('activities_users')`
+def data_handle(handle):
+  model = UserActivities.run(handle)
+  if model['errors'] is not None:
+    return model['errors'], 422
+  else:
+    return model['data'], 200&NewLine;
+&NewLine;
+&nbsp;
+
+@app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
+`@xray_recorder.capture('activities_show')`
+def data_show_activity(activity_uuid):
+  data = ShowActivity.run(activity_uuid=activity_uuid)
+  return data, 200
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+
+
+-	Right-clicked on `docker-compose.yml`.  Chose Docker `Compose Up` to run containers for the AWS Daemon, backend flask and frontend react.
+-	Went to frontend URL for Cruddur app and refreshed page multiple times, as well as clicked on different parts of the webpage for generating data for the AWS Daemon to collect and send to AWS X-Ray.
+-	Went into my awsbootcamp account in the AWS console and searched `X-Ray` to navigate to my trace information.
+-	Here is  the service map showing a connection between the client and my cruddur app.
+![service map](  )
+![service map 2](  )
+![service map 3](  )
+![service map 4](  )
+![service map 5](  )
+
+
+NOTE:  X-Ray spend adds up in cost in Cloudwatch when in production.  I’m using it in development so cost should be minimal.
+
+## CloudWatch Logs
+[Python WatchTower Documentation]( https://pypi.org/project/watchtower/)
+-	Added WatchTower to `requirements.txt
+```
+watchtower
+```
+![watchtower]( )
+-	Change into the `backend-flask` directory in the aws-cli bash terminal.
+-	Ran the python pip install in the CLI to install WatchTower.
+```sh
+pip install -r requirements.txt
+```
+-	Next, I configured logger to use CloudWatch.
+-	To do this, add the imports for WatchTower and logger to the `app.py` file.
+```sh
+import watchtower
+import logging
+from time import strftime
+```
+-	Next, add code to the  `app.py` file that will configure logger to use CloudWatch with log_group=’cruddur’
+```sh
+# Configuring Logger to Use CloudWatch
+LOGGER = logging.getLogger(__name__)
+LOGGER.setLevel(logging.DEBUG)
+console_handler = logging.StreamHandler()
+cw_handler = watchtower.CloudWatchLogHandler(log_group='cruddur')
+LOGGER.addHandler(console_handler)
+LOGGER.addHandler(cw_handler)
+LOGGER.info("some message")
+```
+-	Add to `app.py` forced logging of errors.
+```sh
+@app.after_request
+def after_request(response):
+    timestamp = strftime('[%Y-%b-%d %H:%M]')
+    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
+    return response
+```
+-	Set the env var in your backend-flask for `docker-compose.yml`
+```yml
+      AWS_DEFAULT_REGION: "${AWS_DEFAULT_REGION}"
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+```
+-	Add logger.info(“HomeActivities”) to `home_activities.py~
+-	In `app.py` replace “some message” in `LOGGER.info(“some message”)` with “test log”
+```sh
+Logger.info(“test log”)
+```
+-	In `home_activities.py` add `logger` to `def run():`
+```sh
+Def run(logger):
+```
+-	In `app.py`  go to `@app.route(“/api/activities/home”, methods=[‘GET’])` and add `logger=LOGGER` to the data variable
+![add loggerto app.route](  )
+-	Run docker `Compose Up`
+-	Go to backend URL on port 4567 to see cruddur data.  Need to put `/api/activities/home’ on end of URL to see the data.
+-	Refresh backend Cruddur URL multiple times/
+-	Go to AWS console to CloudWatch
+-	Click on `Log Groups` in CloudWatch Logs.
+-	Any kind of logging, including those from instrumentation like X-Ray should show in CloudWatch Logs.
+![cloudwatch log groups](  )
+![cloudwatch log stream]()
+-	Comment out or remove cloudwatch logging code and logger arguments added to `app.py` and `home_activites.py` to turn off CloudWatch to save on spend.
+-	Comment out AWS X-Ray  related code in both `app.py` and `user_activities` files to save on spend. 
+
+## Rollbar
+-	[Create a Rollbar Account]( https://app.rollbar.com/)
+-	Create a new project in Rollbar called `Cruddur`
+-	Add the Flask SDK to the new project
+-	Add to  the bottom of `requirements.txt`
+```
+blinker
+rollbar
+```
+
+-	Install blinker and rollbar dependencies in the `backend-flask` directory
+```sh
+pip install -r requirements.txt
+```
+
+-	Set my Rollbar access token.  Access token credential can be found in the Rollbar Cruddur project Set up SDK webpage. One at a time, run the following commands in backend-flask directory in the aws-cli bash terminal.
+
+```sh
+export ROLLBAR_ACCESS_TOKEN="your access token here"
+```
+
+```sh
+gp env ROLLBAR_ACCESS_TOKEN="your access token here"
+```
+
+-	Confirm that your Rollbar access token has been set.
+![env grep rollbar]()
+
+-	Now to instrument rollbar.  Add the following code to `app.py` file
+```py
+Import os
+import rollbar
+import rollbar.contrib.flask
+from flask import got_request_exception
+```
+![rollbar imports]()
+
+-	Now to initialize Rollbar.  Put following init code in `app.py` below “Honeycomb-----Initialize tracing and an exporter that can send data to Honeycomb”
+```py
+rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+@app.before_first_request
+def init_rollbar():
+    """init rollbar module"""
+    rollbar.init(
+        # access token
+        rollbar_access_token,
+        # environment name
+        'production',
+        # server root directory, makes tracebacks prettier
+        root=os.path.dirname(os.path.realpath(__file__)),
+        # flask already sets up logging
+        allow_logging_basic_config=False)
+
+    # send exceptions from `app` to rollbar, using flask's signal system.
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+```
+![rollbar init]()
+
+
+-	Add an endpoint just for testing rollbar to `app.py`
+```py
+@app.route('/rollbar/test')
+def rollbar_test():
+    rollbar.report_message('Hello World!', 'warning')
+    return "Hello World!"
+```
+![rollbar endpoint]()
 
 
 
 
+## How to Tag Work by Weeks
+```sh
+git tag week-2
+git push --tags
+```
+### Rollbar Cruddur Project Instrumentation Results
+-	Docker Compose Up to run backend Container.
+-	Went to Cruddur Backend URL and added /api/activites/home
+-	Received ~Workspace Not Found` Error
+-	Ran log files for backend-flask container and see there is a error for ‘app’ name not defined.
+-	Went back to app.py file and see that I need to place the rollbar -init- code block further down in the file below `app = Flask(_name_)`.
+-	Ran Docker Compose Up and still could not reach backend URL for Cruddur
+-	See a note in the bottom of the Week-2 Distributive Tracing markdown file that there have been changes to Rollbar in the last few months.  There is a newer version of flask that resulted in rollback implementation breaking due to a change in the flask api.
+-	I `commented out` the this code in the `app.py` file:
+```py
+rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+@app.before_first_request
+def init_rollbar():
+    """init rollbar module"""
+    rollbar.init(
+        # access token
+        rollbar_access_token,
+        # environment name
+        'production',
+        # server root directory, makes tracebacks prettier
+        root=os.path.dirname(os.path.realpath(__file__)),
+        # flask already sets up logging
+        allow_logging_basic_config=False)
 
+    # send exceptions from `app` to rollbar, using flask's signal system.
+    got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+```
+-	Then added the changed Rollbar code in `app.py` as follows:
+```py
+## XXX hack to make request data work with pyrollbar <= 0.16.3
+def _get_flask_request():
+    print("Getting flask request")
+    from flask import request
+    print("request:", request)
+    return request
+rollbar._get_flask_request = _get_flask_request
 
+def _build_request_data(request):
+    return rollbar._build_werkzeug_request_data(request)
+rollbar._build_request_data = _build_request_data
+## XXX end hack
 
+def init_rollbar(app):
+  rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
+  flask_env = os.getenv('FLASK_ENV')
+  rollbar.init(
+      # access token
+      rollbar_access_token,
+      # environment name
+      flask_env,
+      # server root directory, makes tracebacks prettier
+      root=os.path.dirname(os.path.realpath(__file__)),
+      # flask already sets up logging
+      allow_logging_basic_config=False)
+  # send exceptions from `app` to rollbar, using flask's signal system.
+  got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+  return rollbar
+```
 
-
-
-
-
+-	Ran Docker Compose Up again and this time I could reach the backend Cruddur URL and see data.
+-	Then, I tested for our new endpoint by adding `/rollbar/test` to the end of the backend URL and we get the expected message `Hello World!`
+![hello world]()
+-	Check Rollbar website to see if the tool was getting any activity, but is only showing that it is listening for something.
+-	Went back to `docker-compose.yml` file to add Rollbar access token as an environment variable.
+![docker compose rollbar env var]()
+-	Ran docker Compose Up again to launch the Cruddur app and browse the backend endpoint.  On the Rollbar website, should be able to click `Items` for `FirstProject` and select all the critical levels to see "Hello World!" message and data around this trace.. However, the Rollbar website wasn’t functioning as expected.  Clicking on Items just displayed the Welcome to Rollbar page and there is no access to the filters from the left hand taskbar.
 
 
 ## How to Tag Work 
@@ -506,14 +775,8 @@ nvm alias default 16.20.2
 
 
 
-
-
-
-
-
-
-
 ## References
 - [Honeycomb.io Website](https://ui.honeycomb.io)
 - [Honeycomb Documentation for Python](https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/)
+- [Olga Timofeeva Blog on Instrumenting AWS X-Ray Subsegments](Olley.hashnode.dev/aws-free-cloud-bootcamp-instrumenting-aws-x-ray-subsegments)
 
