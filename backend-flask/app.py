@@ -90,7 +90,6 @@ cors = CORS(
 #    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
 #    return response
 
-
 # Rollbar-------------------
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
 #@app.before_first_request
@@ -109,6 +108,7 @@ with app.app_context():
 
       # send exceptions from `app` to rollbar, using flask's signal system.
       got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
+
 
 @app.route('/rollbar/test')
 def rollbar_test():
