@@ -4,10 +4,10 @@ Table of Contents
 -	[Week-3 Technical Tasks Overview](#week-3-technical-tasks-overview)
 -	[Decentralized Authentication in AWS Cloud](#decentralized-authentication-in-aws-cloud)
 -	[Amazon Cognito](#amazon-cognito)
--	[Cognito in Identity Access Management](#cognito-in-identity-access-management)
+-	[Amazon Cognito in Identity Access Management](#amazon-cognito-in-identity-access-management)
 -	[Amazon Cognito Security Best Practices](#amazon-cognito-security-best-practices)
-
 -	[References](#references)
+
 
 
 
@@ -49,7 +49,7 @@ There are two types of Amazon Cognito:
 ![why use cognito](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/why-use-cognito1.png)
 
 
-## Cognito in Identity Access Management
+## Amazon Cognito in Identity Access Management
 1)	Cognito User and Identity pools integrated into User Lifecycle Management through the user provisioning process from onboarding to offboarding. .  Provisioning is the creation, update, and removal of access to a resource in an IT environment.
 `User Lifecycle Management`
 -	Onboarding new employee 
@@ -75,9 +75,14 @@ There are two types of Amazon Cognito:
 -	Really important for managing access to applications and APIs.
   
 ![token lifecycle](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/token-lifecycle.png)
+Source cited: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
 
-## Amazon Cognito Best Security Practices
-Source cited: [`Cloud Security Podcast. (2023, March 8)](Amazon Cognito Security Best Practices - YouTube)
+&NewLine;
+&NewLine;
+&nbsp;
+
+## Amazon Cognito Security Best Practices
+Source cited: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
 &NewLine;
 &NewLine;
 &nbsp;
