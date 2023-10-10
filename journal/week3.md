@@ -46,7 +46,8 @@ There are two types of Amazon Cognito:
 -	Can make it possible for users to easily access AWS resources tied to an application, such as Amazon S3 or Amazon DynamoDb..
 -	Acts as an identity broker for AWS resources with temporary credentials.
   
-![why use cognito](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/why-use-cognito.png)
+![why use cognito](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/why-use-cognito1.png)
+
 
 ## Cognito in Identity Access Management
 1)	Cognito User and Identity pools integrated into `User Lifecycle Management` through the user provisioning process from onboarding to offboarding. .  Provisioning is the creation, update, and removal of access to a resource in an IT environment. 
