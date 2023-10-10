@@ -54,6 +54,7 @@ There are two types of Amazon Cognito:
   
 ![why use cognito](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/why-use-cognito1.png)
 Source: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
+
 &NewLine;
 &NewLine;
 &nbsp;
