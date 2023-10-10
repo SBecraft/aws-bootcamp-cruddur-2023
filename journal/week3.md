@@ -24,15 +24,15 @@ Gain practical knowledge of implementing a decentralized authentication service 
 Decentralized authentication is a security mechanism that allows for the secure and decentralized authentication of users on the web, meaning there is no central authority verifying an individual’s identity.   It is used for online  for this technology include online marketplaces, social media platforms, and other online communities that require user authentication. Decentralized Identifiers (DIDs) are unique identifiers that allow for verified digital identification.  DIDs, unlike traditional federated identifiers, are designed to be independent of centralized registries, identity providers, and certificate authorities. For organizations, decentralized authentication limits risk, makes audits easier, and checks credentials for faster remote hiring. 
 
 ### Types of Decentralized Authentication
--	SAML/Single Sign ON & Identity Provider:   SAML is an acronym for Security Assertion Markup Language.   One credential is used to log into and authenticate with an application with face id.   It allows a single point of entry into any application.  Tells an application like Facebook, for example, to use face id for username and password, so you don’t have to remember them moving forward.
+-	`SAML/Single Sign ON & Identity Provider`:   SAML is an acronym for Security Assertion Markup Language.   One credential is used to log into and authenticate with an application with face id.   It allows a single point of entry into any application.  Tells an application like Facebook, for example, to use face id for username and password, so you don’t have to remember them moving forward.
 &NewLine;
 &NewLine;
 &nbsp;
--	OpenID Connect:  Allows you to use your social credentials to authenticate any service.  You don’t have to select OpenID Connect each time you want to use it.  But you must be working with an application that uses OpenID Connect.
+-	`OpenID Connect`:  Allows you to use your social credentials to authenticate any service.  You don’t have to select OpenID Connect each time you want to use it.  But you must be working with an application that uses OpenID Connect.
 &NewLine;
 &NewLine;
 &nbsp;
--	OAuth:  Provides Authentication and Authorization for consumer social media applications. It uses the credentials of one consumer application to log into another consumer application. 
+-	`OAuth`:  Provides Authentication and Authorization for consumer social media applications. It uses the credentials of one consumer application to log into another consumer application. 
 
 
 
@@ -43,9 +43,9 @@ Amazon Cognito is your service that allows authentication with users that it sto
 &nbsp;
 
 There are two types of Amazon Cognito:
-1)	Cognito User Pool:  Adds user directories to your application. Does authentication with OAuth. Talks to social media sites to get authorization from user to use their credentials to establish a trust relationship between that social media site and your new application in order to off load the need to store username and password locally.
+1)	`Cognito User Pool`:  Adds user directories to your application. Does authentication with OAuth. Talks to social media sites to get authorization from user to use their credentials to establish a trust relationship between that social media site and your new application in order to off load the need to store username and password locally.
  
-2)	Cognito Identity Pool:  Grants access to AWS services. Allows an application to request temporary credentials and it acts as an access broker.  It says to a user that they already have credentials, and that they seem to know their Amazon credentials, as well,  so the user is given temporary credentials so they can access different Amazon services using temporary credentials. AWS credentials are tied to your IAM Role.
+2)	`Cognito Identity Pool`:  Grants access to AWS services. Allows an application to request temporary credentials and it acts as an access broker.  It says to a user that they already have credentials, and that they seem to know their Amazon credentials, as well,  so the user is given temporary credentials so they can access different Amazon services using temporary credentials. AWS credentials are tied to your IAM Role.
 
 ### Why Use Cognito
 -	It’s a user directory for consumer customers.  And a username authentication which can attach to anything that is an application.
