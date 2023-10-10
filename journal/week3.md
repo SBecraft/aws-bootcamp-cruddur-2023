@@ -53,7 +53,10 @@ There are two types of Amazon Cognito:
 -	Acts as an identity broker for AWS resources with temporary credentials.
   
 ![why use cognito](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/why-use-cognito1.png)
-
+Source: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Amazon Cognito in Identity Access Management
 1)	Cognito User and Identity pools integrated into User Lifecycle Management through the user provisioning process from onboarding to offboarding. .  Provisioning is the creation, update, and removal of access to a resource in an IT environment.
@@ -81,14 +84,14 @@ There are two types of Amazon Cognito:
 -	Really important for managing access to applications and APIs.
   
 ![token lifecycle](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/token-lifecycle.png)
-Source cited: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
+Source: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
 
 &NewLine;
 &NewLine;
 &nbsp;
 
 ## Amazon Cognito Security Best Practices
-Source cited: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
+Source: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?v=tEJIeII66pY)
 &NewLine;
 &NewLine;
 &nbsp;
