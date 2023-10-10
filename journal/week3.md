@@ -25,7 +25,13 @@ Decentralized authentication is a security mechanism that allows for the secure 
 
 ### Types of Decentralized Authentication
 -	SAML/Single Sign ON & Identity Provider:   SAML is an acronym for Security Assertion Markup Language.   One credential is used to log into and authenticate with an application with face id.   It allows a single point of entry into any application.  Tells an application like Facebook, for example, to use face id for username and password, so you don’t have to remember them moving forward.
+&NewLine;
+&NewLine;
+&nbsp;
 -	OpenID Connect:  Allows you to use your social credentials to authenticate any service.  You don’t have to select OpenID Connect each time you want to use it.  But you must be working with an application that uses OpenID Connect.
+&NewLine;
+&NewLine;
+&nbsp;
 -	OAuth:  Provides Authentication and Authorization for consumer social media applications. It uses the credentials of one consumer application to log into another consumer application. 
 
 
