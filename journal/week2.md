@@ -221,8 +221,17 @@ Industry standard is to separate development containers from production containe
 -	Run container by right-clicking on `docker-compose.yml`and then clicking on `Compose Up`
 -	Go to PORTS Tab to see ports and make sure that port 3000 and port 4567 are open.  If not, unlock them in order to access frontend Cruddur URL and backend app data.
 -	I received a failed to compile error and that React must be in scope when using JSX. As a result, I could not access the frontend URL or the backend data.  And, the PORTs tab did not display port information.
--	
-  ![Failed to Compile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/failed-to-compile.png)
+-	The browser tab shows `Cruddur` but I can not see the contents of the webpage.
+-	Stopped and removed any and all docker containers that may be open in background competing for open ports  with the CLI commands:
+```sh
+docker stop $(docker ps -a -q)
+```
+```sh
+docker rm $(docker ps -a -q)
+```
+
+  
+![Failed to Compile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/failed-to-compile.png)
 
 &NewLine;
 &NewLine;
@@ -236,6 +245,28 @@ Industry standard is to separate development containers from production containe
 ![docker containers created](  )
 
 ![docker containers](  )
+
+
+### Set Open Ports for Frontend and Backend
+Updated `gitpod.yml` file with code to set frontend and backend port numbers to unlock/become public when Containers are run, so that it doesn’t have to be done manually.
+-	Place the following code in `gitpod.yml` below vscode extension block.
+```sh
+ports:
+  - name: frontend
+    port: 3000
+    onOpen: open-browser
+    visibility: public
+  - name: backend
+    port: 4567
+    visibility: public
+  - name: xray-daemon
+    port: 2000
+    visibility: public
+```
+
+![ports set]( )
+
+
 
 ### SUCCESSFUL RUN OF DISTRIBUTIVE TRACING:
 -	Went back to main directory `aws-bootcamp-cruddur-2023` to make another attempt to connect to frontend and backend servers. C
@@ -706,11 +737,48 @@ def init_rollbar(app):
 
 -	Ran Docker Compose Up again and this time I could reach the backend Cruddur URL and see data.
 -	Then, I tested for our new endpoint by adding `/rollbar/test` to the end of the backend URL and we get the expected message `Hello World!`
+-	
 ![hello world]()
+
 -	Check Rollbar website to see if the tool was getting any activity, but is only showing that it is listening for something.
 -	Went back to `docker-compose.yml` file to add Rollbar access token as an environment variable.
+-	
 ![docker compose rollbar env var]()
--	Ran docker Compose Up again to launch the Cruddur app and browse the backend endpoint.  On the Rollbar website, should be able to click `Items` for `FirstProject` and select all the critical levels to see "Hello World!" message and data around this trace.. However, the Rollbar website wasn’t functioning as expected.  Clicking on Items just displayed the Welcome to Rollbar page and there is no access to the filters from the left hand taskbar.
+
+-	Ran docker Compose Up again to launch the Cruddur app and browse the backend endpoint.  On the Rollbar website, should be able to click `Items` for `FirstProject` and select all the critical levels to see "Hello World!" message and data around this trace.. However, the Rollbar website wasn’t functioning as expected.  Clicking on Items just displayed the Welcome to Rollbar page and there is no access to the filters from the left hand taskbar. Looks as if my data did not reach Rollbar.
+
+![rollbar not working]()
+
+-	Found a solution in the AWS Bootcamp Discord Channel.
+-Commented out `@app.before_first_request` in the Rollbar block of code in  `app.py` file and replaced it with `with app.app_context():`
+- And then indented the entire function codeblock `def_init_rollbar():`
+- Ran Docker Compose Up and can now reach backend URL at `/rollbar/test/` to get message `Hello World!`
+- Got `Items` tab on Rollbar site  to show filters and Cruddur project name under Projects, but no data to display.
+  
+![rollbar don’t work]
+
+![change rollbar code]()
+
+-	Then, tried attaching the shell to the backend container and then run env | grep ROLLBAR. The backend container shell env variables match the set global variables.
+-	Other attempts to resolve Rollbar issue:
+I tried both sets of ‘app.py’ Rollbar code that Andrew Brown provided with no resolution of missing Rollbar data. I tried different version of flask (2.2.5 and 3.0.0) with both sets of Rollbar code, to no avail.  I tried advice from Stack Overflow and other online sources.  I did `env | grep ROLLBAR` and confirmed my Rollbar access token is set correctly. The backend URL works and I get “Hellow World!”  I did try advice from a bootcamp discord group to comment out “app.before_first_request` and put beneath it `with app.app_context():`. Shifting the code indentation below it.  I have also tried opening new Gitpod Workspaces to start fresh and had no success with that resolving issue.  Also, I made sure that the shell attacked to my backend container had the same rollbar access token environment variable.
+-	At this point I will stop working on Rollbar to move on to Week-3
+-	I leave with the backend container log giving me this error:
+`pyrollbar: No access_token provided. Please configure by calling rollbar.init() with you access token.`
+
+- To upgrade or downgrade the flask version do the following steps:
+  1.	Check the current version of Flask that you are using. You can do this by running the following command in your terminal:
+`pip show flask`
+
+ 2.	Once you know the current version of Flask that you are using, you can downgrade to a version older than 2.3.0 by running the following command:
+`pip install flask==2.2.5`
+`pip install flask==3.0.0`
+
+NOTE:
+The error AttributeError: 'Flask' object has no attribute 'before_first_request' occurs when you try to use the before_first_request decorator in a Flask app that is using version 2.3.0 or higher. This decorator was deprecated in Flask 2.3.0 and removed in Flask 2.4.0.
+To fix this error, you need to upgrade your Flask app to a version older than 2.3.0 or use the got_first_request decorator instead. The got_first_request decorator is a newer decorator that is similar to before_first_request but it is not deprecated.
+
+
 
 
 ## How to Tag Work 
