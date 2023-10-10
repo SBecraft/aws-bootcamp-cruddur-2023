@@ -5,13 +5,12 @@ Table of Contents
 -	[Observability](#observability)
 -	[Observability Security Considerations](#observability-security-considerations)
 -	[Honeycomb](#honeycomb)
--	[Add react-js to gitpod.yml](#add-react-js-to-gitpod.yml)
 -	[AWS X-Ray](#aws-x-ray)
 -	[Instrument AWS X-Ray Subsegments](#instrument-aws-x-ray-subsegments)
--	[CloudWatch Logs](#cloudwatch-logs)
--	[AWS Rollbar](#aws-rollbar)
+-	[AWS CloudWatch Logs](#aws-cloudwatch-logs)
+-	[Rollbar](#rollbar)
 -	[How To Tag Work](#how-to-tag-work)
--	[How I Resolved the Failed to Compile Error](#how-i-resolved-the-fail-to-compile-error)
+-	[How I Resolved Failed to Compile Error](#how-i-resolved-failed-to-compile-error)
 -	[References](#references)
 
 
@@ -33,10 +32,12 @@ Observability is relied upon by organizations to help monitor applications and l
 &NewLine;
 &NewLine;
 &nbsp;
-Observability in AWS is the way you would break down an application into multiple processes and looking at the individual functions.
+
+Observability in AWS is the way you would break down an application into multiple processes and look at their individual functions.
 &NewLine;
 &NewLine;
 &nbsp;
+
 ### Importance of Observability:
 -	Visibility of end-to-end logs
 -	Decreased alert fatigue for SOC teams
@@ -301,7 +302,9 @@ with tracer.start_as_current_span("home-activities-mock-data"):
 - Go to Honeycomb.io to see the most recent traces and any spans.  More than one color in a trace means that we successfully created a span.
 
 ![trace with two colors](  )
+
 ![span showing mock data](  )
+
 #### Add Attributes to Spans
 -	Add the following attribute code to` home.activities.py` 
 ```sh
@@ -338,6 +341,7 @@ In order for X-Ray to work it needs an X-Ray daemon, another container/applicati
 
 ### Install AWS SDK
 [AWS SDK for Python Documentation](   )
+
 -	Add ` aws-xray-sdk` to the `requirements.txt`
 ```sh
 aws-xray-sdk
@@ -434,7 +438,7 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 
 ![aws xray query success]( )
 
-### Instrumenting AWS X-Ray Subsegments
+### Instrument AWS X-Ray Subsegments
 Implemented an X-Ray subsegment for the service called `user activities` so when a Cruddur app user hits a specific API route, that data will be sent to AWS X-Ray to be queried and analyzed.
 -	To instrument AWS X-Ray subsegments I needed to import the X-Ray recorder.  To do so I added the following code to the `user_activities.py` file that is located at `/backend-flask/services/user_activities.py`
 ```sh
@@ -507,7 +511,7 @@ def data_show_activity(activity_uuid):
 
 NOTE:  X-Ray spend adds up in cost in Cloudwatch when in production.  I’m using it in development so cost should be minimal.
 
-## CloudWatch Logs
+## AWS CloudWatch Logs
 [Python WatchTower Documentation]( https://pypi.org/project/watchtower/)
 -	Added WatchTower to `requirements.txt
 ```
@@ -715,7 +719,7 @@ git tag week-2
 git push --tags
 ```
 
- ## How I Resolved the Failed to Compile Error
+ ## How I Resolved Failed to Compile Error
 
 - I had to resolve issues with (1) not seeing ports in PORTS tab and (2) no service available on frontend port 3000, after running docker Compose Up.
 - When trying to access front end port 3000 to see Cruddur URL I received the message "Failed to Compile" and "React must be in scope when using JSX   react/react-in-jsx-scope"
