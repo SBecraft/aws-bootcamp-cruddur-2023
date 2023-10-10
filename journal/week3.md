@@ -50,7 +50,8 @@ There are two types of Amazon Cognito:
 
 
 ## Cognito in Identity Access Management
-1)	Cognito User and Identity pools integrated into `User Lifecycle Management` through the user provisioning process from onboarding to offboarding. .  Provisioning is the creation, update, and removal of access to a resource in an IT environment. 
+1)	Cognito User and Identity pools integrated into User Lifecycle Management through the user provisioning process from onboarding to offboarding. .  Provisioning is the creation, update, and removal of access to a resource in an IT environment.
+`User Lifecycle Management`
 -	Onboarding new employee 
 -	Provision
 -	Enforce
