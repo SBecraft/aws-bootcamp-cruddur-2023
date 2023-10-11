@@ -375,12 +375,12 @@ E | grenv | grep Honey
 &NewLine;
 &nbsp;
 
-Honeycomb-whoami.glitch.me   :  how to find out who  a Honeycomb api belongs to
+#### Honeycomb-whoami.glitch.me   :  how to find out who  a Honeycomb api belongs to
 
 ![honeycomb whoami](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-whoami.png)
 
 ### Create Span Around Hard-Coded Data With a Tracer
--	Go to  [Honeycomb/OpenTelemetry for Python Documentation}(https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/) to get code to create a tracer.  
+- Go to  [Honeycomb/OpenTelemetry for Python Documentation}(https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/) to get code to create a tracer.  
 OpenTelemetry requires that a Tracer is given a name as a string.  Honeycomb takes the name of a tracer associated with a data trace and turns it into  the `library.name` field. 
 Honecomb.io recommends “pick a name that matches the appropriate scope for your traces. If you have one tracer for each service, then use the service name. If you have multiple tracers that live in different “layers” of your application, then use the name that corresponds to that “layer”.
 -	Add the following code to the `home_activities-py` file that is found in the `backend-flask/services/ ` directory.
@@ -411,7 +411,7 @@ with tracer.start_as_current_span("home-activities-mock-data"):
 ![span showing mock data](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/span-showing-mock-data.png)
 
 #### Add Attributes to Spans
--	Add the following attribute code to` home.activities.py` 
+- Add the following attribute code to` home.activities.py` 
 ```sh
 span = trace.get_current_span()
 ```
@@ -427,7 +427,7 @@ span.set_attribute(“app.result_length”, len(results))
 ``` 
 -	Refresh Cruddur backend and frontend URLs to create new data set in Honeycomb.
 -	In Honeycomb.io  run a new query with visualize as `count` and group by as `trace.trace_id`.  Here are some results:
--	
+	
 ![app now](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/attribute-app-now.png)
 
 ## Update Gitpod.yml With React-JS Auto NMP Install
@@ -482,7 +482,7 @@ XRayMiddleware(app, xray_recorder)
 
 ![add xray](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-xray.png)
 
--	Next, setup AWS X-Ray Resources by adding the file `aws/json/xray.json’ with the following code:
+- Next, setup AWS X-Ray Resources by adding the file `aws/json/xray.json’ with the following code:
 ```sh
 {
   "SamplingRule": {
@@ -723,6 +723,7 @@ Def run(logger):
 -	Any kind of logging, including those from instrumentation like X-Ray should show in CloudWatch Logs.
 	
 ![cloudwatch log groups](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cloudwatch-log-group.png)
+
 ![cloudwatch log stream](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cloudwatch-log-stream.png)
 
 -	Comment out or remove cloudwatch logging code and logger arguments added to `app.py` and `home_activites.py` to turn off CloudWatch to save on spend.
@@ -876,15 +877,17 @@ def init_rollbar(app):
 
 ![rollbar not working](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-not-working.png)
 
--	Found a solution in the AWS Bootcamp Discord Channel.
--Commented out `@app.before_first_request` in the Rollbar block of code in  `app.py` file and replaced it with `with app.app_context():`
+- Found a solution in the AWS Bootcamp Discord Channel.
+- Commented out `@app.before_first_request` in the Rollbar block of code in  `app.py` file and replaced it with `with app.app_context():`
 - And then indented the entire function codeblock `def_init_rollbar():`
+
+![change rollbar code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/change-rollbar-code.png)
+  
 - Ran Docker Compose Up and can now reach backend URL at `/rollbar/test/` to get message `Hello World!`
 - Got `Items` tab on Rollbar site  to show filters and Cruddur project name under Projects, but no data to display.
   
 ![rollbar don’t work](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-dont-work.png)
 
-![change rollbar code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/change-rollbar-code.png)
 
 -	Then, tried attaching the shell to the backend container and then run env | grep ROLLBAR. The backend container shell env variables match the set global variables.
 -	Other attempts to resolve Rollbar issue:
