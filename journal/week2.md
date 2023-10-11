@@ -664,6 +664,8 @@ def data_show_activity(activity_uuid):
 &NewLine;
 &nbsp;
 
+- Query for `activities_home`:
+
 ![service map 3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-3.png)
 
 &NewLine;
@@ -673,6 +675,8 @@ def data_show_activity(activity_uuid):
 &NewLine;
 &nbsp;
 
+-  Query for `activities_users`:
+  
 ![service map 4](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-4.png)
 
 &NewLine;
@@ -682,11 +686,6 @@ def data_show_activity(activity_uuid):
 &NewLine;
 &nbsp;
 
-![service map 5](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-5.png)
-
-&NewLine;
-&NewLine;
-&nbsp;
 
 NOTE:  X-Ray spend adds up in cost in Cloudwatch when in production.  I’m using it in development so cost should be minimal.
 &NewLine;
