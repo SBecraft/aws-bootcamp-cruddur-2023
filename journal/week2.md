@@ -359,7 +359,15 @@ npm i
   
 ![honeycomb data set](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![honeycomb data set-2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset-2.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![honeycomb data set-3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset-3.png)
 
