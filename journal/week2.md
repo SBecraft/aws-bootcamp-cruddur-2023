@@ -835,10 +835,10 @@ I tried both sets of ‘app.py’ Rollbar code that Andrew Brown provided with n
 `pyrollbar: No access_token provided. Please configure by calling rollbar.init() with you access token.`
 
 - To upgrade or downgrade the flask version do the following steps:
-  1.	Check the current version of Flask that you are using. You can do this by running the following command in your terminal:
+ 1) Check the current version of Flask that you are using. You can do this by running the following command in your terminal:
 `pip show flask`
 
- 2.	Once you know the current version of Flask that you are using, you can downgrade to a version older than 2.3.0 by running the following command:
+ 2) Once you know the current version of Flask that you are using, you can downgrade to a version older than 2.3.0 by running the following command:
 `pip install flask==2.2.5`
 `pip install flask==3.0.0`
 
