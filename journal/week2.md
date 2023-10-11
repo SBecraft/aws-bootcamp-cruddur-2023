@@ -27,6 +27,9 @@ The fractional CTO has suggested that we implement distributed tracing first bec
 - Integrate Rollbar for Error Logging
 - Trigger an error an observe an error with Rollbar
 - Install WatchTower and write a custom logger to send application log data to CloudWatch Log group
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Observability 
 Observability is relied upon by organizations to help monitor applications and looks at the whole life cycle of an application.  It works with traditional monitoring to enable better monitoring to make sure an application functions optimally.  Observability includes tools and methods of aggregating a continuous flow of measurable data to analyze how applications, and the networks they run on, perform to troubleshoot and debug any issues that may result in a decline in application performance. 
@@ -66,7 +69,9 @@ To enable observability in AWS you need instrumentation, which is what helps you
 -	Monolithic logging is everything in one place and very prevalent in Enterprise environments.
 -	Current state of logging includes on-premises logs and Cloud logs. Both can include log types such as infrastructure, application(s), anti-virus, and firewall.
 -	Cloud platforms introduce Infrastructure as Code, Platform as a Service, and Software as a Service which add extra levels of complexity and additional logs.
-
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Observability Security Considerations
 AWS observability tools are not security tools, but you can use logs,  AWS serverless event driven architecture,  or AWS services for threat detection (Amazon GuardDuty) to provide application security.  
@@ -130,6 +135,7 @@ gp env HONEYCOMB_SERVICE_NAME="Cruddur"
 ```sh
 Env | grep HONEY
 ```
+
 ![both env vars honeycomb](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/both-env-vars-honeycomb.png)
 
 &NewLine;
@@ -147,6 +153,7 @@ OTEL_SERVICE_NAME: "backend-flask”
 OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
 OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
 ```
+
 ![otel env vars](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/otel-env-vars.png)
 
 &NewLine;
@@ -163,7 +170,9 @@ opentelemetry-exporter-otlp-proto-http
 opentelemetry-instrumentation-flask 
 opentelemetry-instrumentation-requests
 ```
+
 ![python requirements txt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/python-requirements-txt.png)
+
 
 -	Change directory to backend-flask
 ```sh
@@ -181,6 +190,7 @@ Proof opentelemetry-api installed successfully:
 ```sh
 pip install -r requirements.txt
 ```
+
 ![success requirements dependencies](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/success-requirements-dependencies.png)
 
 Refer to https://ui.honeycomb.io
@@ -195,6 +205,7 @@ from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExport
 from opentelemetry.sdk.trace import TracerProvider
 from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ```
+
 ![add to app py](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-to-app-py.png)
 
 &NewLine;
@@ -211,6 +222,7 @@ provider.add_span_processor(processor)
 trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 ```
+
 ![initialize tracing](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/intialize%20tracing.png)
 
 ####	Intialize automatic instrumentation with Flask
@@ -269,6 +281,10 @@ docker rm $(docker ps -a -q)
 - Docker Containers created:
   
 ![docker containers created](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-containers-created.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![docker containers](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-containers.png)
 
@@ -340,14 +356,24 @@ npm i
 
 #### Honecomb Query in Backend-Flask
 -	Now that I’ve run Docker Compose-Up and can connect to the backend-flask server, there should now be a dataset in the Honecomb bootcamp query results.
+  
 ![honeycomb data set](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset.png)
+
 ![honeycomb data set-2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset-2.png)
+
 ![honeycomb data set-3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset-3.png)
 
-Note: Can check that you have the correct Honeycomb api key with the command
+&NewLine;
+&NewLine;
+&nbsp;
+
+NOTE: Check that you have the correct Honeycomb api key with the command:
 ```sh
 E | grenv | grep Honey
 ```
+&NewLine;
+&NewLine;
+&nbsp;
 
 Honeycomb-whoami.glitch.me   :  how to find out who  a Honeycomb api belongs to
 
@@ -378,6 +404,10 @@ with tracer.start_as_current_span("home-activities-mock-data"):
 
 ![trace with two colors](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/trace-with-two-colors.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![span showing mock data](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/span-showing-mock-data.png)
 
 #### Add Attributes to Spans
@@ -389,7 +419,7 @@ span = trace.get_current_span()
 span.set_attribute(“app.now”, now.isoformat())
 ```
 
-![span attribute 1](  )
+![span attribute 1](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/span-attribute-1.png)
 
 -	Add the following attribute code to line above ~return results~
 ```sh
@@ -409,7 +439,9 @@ span.set_attribute(“app.result_length”, len(results))
        cd frontend-react-js
        npm i
 ```
-
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## AWS X-Ray
 AWS’s built in distributive tracing and observability tool.
@@ -563,36 +595,42 @@ finally:
 ![subsegment code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/subsegment-code.png)
 
 -	Add X-Ray recorder capture code to @app.route(s)  as follows:
+```py
 @app.route("/api/activities/home", methods=['GET'])
-`@xray_recorder.capture('activities_home')`
+@xray_recorder.capture('activities_home')
 def data_home():
   data = HomeActivities.run()
   return data, 200
+```
 &NewLine;
 &NewLine;
 &nbsp;
+
+```py
 @app.route("/api/activities/@<string:handle>", methods=['GET'])
-`@xray_recorder.capture('activities_users')`
+@xray_recorder.capture('activities_users')
 def data_handle(handle):
   model = UserActivities.run(handle)
   if model['errors'] is not None:
     return model['errors'], 422
   else:
-    return model['data'], 200&NewLine;
+    return model['data'], 200
+```
+&NewLine;
 &NewLine;
 &nbsp;
 
+```py
 @app.route("/api/activities/<string:activity_uuid>", methods=['GET'])
-`@xray_recorder.capture('activities_show')`
+@xray_recorder.capture('activities_show')
 def data_show_activity(activity_uuid):
   data = ShowActivity.run(activity_uuid=activity_uuid)
   return data, 200
+```
 
 &NewLine;
 &NewLine;
 &nbsp;
-
-
 
 -	Right-clicked on `docker-compose.yml`.  Chose Docker `Compose Up` to run containers for the AWS Daemon, backend flask and frontend react.
 -	Went to frontend URL for Cruddur app and refreshed page multiple times, as well as clicked on different parts of the webpage for generating data for the AWS Daemon to collect and send to AWS X-Ray.
@@ -600,9 +638,13 @@ def data_show_activity(activity_uuid):
 -	Here is  the service map showing a connection between the client and my cruddur app.
 
 ![service map](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map.png)
+
 ![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2.png)
+
 ![service map 3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-3.png)
+
 ![service map 4](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-4.png)
+
 ![service map 5](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-5.png)
 
 &NewLine;
@@ -610,6 +652,9 @@ def data_show_activity(activity_uuid):
 &nbsp;
 
 NOTE:  X-Ray spend adds up in cost in Cloudwatch when in production.  I’m using it in development so cost should be minimal.
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## AWS CloudWatch Logs
 [Python WatchTower Documentation]( https://pypi.org/project/watchtower/)
@@ -682,6 +727,9 @@ Def run(logger):
 
 -	Comment out or remove cloudwatch logging code and logger arguments added to `app.py` and `home_activites.py` to turn off CloudWatch to save on spend.
 -	Comment out AWS X-Ray  related code in both `app.py` and `user_activities` files to save on spend. 
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Integrate Rollbar and Capture and Error
 [Create a Rollbar Account](https://app.rollbar.com/)
@@ -865,6 +913,9 @@ To fix this error, you need to upgrade your Flask app to a version older than 2.
 git tag week-2
 git push --tags
 ```
+&NewLine;
+&NewLine;
+&nbsp;
 
  ## How I Resolved Fronted Failed to Compile Error
 
@@ -919,7 +970,9 @@ nvm alias default 16.20.2
 ```
 ![Screenshot updated node](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/screenshot-updated-node.png)
 
-
+&NewLine;
+&NewLine;
+&nbsp;zzz
 
 ## References
 - [Honeycomb.io Website](https://ui.honeycomb.io)
