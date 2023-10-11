@@ -32,6 +32,7 @@ Week-0 lays the foundation for the entire bootcamp by:
 
 Cruddur is an ephemeral social media micro-blogging platform that allows users to post updates, thoughts, and photos that automatically expire after a period of time, ensuring that personal information and conversations stay relevant and in the moment.
 &NewLine;
+&NewLine;
 &nbsp;
 
 [Cruddur Project Business Use Case](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.pdf)
@@ -79,11 +80,8 @@ aws –cli -auto-prompt
 ```sh
 aws sts get-caller-identity
 ```
-
   
 ![IAM User Security Credentials Verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/cloudshell-screenshot.png)
-
-
 
 &NewLine;
 &NewLine;
@@ -135,7 +133,7 @@ tasks:
 
 
 ## Assign Environment Variables to Security Credentials
-I set the IAM User “awsbootcamp” security credentials for the Bash Terminal in GitPod.  
+- I set the IAM User “awsbootcamp” security credentials for the Bash Terminal in GitPod.  
 
 ```sh
 export AWS_ACCESS_KEY_ID=""
@@ -143,21 +141,23 @@ export AWS_SECRET_ACCESS_KEY=""
 export AWS_DEFAULT_REGION=us-east-1
 ```
 
-Now I can view the AWS environment variables from the Gitpod CLI with the following command:
+- Now I can view the AWS environment variables from the Gitpod CLI with the following command:
 ```sh
 env | grep AWS_
 ```
-Next, I set the IAM User “awsbootcamp” security credentials environment variables so GitPod will remember the credentials every time I relaunch Workspaces.
+- Next, I set the IAM User “awsbootcamp” security credentials environment variables so GitPod will remember the credentials every time I relaunch Workspaces.
 
 ```sh
 gp env AWS_ACCESS_KEY_ID=""
 gp env AWS_SECRET_ACCESS_KEY=""
 gp env AWS_DEFAULT_REGION=us-east-1
 ```
+
 ###  Verified that GitPod Terminal recognizes “awsbootcamp” as the User after Workspace relaunch with the command:
 ```sh
 aws sts get-caller-identity
 ```
+
 ![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp.png)
 
 &NewLine;
@@ -173,7 +173,8 @@ aws sts get-caller-identity
 
 ### Second, create a User account Billing Alert
 
-Here is a snapshot of my User account Billing Alert Preferences I created in the "awsbootcamp" User console:
+- Here is a snapshot of my User account Billing Alert Preferences I created in the "awsbootcamp" User console:
+
 ![Proof of working billing alert](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/billing-preferences.png)
 
 
@@ -182,15 +183,15 @@ Here is a snapshot of my User account Billing Alert Preferences I created in the
 
 [AWS SNS Create-Topic Documentation](https://docs.aws.amazon.com/cli/latest/reference/sns/create-topic.html)
 
-Used the following command in Gitpod Terminal to create topic:
+- Used the following command in Gitpod Terminal to create topic:
 ```sh
 aws sns create-topic --name billing-alarm
 ```
-This command returned a TopicARN
+- This command returned a TopicARN.
 
 ![Topic Arn](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/correct-topic-arn.png)
 
-Created a subscription with the TopicARN and my Email
+- Created a subscription with the TopicARN and my Email.
 
 ```sh
 aws sns subscribe \
@@ -199,11 +200,11 @@ aws sns subscribe \
     --notification-endpoint your@email.com
 ```
 
-Checked my email and confirmed the subscription exists.
+- Checked my email and confirmed the subscription exists.
 
 ![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscription-confirmed.png)
 
-Proof of subscription in AWS console:
+- Proof of subscription in AWS console:
 
 ![Newly created subscription](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscriptions-console.png)
 
@@ -214,7 +215,7 @@ Proof of subscription in AWS console:
 ### Create Billing Alarm for CloudWatch
 [AWS Cloudwatch Put-Metric-Alarm Documentation](https://docs.aws.amazon.com/cli/latest/reference/cloudwatch/put-metric-alarm.html)
 
-Used the following command in GitPod Terminal to create Billing Alarm:
+- Used the following command in GitPod Terminal to create Billing Alarm:
 
 ```sh
 aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.json
@@ -224,7 +225,7 @@ aws cloudwatch put-metric-alarm --cli-input-json file://aws/json/alarm_config.js
 
 ![json code for setting up billing alarm via Command Prompt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarm-code.png)
 
-Here is a snapshot of my User account Billing Alarms located in the AWS console under Cloudwatch > Alarms.
+- Here is a snapshot of my User account Billing Alarms located in the AWS console under Cloudwatch > Alarms.
 ![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/alarms.png)
 
 &NewLine;
@@ -242,22 +243,33 @@ aws sts get-caller-identity --query Account --output text
 
 ![Budget json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/budget.json)
 
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![budget json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-json-file.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![Budget with subscribers json file](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/aws/json/budget-notifications-with-subscribers.json)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![Budget with subscribers](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-with-example2.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
 
-
-
-
-Created the environment variable ACCOUNT_ID to represent "awsbootcamp" User 12-digit ID.
+- Created the environment variable ACCOUNT_ID to represent "awsbootcamp" User 12-digit ID.
 
 ![Account ID Env variable](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/create-budget-terminal.png)
 
-Use the following commands to create ACCOUNT_ID:
+- Use the following commands to create ACCOUNT_ID:
 
 ```sh
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
@@ -276,11 +288,11 @@ aws budgets create-budget \
     --notifications-with-subscribers file://aws/json/budget-notifications-with-subscribers.json
 ```
 
-Proof I created Budgets in my AWS User account:
+- Proof I created Budgets in my AWS User account:
 
 ![Proof Budgets Created in User account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/budget-example.png)
 
-If you want to check what you created, run this command:
+- If you want to check what you created, run this command:
 ```sh
 aws budgets describe-budget --account-id 111122223333 --budget-name my-budget
 ```
@@ -291,7 +303,10 @@ aws budgets describe-budget --account-id 111122223333 --budget-name my-budget
 
 ## Lucid Charts App Architecture Diagrams
 
--	The Lucid Charts web-based application provides a means to construct diagrams and flowcharts to understand organizational architecture and how processes interact.
+The Lucid Charts web-based application provides a means to construct diagrams and flowcharts to understand organizational architecture and how processes interact.
+&NewLine;
+&NewLine;
+&nbsp;
 &NewLine;
 &NewLine;
 &nbsp;
