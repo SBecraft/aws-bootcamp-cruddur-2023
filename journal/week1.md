@@ -37,9 +37,6 @@ Table of Contents
 &NewLine;
 &nbsp;
 
-[VSCode with Containers Overview](https://code.visualstudio.com/docs/containers/overview)
-
-
 ### Docker 
 - A ‘Platform as a Service’ that allows for the build, test, and deployment of applications without impacting the rest of your system.  
 - Creates `Containers` that are isolated, virtual machine-like  environments that hold everything needed to run an application, including the operating system dependencies and source code. The Container shares the host operating system kernel. It is considered lightweight and good for one time use because it’s only running processes and not a whole operating system. 
