@@ -650,9 +650,15 @@ def data_show_activity(activity_uuid):
 &NewLine;
 &NewLine;
 &nbsp;
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
 &NewLine;
 &NewLine;
 &nbsp;
@@ -662,9 +668,15 @@ def data_show_activity(activity_uuid):
 &NewLine;
 &NewLine;
 &nbsp;
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![service map 4](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-4.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
 &NewLine;
 &NewLine;
 &nbsp;
