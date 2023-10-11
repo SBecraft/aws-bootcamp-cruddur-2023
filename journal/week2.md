@@ -46,6 +46,7 @@ Observability in AWS is the way you would break down an application into multipl
 -	Application Health
 -	Minimize operational costs
 -	Increase in customer satisfaction when applications function properly
+-	
 ### 3 Pillars of Observability
 -	Metrics
 -	Traces
@@ -133,6 +134,9 @@ Env | grep HONEY
 ```
 ![both env vars honeycomb](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/both-env-vars-honeycomb.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
 ### Add Open Telemetry (OTEL) Env Vars to backend-flask in docker compose
 OTEL, or Open Telemetry, is an open-source/open-standard  observability framework for the backend. Adopted by AWS, Azure and Google Cloud platforms.  It is a collection of tools, APIs and SDKs used to manage telemetry data such as traces, metrics and logs to help analyze software performance through distributive tracing.  Frontend OTEL is not as effective in gathering metrics as for the backend. We’re configuring OTEL to send to Honeycomb.  The librairies we’rr installing inside Cruddur app are open-sourec from the Open Telemetry project. The Open Telemetry project is part of the CNCF (Cloud Native Compute Foundation) which also runs Kubernetes, so OTEL is really well-governed open-source code.Honeycom is not in your cloud environment.  Your cloud environment is sending standardized messages out to Honeycomb. Honeycomb stores the messages in its database and gives you a user interface to look at them. But, you could also configure OTEl to send messages to open-source Telemetry backend observability platforms other than Honeycomb like X-Ray.
 &NewLine;
@@ -147,7 +151,9 @@ OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
 ```
 ![otel env vars](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/otel-env-vars.png)
 
-
+&NewLine;
+&NewLine;
+&nbsp;
 ### Set Up Honeycomb Instrumentation
 -	Went to the Honeycomb website and into my Honeycomb account under `bootcamp` data set environment and clicked on `Home ‘in the left-hand taskbar.
 -	Clicked on `Python` to get the Honeycomb OTEL python istall package to put into `requirements.txt` located in the `backend-flask` directory.
@@ -193,6 +199,9 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 ```
 ![add to app py](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-to-app-py.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
 ####	Initialize tracing and an exporter that can send data to Honeycomb
 - Add the following code to the `app.py` file below the # Honeycomb - from opentelemetry - code block.
 ```sh
@@ -910,7 +919,7 @@ nvm install 16.20.2
 ```sh
 nvm alias default 16.20.2
 ```
-![Screenshot updated node](  )
+![Screenshot updated node](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/screenshot-updated-node.png)
 
 
 
