@@ -39,9 +39,6 @@ Table of Contents
 
 [VSCode with Containers Overview](https://code.visualstudio.com/docs/containers/overview)
 
-&NewLine;
-&NewLine;
-&nbsp;
 
 ### Docker 
 - A ‘Platform as a Service’ that allows for the build, test, and deployment of applications without impacting the rest of your system.  
@@ -53,7 +50,7 @@ Table of Contents
 &NewLine;
 &NewLine;
 &nbsp;
-
+NOTE:
 - Usually Gitpod is pre-installed with the Docker extension.
 - I did not have the Docker extension, so I added it to my Gitpod VSCode.
 
