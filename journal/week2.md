@@ -10,7 +10,7 @@ Table of Contents
 -	[AWS CloudWatch Logs](#aws-cloudwatch-logs)
 -	[Rollbar](#rollbar)
 -	[How To Tag Work](#how-to-tag-work)
--	[How I Resolved Failed to Compile Error](#how-i-resolved-failed-to-compile-error)
+-	[How I Resolved Frontend Failed to Compile Error](#how-i-resolved-frontend-failed-to-compile-error)
 -	[References](#references)
 
 
@@ -164,7 +164,7 @@ Proof opentelemetry-api installed successfully:
 ```sh
 pip install -r requirements.txt
 ```
-![success requirements dependencies]( https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/success-requirements-dependencies.png)
+![success requirements dependencies](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/success-requirements-dependencies.png)
 
 Refer to https://ui.honeycomb.io
 
@@ -218,7 +218,7 @@ NOTE:  There is a line of code in the `Dockerfile` that runs an npm install, so 
 Industry standard is to separate development containers from production containers. The containers for development and production come from different images.  Production containers are based on a much more slimmed-down image than that used for development which includes many tools not needed for production.
 
 -	Changed into main directory with `cd ..`
--	Run container by right-clicking on `docker-compose.yml`and then clicking on `Compose Up`
+-	Run container by right-clicking on `docker-compose.yml` and then clicking on `Compose Up`
 -	Go to PORTS Tab to see ports and make sure that port 3000 and port 4567 are open.  If not, unlock them in order to access frontend Cruddur URL and backend app data.
 -	I received a failed to compile error and that React must be in scope when using JSX. As a result, I could not access the frontend URL or the backend data.  And, the PORTs tab did not display port information.
 -	The browser tab shows `Cruddur` but I can not see the contents of the webpage.
@@ -242,9 +242,9 @@ docker rm $(docker ps -a -q)
 -	Run container by right-clicking on ‘docker.-compose.yml`and then clicking on `Compose Up`
 - Docker Containers created:
 - 
-![docker containers created](  )
+![docker containers created](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-containers-created.png)
 
-![docker containers](  )
+![docker containers](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-containers.png)
 
 
 ### Set Open Ports for Frontend and Backend
@@ -264,11 +264,28 @@ ports:
     visibility: public
 ```
 
-![ports set]( )
+![ports set](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/ports-set.png)
 
 
 
 ### SUCCESSFUL RUN OF DISTRIBUTIVE TRACING:
+-	Stopped and removed any any and all docker containers that may be open in background competing for open ports using the following the CLI commands:
+```sh
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+```
+- Confirmed backgroud containers were removed by running each of the following commands in CLI to check container running processes:
+```sh
+docker ps
+```
+  
+```sh
+docker container ls -a
+```
+```sh
+docker logs <container id or name>
+```
+
 -	Went back to main directory `aws-bootcamp-cruddur-2023` to make another attempt to connect to frontend and backend servers. C
 -	Changed directory to `frontend-react-js/`
 ```sh
@@ -286,22 +303,22 @@ npm i
 -	The backend container(s) is on port 4567
 -	Make sure both are unlocked.
 
-![Open ports](  )
+![Open ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/open-ports.png)
 
 -	I got a 404-ERROR after running the backend container.
 -	Then, I added /api/activities/home to the end of the URL for the backend server in order to access cruddur data on server on port 4567.
 
-![backend data](  )
+![backend data](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/backend-data.png)
 
 -	Here is proof I connected to the frontend server on port 3000 to access the Cruddur web application.
 
-![cruddur web app week 2](  )
+![cruddur web app week 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cruddur-webapp-week-2.png)
 
 #### Honecomb Query in Backend-Flask
 -	Now that I’ve run Docker Compose-Up and can connect to the backend-flask server, there should now be a dataset in the Honecomb bootcamp query results.
-![honeycomb data set](  )
-![honeycomb data set-2](  )
-![honeycomb data set-3](  )
+![honeycomb data set](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset.png)
+![honeycomb data set-2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset-2.png)
+![honeycomb data set-3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-dataset-3.png)
 
 Note: Can check that you have the correct Honeycomb api key with the command
 ```sh
@@ -309,7 +326,7 @@ E | grenv | grep Honey
 ```
 
 Honeycomb-whoami.glitch.me   :  how to find out who  a Honeycomb api belongs to
-![honeycomb whoami](  )
+![honeycomb whoami](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-whoami.png)
 
 ### Create Span Around Hard-Coded Data With a Tracer
 -	Go to  [Honeycomb/OpenTelemetry for Python Documentation}(https://docs.honeycomb.io/getting-data-in/opentelemetry/python-distro/) to get code to create a tracer.  
@@ -332,9 +349,9 @@ with tracer.start_as_current_span("home-activities-mock-data"):
 - Go to the frontend and backend URLS
 - Go to Honeycomb.io to see the most recent traces and any spans.  More than one color in a trace means that we successfully created a span.
 
-![trace with two colors](  )
+![trace with two colors](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/trace-with-two-colors.png)
 
-![span showing mock data](  )
+![span showing mock data](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/span-showing-mock-data.png)
 
 #### Add Attributes to Spans
 -	Add the following attribute code to` home.activities.py` 
@@ -368,16 +385,16 @@ span.set_attribute(“app.result_length”, len(results))
 ## AWS X-Ray
 AWS’s built in distributive tracing and observability tool.
 In order for X-Ray to work it needs an X-Ray daemon, another container/application, that runs alongside your application that your application sends data to and the x-ray daemon collects, batches it, and sends it over to the X-Ray API so that you can visualize data in x-Ray.
-![xray](  )
+![xray](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/X-Ray.png)
 
 ### Install AWS SDK
-[AWS SDK for Python Documentation](   )
+[AWS SDK for Python Documentation](https://docs.aws.amazon.com/pythonsdk/)
 
 -	Add ` aws-xray-sdk` to the `requirements.txt`
 ```sh
 aws-xray-sdk
 ```
-![ aws-xray-sdk](    )
+![aws-xray-sdk](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/aws-xray-sdk.png)
 
 -	Install Python dependencies by CLI in the backend-flask directory
 ```sh
@@ -398,7 +415,7 @@ xray_url = os.getenv("AWS_XRAY_URL")
 xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 XRayMiddleware(app, xray_recorder)
 ```
-![add xray](  )
+![add xray](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-xray.png)
 -	Next, setup AWS X-Ray Resources by adding the file `aws/json/xray.json’ with the following code:
 ```sh
 {
@@ -417,7 +434,8 @@ XRayMiddleware(app, xray_recorder)
   }
 }
 ```
-![xray json](   )
+![xray json](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/xray-json.png)
+
 -	While still in backend-flask directory, create X-Ray group called `Cruddur` with the following code in the AWS CLI:
 ```sh
 aws xray create-group \
@@ -429,7 +447,7 @@ aws xray create-group \
 --filter-expression "service(\“backend-flask\")”
 ```
 
-![create xray group](  )
+![create xray group](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/create-xray-group.png)
 
 -	View new `backend-flask` group in AWS X-Ray Console:
 
@@ -441,8 +459,12 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 -	View new `backend-flask` group and sampling rule in AWS X-Ray Console at:
 `https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#xray:settings`
 
-![xray group in console]( )
--	Add X-RAY daemon service to `docker-compose.yml`
+![xray group in console](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/xray-group-console.png)
+
+###	Add X-RAY daemon service to `docker-compose.yml`
+
+[X-ray Daemon Documentation](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html)
+
 ```sh
   xray-daemon:
     image: "amazon/aws-xray-daemon"
@@ -460,14 +482,18 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
       AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
 ```
-![daemon and env vars](  )
+![daemon and env vars](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/daemon-env-vars.png)
+
+
 #### Determine if X-RAY Daemon sent data to AWS X-RAY
 -	After running the `amazon/aws-xray-daemon` logs I could see that the X-RAY Daemon successfully sent a batch data to AWS X-Ray
-![success xray daemon](  )
+-	
+![success xray daemon](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/success%20xray%20daemon.png)
+
 -	After refreshing the Cruddur backend URL on port 4567 there were successful data traces with the X-Ray Daemon.
 -	Proof our X-Ray Daemon Service can collect data from the backend and send data traces to AWS X-RAY.  
 
-![aws xray query success]( )
+![aws xray query success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/aws-xray-query-success.png)
 
 ### Instrument AWS X-Ray Subsegments
 Implemented an X-Ray subsegment for the service called `user activities` so when a Cruddur app user hits a specific API route, that data will be sent to AWS X-Ray to be queried and analyzed.
@@ -787,7 +813,7 @@ git tag week-2
 git push --tags
 ```
 
- ## How I Resolved Failed to Compile Error
+ ## How I Resolved Fronted Failed to Compile Error
 
 - I had to resolve issues with (1) not seeing ports in PORTS tab and (2) no service available on frontend port 3000, after running docker Compose Up.
 - When trying to access front end port 3000 to see Cruddur URL I received the message "Failed to Compile" and "React must be in scope when using JSX   react/react-in-jsx-scope"
