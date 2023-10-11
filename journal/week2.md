@@ -5,10 +5,11 @@ Table of Contents
 -	[Observability](#observability)
 -	[Observability Security Considerations](#observability-security-considerations)
 -	[Honeycomb](#honeycomb)
+-	[Update Gitpod YML File With React-JS Auto NMP Install](#update-gitpod-yml-file-with-react-js-auto-nmp-install)
 -	[AWS X-Ray](#aws-x-ray)
 -	[Instrument AWS X-Ray Subsegments](#instrument-aws-x-ray-subsegments)
 -	[AWS CloudWatch Logs](#aws-cloudwatch-logs)
--	[Rollbar](#rollbar)
+-	[Integrate Rollbar and Capture and Error](#integrate-rollbar-and-capture-and-error)
 -	[How To Tag Work](#how-to-tag-work)
 -	[How I Resolved Frontend Failed to Compile Error](#how-i-resolved-frontend-failed-to-compile-error)
 -	[References](#references)
@@ -356,7 +357,7 @@ from opentelemetry import trace
 tracer = trace.get_tracer("tracer.name.here")
 ```
 
-![add tracer](   )
+![add tracer](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-tracer.png)
 
 -	Replaced “tracer.name.here”  with `home.activities`
 -	Add the following code to `home.activities.py` right under `def run():`
@@ -390,9 +391,9 @@ span.set_attribute(“app.result_length”, len(results))
 -	Refresh Cruddur backend and frontend URLs to create new data set in Honeycomb.
 -	In Honeycomb.io  run a new query with visualize as `count` and group by as `trace.trace_id`.  Here are some results:
 -	
-![app now]( )
+![app now](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/attribute-app-now.png)
 
-## Update Gitpod.yml with react-js
+## Update Gitpod.yml With React-JS Auto NMP Install
 -	Make it so we don’t have do a ` npm i` install every time we boot up a container.
 -	Add the following code to `gitpod.yml`:
 ```sh
@@ -483,14 +484,14 @@ aws xray create-group \
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
 
-![sampling rule]( )
+![sampling rule](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/sampling-rule.png)
 
 -	View new `backend-flask` group and sampling rule in AWS X-Ray Console at:
 `https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#xray:settings`
 
 ![xray group in console](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/xray-group-console.png)
 
-###	Add X-RAY daemon service to `docker-compose.yml`
+### Add X-RAY daemon service to `docker-compose.yml`
 
 [X-ray Daemon Documentation](https://docs.aws.amazon.com/xray/latest/devguide/xray-daemon.html)
 
@@ -552,7 +553,7 @@ finally:
       xray_recorder.end_subsegment()
 ```
 
-![subsegment code](   )
+![subsegment code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/subsegment-code.png)
 
 -	Add X-Ray recorder capture code to @app.route(s)  as follows:
 @app.route("/api/activities/home", methods=['GET'])
@@ -590,11 +591,12 @@ def data_show_activity(activity_uuid):
 -	Went to frontend URL for Cruddur app and refreshed page multiple times, as well as clicked on different parts of the webpage for generating data for the AWS Daemon to collect and send to AWS X-Ray.
 -	Went into my awsbootcamp account in the AWS console and searched `X-Ray` to navigate to my trace information.
 -	Here is  the service map showing a connection between the client and my cruddur app.
-![service map](  )
-![service map 2](  )
-![service map 3](  )
-![service map 4](  )
-![service map 5](  )
+
+![service map](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map.png)
+![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2.png)
+![service map 3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-3.png)
+![service map 4](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-4.png)
+![service map 5](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-5.png)
 
 &NewLine;
 &NewLine;
@@ -608,7 +610,9 @@ NOTE:  X-Ray spend adds up in cost in Cloudwatch when in production.  I’m usin
 ```
 watchtower
 ```
-![watchtower]( )
+
+![watchtower](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/watchtower.png)
+
 -	Change into the `backend-flask` directory in the aws-cli bash terminal.
 -	Ran the python pip install in the CLI to install WatchTower.
 ```sh
@@ -657,7 +661,7 @@ Def run(logger):
 ```
 -	In `app.py`  go to `@app.route(“/api/activities/home”, methods=[‘GET’])` and add `logger=LOGGER` to the data variable
   
-![add loggerto app.route](  )
+![add loggerto app.route](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-logger-to-app-route.png)
 
 -	Run docker `Compose Up`
 -	Go to backend URL on port 4567 to see cruddur data.  Need to put `/api/activities/home’ on end of URL to see the data.
@@ -666,14 +670,14 @@ Def run(logger):
 -	Click on `Log Groups` in CloudWatch Logs.
 -	Any kind of logging, including those from instrumentation like X-Ray should show in CloudWatch Logs.
 	
-![cloudwatch log groups](  )
-![cloudwatch log stream]()
+![cloudwatch log groups](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cloudwatch-log-group.png)
+![cloudwatch log stream](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cloudwatch-log-stream.png)
 
 -	Comment out or remove cloudwatch logging code and logger arguments added to `app.py` and `home_activites.py` to turn off CloudWatch to save on spend.
 -	Comment out AWS X-Ray  related code in both `app.py` and `user_activities` files to save on spend. 
 
-## Rollbar
-[Create a Rollbar Account]( https://app.rollbar.com/)
+## Integrate Rollbar and Capture and Error
+[Create a Rollbar Account](https://app.rollbar.com/)
   
 -	Create a new project in Rollbar called `Cruddur`
 -	Add the Flask SDK to the new project
@@ -700,7 +704,7 @@ gp env ROLLBAR_ACCESS_TOKEN="your access token here"
 
 -	Confirm that your Rollbar access token has been set.
   
-![env grep rollbar]()
+![env grep rollbar](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/env-grep-rollbar.png)
 
 -	Now to instrument rollbar.  Add the following code to `app.py` file
 ```py
@@ -710,7 +714,7 @@ import rollbar.contrib.flask
 from flask import got_request_exception
 ```
 
-![rollbar imports]()
+![rollbar imports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-imports.png)
 
 -	Now to initialize Rollbar.  Put following init code in `app.py` below “Honeycomb-----Initialize tracing and an exporter that can send data to Honeycomb”
 ```py
@@ -732,7 +736,7 @@ def init_rollbar():
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 ```
 
-![rollbar init]()
+![rollbar init](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-init.png)
 
 -	Add an endpoint just for testing rollbar to `app.py`
 ```py
@@ -742,7 +746,7 @@ def rollbar_test():
     return "Hello World!"
 ```
 
-![rollbar endpoint]()
+![rollbar endpoint](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-endpoint.png)
 
 ### Rollbar Cruddur Project Instrumentation Results
 -	Docker Compose Up to run backend Container.
@@ -773,7 +777,7 @@ def init_rollbar():
 ```
 -	Then added the changed Rollbar code in `app.py` as follows:
 ```py
-## XXX hack to make request data work with pyrollbar <= 0.16.3
+# Hack to make request data work with pyrollbar <= 0.16.3
 def _get_flask_request():
     print("Getting flask request")
     from flask import request
@@ -784,7 +788,7 @@ rollbar._get_flask_request = _get_flask_request
 def _build_request_data(request):
     return rollbar._build_werkzeug_request_data(request)
 rollbar._build_request_data = _build_request_data
-## XXX end hack
+# End hack
 
 def init_rollbar(app):
   rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
@@ -806,16 +810,16 @@ def init_rollbar(app):
 -	Ran Docker Compose Up again and this time I could reach the backend Cruddur URL and see data.
 -	Then, I tested for our new endpoint by adding `/rollbar/test` to the end of the backend URL and we get the expected message `Hello World!`
   
-![hello world]()
+![hello world](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/hello-world.png)
 
 -	Check Rollbar website to see if the tool was getting any activity, but is only showing that it is listening for something.
 -	Went back to `docker-compose.yml` file to add Rollbar access token as an environment variable.
   
-![docker compose rollbar env var]()
+![docker compose rollbar env var](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-compose-Rollbar-env-vars.png)
 
 -	Ran docker Compose Up again to launch the Cruddur app and browse the backend endpoint.  On the Rollbar website, should be able to click `Items` for `FirstProject` and select all the critical levels to see "Hello World!" message and data around this trace.. However, the Rollbar website wasn’t functioning as expected.  Clicking on Items just displayed the Welcome to Rollbar page and there is no access to the filters from the left hand taskbar. Looks as if my data did not reach Rollbar.
 
-![rollbar not working]()
+![rollbar not working](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-not-working.png)
 
 -	Found a solution in the AWS Bootcamp Discord Channel.
 -Commented out `@app.before_first_request` in the Rollbar block of code in  `app.py` file and replaced it with `with app.app_context():`
@@ -823,9 +827,9 @@ def init_rollbar(app):
 - Ran Docker Compose Up and can now reach backend URL at `/rollbar/test/` to get message `Hello World!`
 - Got `Items` tab on Rollbar site  to show filters and Cruddur project name under Projects, but no data to display.
   
-![rollbar don’t work]
+![rollbar don’t work](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/rollbar-dont-work.png)
 
-![change rollbar code]()
+![change rollbar code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/change-rollbar-code.png)
 
 -	Then, tried attaching the shell to the backend container and then run env | grep ROLLBAR. The backend container shell env variables match the set global variables.
 -	Other attempts to resolve Rollbar issue:
