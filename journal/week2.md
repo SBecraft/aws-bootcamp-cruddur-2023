@@ -111,10 +111,6 @@ Honeycomb is an observability tool that provides information about code and cust
 
  ###  Set Honeycomb API Key Environment Variable
 All parts of the Cruddur project should use the same Honeycomb API key.  However, the different parts of the project, or services, should have different names.
-
-&NewLine;
-&NewLine;
-&nbsp;
 -	From within my Honeycomb account I copied the `bootcamp` Honeycomb data set API key.
 -	In Gitpod, created a text file as a notepad and pasted API key.
 -	Ran the export command to mark `HONEYCOMB_API_KEY` and `HONEYCOMB_SERVICE_NAME` as environment variables. Note: service name is associated with the docker.compose.yml and the backend container.
