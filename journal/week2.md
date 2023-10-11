@@ -85,7 +85,9 @@ AWS observability tools are not security tools, but you can use logs,  AWS serve
 
   
 ### Amazon Detective
+
 [Amazon Detective Documentation](https://docs.aws.amazon.com/detective/)
+
 -	AWS tool to investigate, analyze and identify root cause of potential security issues
 -	Adds security to observability
 -	Automatically collects log data from AWS resources
@@ -107,6 +109,10 @@ Honeycomb is an observability tool that provides information about code and cust
 
  ###  Set Honeycomb API Key Environment Variable
 All parts of the Cruddur project should use the same Honeycomb API key.  However, the different parts of the project, or services, should have different names.
+
+&NewLine;
+&NewLine;
+&nbsp;
 -	From within my Honeycomb account I copied the `bootcamp` Honeycomb data set API key.
 -	In Gitpod, created a text file as a notepad and pasted API key.
 -	Ran the export command to mark `HONEYCOMB_API_KEY` and `HONEYCOMB_SERVICE_NAME` as environment variables. Note: service name is associated with the docker.compose.yml and the backend container.
@@ -128,6 +134,10 @@ Env | grep HONEY
 
 ### Add Open Telemetry (OTEL) Env Vars to backend-flask in docker compose
 OTEL, or Open Telemetry, is an open-source/open-standard  observability framework for the backend. Adopted by AWS, Azure and Google Cloud platforms.  It is a collection of tools, APIs and SDKs used to manage telemetry data such as traces, metrics and logs to help analyze software performance through distributive tracing.  Frontend OTEL is not as effective in gathering metrics as for the backend. We’re configuring OTEL to send to Honeycomb.  The librairies we’rr installing inside Cruddur app are open-sourec from the Open Telemetry project. The Open Telemetry project is part of the CNCF (Cloud Native Compute Foundation) which also runs Kubernetes, so OTEL is really well-governed open-source code.Honeycom is not in your cloud environment.  Your cloud environment is sending standardized messages out to Honeycomb. Honeycomb stores the messages in its database and gives you a user interface to look at them. But, you could also configure OTEl to send messages to open-source Telemetry backend observability platforms other than Honeycomb like X-Ray.
+&NewLine;
+&NewLine;
+&nbsp;
+
 -	Add the following OTEL commands to the `docker-compose.yml` file under backend-flask right after BACKEND_URL.
 ```sh
 OTEL_SERVICE_NAME: "backend-flask”
@@ -149,6 +159,7 @@ opentelemetry-instrumentation-flask
 opentelemetry-instrumentation-requests
 ```
 ![python requirements txt](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/python-requirements-txt.png)
+
 -	Change directory to backend-flask
 ```sh
 cd backend-flask
@@ -158,6 +169,7 @@ cd backend-flask
 pip install opentelemetry-api
 ```
 Proof opentelemetry-api installed successfully:
+
 ![otel python install](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/otel-python-install.png)
 
 -	Next, `installed all dependencies` listed in the backend-flask `requirements.txt` file, including ones for sdk, exporter-otlp-proto-http, instrumentation-flask, and instrumentation-requests..
@@ -214,8 +226,15 @@ cd frontend-react-js/
 ```sh
 npm i
 ```
+&NewLine;
+&NewLine;
+&nbsp;
+
 NOTE:  There is a line of code in the `Dockerfile` that runs an npm install, so it would seem unnecessary to have to run npm i again. But, in the aws bootcamp we used the same Dockerfile for development and production, which requires running `npm i` each time we open the container.  
 Industry standard is to separate development containers from production containers. The containers for development and production come from different images.  Production containers are based on a much more slimmed-down image than that used for development which includes many tools not needed for production.
+&NewLine;
+&NewLine;
+&nbsp;
 
 -	Changed into main directory with `cd ..`
 -	Run container by right-clicking on `docker-compose.yml` and then clicking on `Compose Up`
@@ -229,7 +248,6 @@ docker stop $(docker ps -a -q)
 ```sh
 docker rm $(docker ps -a -q)
 ```
-
   
 ![Failed to Compile](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/failed-to-compile.png)
 
@@ -241,7 +259,7 @@ docker rm $(docker ps -a -q)
 -	Changed into main directory with `cd ..`
 -	Run container by right-clicking on ‘docker.-compose.yml`and then clicking on `Compose Up`
 - Docker Containers created:
-- 
+  
 ![docker containers created](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-containers-created.png)
 
 ![docker containers](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/docker-containers.png)
@@ -265,8 +283,6 @@ ports:
 ```
 
 ![ports set](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/ports-set.png)
-
-
 
 ### SUCCESSFUL RUN OF DISTRIBUTIVE TRACING:
 -	Stopped and removed any any and all docker containers that may be open in background competing for open ports using the following the CLI commands:
@@ -326,6 +342,7 @@ E | grenv | grep Honey
 ```
 
 Honeycomb-whoami.glitch.me   :  how to find out who  a Honeycomb api belongs to
+
 ![honeycomb whoami](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/honeycomb-whoami.png)
 
 ### Create Span Around Hard-Coded Data With a Tracer
@@ -338,7 +355,9 @@ from opentelemetry import trace
 
 tracer = trace.get_tracer("tracer.name.here")
 ```
+
 ![add tracer](   )
+
 -	Replaced “tracer.name.here”  with `home.activities`
 -	Add the following code to `home.activities.py` right under `def run():`
 ```sh
@@ -361,6 +380,7 @@ span = trace.get_current_span()
 ```sh
 span.set_attribute(“app.now”, now.isoformat())
 ```
+
 ![span attribute 1](  )
 
 -	Add the following attribute code to line above ~return results~
@@ -369,6 +389,7 @@ span.set_attribute(“app.result_length”, len(results))
 ``` 
 -	Refresh Cruddur backend and frontend URLs to create new data set in Honeycomb.
 -	In Honeycomb.io  run a new query with visualize as `count` and group by as `trace.trace_id`.  Here are some results:
+-	
 ![app now]( )
 
 ## Update Gitpod.yml with react-js
@@ -385,15 +406,18 @@ span.set_attribute(“app.result_length”, len(results))
 ## AWS X-Ray
 AWS’s built in distributive tracing and observability tool.
 In order for X-Ray to work it needs an X-Ray daemon, another container/application, that runs alongside your application that your application sends data to and the x-ray daemon collects, batches it, and sends it over to the X-Ray API so that you can visualize data in x-Ray.
+
 ![xray](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/X-Ray.png)
 
 ### Install AWS SDK
+
 [AWS SDK for Python Documentation](https://docs.aws.amazon.com/pythonsdk/)
 
 -	Add ` aws-xray-sdk` to the `requirements.txt`
 ```sh
 aws-xray-sdk
 ```
+
 ![aws-xray-sdk](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/aws-xray-sdk.png)
 
 -	Install Python dependencies by CLI in the backend-flask directory
@@ -415,7 +439,9 @@ xray_url = os.getenv("AWS_XRAY_URL")
 xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 XRayMiddleware(app, xray_recorder)
 ```
+
 ![add xray](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/add-xray.png)
+
 -	Next, setup AWS X-Ray Resources by adding the file `aws/json/xray.json’ with the following code:
 ```sh
 {
@@ -434,6 +460,7 @@ XRayMiddleware(app, xray_recorder)
   }
 }
 ```
+
 ![xray json](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/xray-json.png)
 
 -	While still in backend-flask directory, create X-Ray group called `Cruddur` with the following code in the AWS CLI:
@@ -455,7 +482,9 @@ aws xray create-group \
 ```sh
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
+
 ![sampling rule]( )
+
 -	View new `backend-flask` group and sampling rule in AWS X-Ray Console at:
 `https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#xray:settings`
 
@@ -482,6 +511,7 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
       AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
       AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
 ```
+
 ![daemon and env vars](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/daemon-env-vars.png)
 
 
@@ -521,6 +551,7 @@ finally:
     #  # Close the segment
       xray_recorder.end_subsegment()
 ```
+
 ![subsegment code](   )
 
 -	Add X-Ray recorder capture code to @app.route(s)  as follows:
@@ -565,6 +596,9 @@ def data_show_activity(activity_uuid):
 ![service map 4](  )
 ![service map 5](  )
 
+&NewLine;
+&NewLine;
+&nbsp;
 
 NOTE:  X-Ray spend adds up in cost in Cloudwatch when in production.  I’m using it in development so cost should be minimal.
 
@@ -622,20 +656,25 @@ Logger.info(“test log”)
 Def run(logger):
 ```
 -	In `app.py`  go to `@app.route(“/api/activities/home”, methods=[‘GET’])` and add `logger=LOGGER` to the data variable
+  
 ![add loggerto app.route](  )
+
 -	Run docker `Compose Up`
 -	Go to backend URL on port 4567 to see cruddur data.  Need to put `/api/activities/home’ on end of URL to see the data.
 -	Refresh backend Cruddur URL multiple times/
 -	Go to AWS console to CloudWatch
 -	Click on `Log Groups` in CloudWatch Logs.
 -	Any kind of logging, including those from instrumentation like X-Ray should show in CloudWatch Logs.
+	
 ![cloudwatch log groups](  )
 ![cloudwatch log stream]()
+
 -	Comment out or remove cloudwatch logging code and logger arguments added to `app.py` and `home_activites.py` to turn off CloudWatch to save on spend.
 -	Comment out AWS X-Ray  related code in both `app.py` and `user_activities` files to save on spend. 
 
 ## Rollbar
--	[Create a Rollbar Account]( https://app.rollbar.com/)
+[Create a Rollbar Account]( https://app.rollbar.com/)
+  
 -	Create a new project in Rollbar called `Cruddur`
 -	Add the Flask SDK to the new project
 -	Add to  the bottom of `requirements.txt`
@@ -660,6 +699,7 @@ gp env ROLLBAR_ACCESS_TOKEN="your access token here"
 ```
 
 -	Confirm that your Rollbar access token has been set.
+  
 ![env grep rollbar]()
 
 -	Now to instrument rollbar.  Add the following code to `app.py` file
@@ -669,6 +709,7 @@ import rollbar
 import rollbar.contrib.flask
 from flask import got_request_exception
 ```
+
 ![rollbar imports]()
 
 -	Now to initialize Rollbar.  Put following init code in `app.py` below “Honeycomb-----Initialize tracing and an exporter that can send data to Honeycomb”
@@ -690,8 +731,8 @@ def init_rollbar():
     # send exceptions from `app` to rollbar, using flask's signal system.
     got_request_exception.connect(rollbar.contrib.flask.report_exception, app)
 ```
-![rollbar init]()
 
+![rollbar init]()
 
 -	Add an endpoint just for testing rollbar to `app.py`
 ```py
@@ -700,6 +741,7 @@ def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
 ```
+
 ![rollbar endpoint]()
 
 ### Rollbar Cruddur Project Instrumentation Results
@@ -763,12 +805,12 @@ def init_rollbar(app):
 
 -	Ran Docker Compose Up again and this time I could reach the backend Cruddur URL and see data.
 -	Then, I tested for our new endpoint by adding `/rollbar/test` to the end of the backend URL and we get the expected message `Hello World!`
--	
+  
 ![hello world]()
 
 -	Check Rollbar website to see if the tool was getting any activity, but is only showing that it is listening for something.
 -	Went back to `docker-compose.yml` file to add Rollbar access token as an environment variable.
--	
+  
 ![docker compose rollbar env var]()
 
 -	Ran docker Compose Up again to launch the Cruddur app and browse the backend endpoint.  On the Rollbar website, should be able to click `Items` for `FirstProject` and select all the critical levels to see "Hello World!" message and data around this trace.. However, the Rollbar website wasn’t functioning as expected.  Clicking on Items just displayed the Welcome to Rollbar page and there is no access to the filters from the left hand taskbar. Looks as if my data did not reach Rollbar.
