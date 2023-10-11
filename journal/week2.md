@@ -98,7 +98,9 @@ AWS observability tools are not security tools, but you can use logs,  AWS serve
 -	Can access up to one year of historical event data
 -	Supported by Amazon GuardDuty, Amazon Inspector, AWS Security Hub, and Amazon Macie.
 
-
+&NewLine;
+&NewLine;
+&nbsp;
 ## Honeycomb
 
 Honeycomb is an observability tool that provides information about code and customer application experience through very quick analysis of data collected about software code performance and behavior.   It is a tool that allows for software debugging and distributive tracing to solve problems with distributive services.  
