@@ -556,7 +556,7 @@ psql -Upostgres --host localhost
 ![psqlUpostgress](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-Upostgress.png)
 
 -	Now in Postgres
--	At `postgres=#’ prompt type `\l` to see default tables
+-	At `postgres=#’ prompt type \l` to see default tables
 -	Made remaining commits to main repository
 
 # Container Security and Why
@@ -627,9 +627,10 @@ Docker Client is the laptop that Docker is installed as a service to run that ha
 &nbsp;
 
 ## Snyk OpenSource Security
--	Added to provide Container Security by finding opensource vulnerabilities in your Dockerfile itself before using it..
+-	Add to provide Container Security.
+-	Used to find open source vulnerabilities in docker files
 -	Snyk OpenSource and Snyk Container Security are available for personal projects.
--	Used to find vulnerabilities in docker files
+  
   
 Went to www.CloudSecurityBootcamp.com to connect to Snyk open source libraries for this AWS bootcamp.
 
