@@ -653,7 +653,8 @@ def data_show_activity(activity_uuid):
 &NewLine;
 &NewLine;
 &nbsp;
-
+- Cloudwatch log queries:
+  
 ![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2.png)
 
 &NewLine;
