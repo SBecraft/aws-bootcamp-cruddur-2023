@@ -639,11 +639,27 @@ def data_show_activity(activity_uuid):
 
 ![service map](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![service map 3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-3.png)
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ![service map 4](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-4.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![service map 5](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-5.png)
 
@@ -723,6 +739,10 @@ Def run(logger):
 -	Any kind of logging, including those from instrumentation like X-Ray should show in CloudWatch Logs.
 	
 ![cloudwatch log groups](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cloudwatch-log-group.png)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ![cloudwatch log stream](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/cloudwatch-log-stream.png)
 
