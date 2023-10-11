@@ -61,6 +61,7 @@ Source: [Cloud Security Podcast. (2023, March 8)](https://www.youtube.com/watch?
 
 ## Amazon Cognito in Identity Access Management
 1)	Cognito User and Identity pools integrated into User Lifecycle Management through the user provisioning process from onboarding to offboarding. Provisioning is the creation, update, and removal of access to a resource in an IT environment.
+   
 &NewLine;
 &NewLine;
 &nbsp;
