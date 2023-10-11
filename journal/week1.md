@@ -68,6 +68,7 @@ Create a server-side Docker container from a Docker image.
 &NewLine;
 &NewLine;
 &nbsp;
+
 Note:  `WORKDIR` container command in Dockerfile is an instruction that makes the working directory for any commands in the Dockerfile.  
 
 
