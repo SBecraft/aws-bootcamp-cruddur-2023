@@ -12,7 +12,11 @@ Table of Contents
 -	[Set Up AWS Billing Alarm](#set-up-aws-billing-alarm)
 -	[Create A Budget](#create-a-budget)
 -	[Lucid Charts App Architecture Diagrams](#lucid-charts-app-architecture-diagrams)
--	[Publish Files to GitHub](#publish-files-to-github)
+-	[Publish Files to GitHub Using CLI](#publish-files-to-github-using-cli)
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Technical Tasks
 Week-0 lays the foundation for the entire bootcamp by:
@@ -28,6 +32,10 @@ Week-0 lays the foundation for the entire bootcamp by:
 - Launching AWS CloudShell and looking at AWS CLI
 - Generating AWS credentials
 
+&NewLine;
+&NewLine;
+&nbsp;
+
 ## Cruddur Project Description
 
 Cruddur is an ephemeral social media micro-blogging platform that allows users to post updates, thoughts, and photos that automatically expire after a period of time, ensuring that personal information and conversations stay relevant and in the moment.
@@ -37,6 +45,9 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 
 [Cruddur Project Business Use Case](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/Cruddur%20Project%20Description.pdf)
 
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## AWS Well Architected Framework
 
@@ -52,7 +63,9 @@ Six pillars of the AWS well architected framework
 5. Cost Optimization
 6. Sustainability
 
-
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## AWS Setup
 -	Signed in as Root user (I already have an AWS account so I didn't need to create one)
@@ -68,6 +81,10 @@ Six pillars of the AWS well architected framework
 ### Assign MFA to New User:
 -	Logged out of Root user and logged back in under new IAM User “aswbootcamp”.
 -	Assigned multi-factor authentication to newly created IAM User account.
+
+&NewLine;
+&NewLine;
+&nbsp;
 
 ## Use AWS CloudShell
 -	While logged into IAM User account “awsbootcamp” I launched AWS Cloudshell in the browser.
@@ -332,10 +349,10 @@ Types of organizational architecture diagrams to model:
 &NewLine;
 &nbsp;
 
-## Publish Files to GitHub
+## Publish Files to GitHub Using ClI
 
-To publish files or folders to GitHub from Terminal:
-1.	Terminal should read:
+To publish files or folders to GitHub using CLI within Bash terminal:
+1.	Make sure to be in your repository directory in the terminal:
 ```sh 
 /workspace/repo-name
 ```
@@ -367,9 +384,11 @@ git push
 ```
 7.	Check GitHub URL and see the file/folder just uploaded.
 
+&NewLine;
+&NewLine;
+&nbsp;
 
-
-To create a new folder in a repository click `create a new file`. Type your new folder’s name in the area where you would write the file name, and at the end of the file name type a `/` to initilize it as a folder. After this you can create a new file in the folder.
+### To create a new folder in your repository while in Github just click `create a new file`. Type your new folder name in the dirctory where you want it to be stored, and at the end of the name type a `/` to initilize it as a folder. Then you can create a new file in the newly created folder.
 
 
 
