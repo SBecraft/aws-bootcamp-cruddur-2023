@@ -191,7 +191,7 @@ env | grep _URL
 &nbsp;
 ### Build Container
 Next step is to build a docker container.
-- First we need to make sure we are in are app and not in the backend-flask folder.
+- First we need to make sure we are in are in the main directory and not in the backend-flask folder.
 - I ran the `pwd` command to see my working directory. Then, ran `cd .. ` to move up one directory.
 
 ```sh
