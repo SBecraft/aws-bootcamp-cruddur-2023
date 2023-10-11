@@ -774,7 +774,13 @@ Def run(logger):
 
 ## Integrate Rollbar and Capture and Error
 [Create a Rollbar Account](https://app.rollbar.com/)
-  
+
+Rollbar is an online tool that collects errors in real-time that happen in an application.  It sends notifications about errors and analyzes the errors so they can be debugged and fixed.
+
+&NewLine;
+&NewLine;
+&nbsp;
+
 -	Create a new project in Rollbar called `Cruddur`
 -	Add the Flask SDK to the new project
 -	Add to  the bottom of `requirements.txt`
