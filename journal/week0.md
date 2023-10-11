@@ -44,7 +44,7 @@ Cruddur is an ephemeral social media micro-blogging platform that allows users t
 
 "The AWS Well-Architected Framework helps you understand the pros and cons of decisions you make while building systems on AWS. By using the Framework you will learn architectural best practices for designing and operating reliable, secure, efficient, cost-effective, and sustainable systems in the cloud."
 
-- Six pillars of the AWS well architected framework
+Six pillars of the AWS well architected framework
 1. Operational Excellence
 2. Security
 3. Reliability
