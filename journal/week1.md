@@ -37,17 +37,46 @@ Table of Contents
 &NewLine;
 &nbsp;
 
+[VSCode with Containers Overview](https://code.visualstudio.com/docs/containers/overview)
+
+&NewLine;
+&NewLine;
+&nbsp;
+
+### Docker 
+- A ‘Platform as a Service’ that allows for the build, test, and deployment of applications without impacting the rest of your system.  
+- Creates `Containers` that are isolated, virtual machine-like  environments that hold everything needed to run an application, including the operating system dependencies and source code. The Container shares the host operating system kernel. It is considered lightweight and good for one time use because it’s only running processes and not a whole operating system. 
+- Since a Container is only running processes it can launch instantaneously, which is a much quicker deployment of a software package than if a VM with a full operating system were run.
+- Instructions to create a Container are stored in a file called `Dockerfile`.
+- Docker uses a CLI to send commands to a docker daemon, which is responsible for managing containers and their images.
+  
+&NewLine;
+&NewLine;
+&nbsp;
+
 - Usually Gitpod is pre-installed with the Docker extension.
 - I did not have the Docker extension, so I added it to my Gitpod VSCode.
 
+### Dockerfile
+-	Dockerfile is a text file that holds all the commands needed to call on the command line to build a Container based on a base image.  The commands are run in order listed in the file.
+-	
+-	Base images, or Container images, are stored in a registry.
+-	`Docker Hub` is the most popular public registry and community for Container for base images.
+   
+[Docker Hub website](https://hub.docker.com)
+  
 
 ## Containerize Backend
-Note:  `workdir` container command is referring to /backend-flask within the container and the container shares the host operating system kernel.
+Create a server-side Docker container from a Docker image.
+&NewLine;
+&NewLine;
+&nbsp;
+Note:  `WORKDIR` container command in Dockerfile is an instruction that makes the working directory for any commands in the Dockerfile.  
 
-- Backend Containerized Dockerfile based off the following image file:
 
-
-
+### Add Dockerfile
+- Bootcamp template already provided a server-side directory called /backend-flask
+- Create new file within the backend-flask directory called `Dockerfile` and paste in the following base image code:
 ```sh
 FROM python:3.10-slim-buster
 WORKDIR /backend-flask
@@ -58,16 +87,6 @@ ENV FLASK_ENV=development
 EXPOSE ${PORT}
 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 ```
-
-### Add Dockerfile
-- Working from inside Container
-- Make a new folder 
-- WORKDIR /backend-flask
-
-![Show backend-flask folder](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/shows%20docker%20image%20built%20successfully.png)
-
-
-- Created new file within the backend-flask directory:
 
 ![Backend-flask Container with code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/backend-flask-container-code.png)
 
@@ -83,10 +102,10 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 &nbsp;
 
 
-FROM python:3.10-slim-buster
-- Outside Container -> Inside Container
-- This contains the libraries to install to run the Cruddur app
-- Install the python libraries used for the app
+### Install `python:3.10-slim-buster` 
+- Listed next to FROM in `Dockerfile`
+-  `python:3.10-slim-buster`  contains the python libraries to install to run the Cruddur app
+
 - RUN pip3 install -r requirements.txt
 ```sh
 Pip3 install -r requirements.txt
