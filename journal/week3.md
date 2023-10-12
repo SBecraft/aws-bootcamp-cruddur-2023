@@ -6,6 +6,9 @@ Table of Contents
 -	[Amazon Cognito](#amazon-cognito)
 -	[Amazon Cognito in Identity Access Management](#amazon-cognito-in-identity-access-management)
 -	[Amazon Cognito Security Best Practices](#amazon-cognito-security-best-practices)
+-	[Provision An Amazon Cognito User Pool](#provision-an-amazon-cognito-user-pool)
+-	[Install and configure Amplify client-side library for Amazon Congito](#install-and-configure-amplify-client-side-library-for-amazon-cognito)
+-	
 -	[References](#references)
 
 
