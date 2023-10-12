@@ -296,7 +296,7 @@ const signOut = async () => {
 }
 ```
 -	Run Docker `Compose Up` while in the `react-js: bash` terminal to check that the Cruddur app is working
-![env vars frontend shell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/env-vars-frontend-shell.png)
+#![env vars frontend shell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/env-vars-frontend-shell.png)
 
 -	Ports are not displaying in terminal
 1:34:01 in video
