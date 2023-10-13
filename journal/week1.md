@@ -556,7 +556,7 @@ psql -Upostgres --host localhost
 ![psqlUpostgress](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/psql-Upostgress.png)
 
 -	Now in Postgres
--	At `postgres=#` prompt type `\l` to see default tables
+-	At `postgres=#` prompt type `/l` to see default tables
 -	Made remaining commits to main repository
 
 # Container Security and Why

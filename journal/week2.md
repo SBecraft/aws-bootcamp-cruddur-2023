@@ -805,6 +805,9 @@ gp env ROLLBAR_ACCESS_TOKEN="your access token here"
 ```
 
 -	Confirm that your Rollbar access token has been set.
+```sh
+env | grep ROLLBAR
+```
   
 ![env grep rollbar](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/env-grep-rollbar.png)
 
