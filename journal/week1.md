@@ -99,7 +99,7 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 ### Install `python:3.10-slim-buster` 
 - Listed next to FROM in `Dockerfile`
--  `python:3.10-slim-buster`  contains the python libraries to install to run the Cruddur app
+-  `python:3.10-slim-buster`  contains the python libraries to install to run the Cruddur app. Install in `backend-flask' directory:
 
 - RUN pip3 install -r requirements.txt
 ```sh
