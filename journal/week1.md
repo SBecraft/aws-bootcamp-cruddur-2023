@@ -159,7 +159,7 @@ export BACKEND_URL="*"
 
 - I then copied the URL next to open port 4567, pasted it into a browser, and added `/api/activities/home` and got the following output:
 
-![Env Vars python3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/env-vars-python3.png)
+![Env Vars python3](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/output-after-environment-variables-set.png)
 
 - I got back JSON which is the output I should see.
 &NewLine;
