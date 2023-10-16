@@ -219,7 +219,7 @@ Amplify.configure({
   }
 });
 ```
--	Set environment the following environment variables in the ‘App.js` and `docker-compose.yml` files
+-	Set the following environment variables in the ‘App.js` and `docker-compose.yml` files
 ![app.js variables](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/appjs-variables.png)
 
 -	Use `${AWS_DEFAULT_REGION}` for both the REACT_AWS_PROJECT_REGION and REACT_APP_AWS_COGNITO_REGION.
