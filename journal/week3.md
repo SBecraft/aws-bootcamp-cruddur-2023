@@ -300,12 +300,11 @@ const signOut = async () => {
 -	Run Docker `Compose Up` while in the `react-js: bash` terminal to check that the Cruddur app is working
 ![env vars frontend shell]()
 
--	Ports are not displaying in terminal
-1:34:01 in video
+
 Browserslist: caniuse-lite is outdated. Please run:
   npx update-browserslist-db@latest
 
-(Use `node --trace-deprecation ...` to show where the warning was created)
+
 
 
 ## References
