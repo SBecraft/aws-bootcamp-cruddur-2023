@@ -219,21 +219,23 @@ Amplify.configure({
   }
 });
 ```
--	Set environment the following environment variables in the ‘App.js` and `docker-compose.yml` files
+-	Set the following environment variables in the ‘App.js` and `docker-compose.yml` files
+  
 ![app.js variables](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/appjs-variables.png)
 
 -	Use `${AWS_DEFAULT_REGION}` for both the REACT_AWS_PROJECT_REGION and REACT_APP_AWS_COGNITO_REGION.
 -	Get the AWS User Pool ID from Amazon Cognito in the Amazon account
--	Get the App Client ID by clicking into `cruddur-user-pool` in AWS Cognito User pools. Then click on the `App integration` tab.  Find the `Client ID` in the `App clients and analytics~ section at the bottom of the page.
+-	Get the App Client ID by clicking into `cruddur-user-pool` in AWS Cognito User pools. Then click on the `App integration` tab.  Find the `Client ID` in the `App clients and analytics` section at the bottom of the page.
 -	Delete the User `aws_cognito_identity_pool_id` line of code from both the `App.js` and `docker-compose.yml` files because we are not working with identity pool.
 
 ![docker compose variables]()
 ###  Conditionally Show Components Based On Logged In Or Logged Out
 -	Open the `HomeFeedPage.js` file
 -	Add the import statement:
-‘’’js
+```js
 import { Auth } from 'aws-amplify';
-‘’’
+```
+
 -	Set a react state.  Put the following code in `HomeFeedPage.js`:
 ```js
 const [user, setUser] = React.useState(null);
@@ -298,12 +300,11 @@ const signOut = async () => {
 -	Run Docker `Compose Up` while in the `react-js: bash` terminal to check that the Cruddur app is working
 ![env vars frontend shell]()
 
--	Ports are not displaying in terminal
-1:34:01 in video
+
 Browserslist: caniuse-lite is outdated. Please run:
   npx update-browserslist-db@latest
 
-(Use `node --trace-deprecation ...` to show where the warning was created)
+
 
 
 ## References
