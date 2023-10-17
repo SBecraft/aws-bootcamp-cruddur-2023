@@ -264,7 +264,7 @@ docker run --rm -p 4567:4567 -it -e FRONTEND_URL=’*’ -e BACKEND_URL=’*’ 
 ```sh
 docker ps
 ```
-- Need to kill container to remove it. Can use `--rm` at end of RUN command to kill container right after is run.
+- Need to kill container to remove it. Above, I used `--rm` at in the RUN command to kill container right after is run.
 
 
 &NewLine;
