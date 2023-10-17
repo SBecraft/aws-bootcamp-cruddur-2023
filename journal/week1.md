@@ -103,7 +103,7 @@ CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=4567"]
 
 - RUN pip3 install -r requirements.txt
 ```sh
-Pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Proof of successful Python install:
