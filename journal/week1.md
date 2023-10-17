@@ -176,8 +176,8 @@ Note: There is a difference between RUN and CMD. RUN is used to create a layer i
 
 - Unset the backend and frontend environment variables in case they cause issue when I run a new container file.
 ```sh
-Unset FRONTEND
-Unset BACKEND
+unset FRONTEND
+unset BACKEND
 ```
 
 - Check that the backend and frontend variables are gone.
