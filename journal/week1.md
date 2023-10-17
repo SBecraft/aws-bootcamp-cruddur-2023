@@ -360,7 +360,7 @@ networks:
     name: cruddur
 ```
 
-- Run `docker-compose up`
+- run `docker-compose up`
 ```sh
 Docker-compose up
 ```
