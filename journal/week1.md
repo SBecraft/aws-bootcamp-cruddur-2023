@@ -193,7 +193,9 @@ Next step is to build a docker container.
 - I ran the `pwd` command to see my working directory. Then, ran `cd .. ` to move up one directory.
 
 ```sh
-Pwd
+pwd
+```
+```sh
 cd ..
 ```
 - I am now working in the main directory.
