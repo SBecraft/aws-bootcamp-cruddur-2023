@@ -180,6 +180,7 @@ NOTE:
 
 
 ## Install and configure Amplify client-side library for Amazon Congito
+
 [AWS Amplify]( https://aws.amazon.com/amplify/?trk=9eb02e4d-80e0-4f27-a621-b90b3c870bf3&sc_channel=ps&ef_id=EAIaIQobChMI-qGi0djvgQMVJkVyCh0hgQ7ZEAAYASAAEgIOCfD_BwE:G:s&s_kwcid=AL!4422!3!651751060764!e!!g!!aws%20amplify!19852662236!145019201417)
 
 [AWS Amplify Documentation for Javascript]( https://docs.amplify.aws/start/getting-started/installation/q/integration/js/)
@@ -219,7 +220,7 @@ Amplify.configure({
   }
 });
 ```
--	Set the following environment variables in the ‘App.js` and `docker-compose.yml` files
+-	Set the following environment variables in the `App.js` and `docker-compose.yml` files
   
 ![app.js variables](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/appjs-variables.png)
 
@@ -228,7 +229,7 @@ Amplify.configure({
 -	Get the App Client ID by clicking into `cruddur-user-pool` in AWS Cognito User pools. Then click on the `App integration` tab.  Find the `Client ID` in the `App clients and analytics` section at the bottom of the page.
 -	Delete the User `aws_cognito_identity_pool_id` line of code from both the `App.js` and `docker-compose.yml` files because we are not working with identity pool.
 
-![docker compose variables]()
+
 ###  Conditionally Show Components Based On Logged In Or Logged Out
 -	Open the `HomeFeedPage.js` file
 -	Add the import statement:
@@ -274,6 +275,7 @@ React.useEffect(()=>{
  checkAuth();
 }, [])
 ```
+
 ![Home Feed](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/home-feed.png)
 
 -	pass user to the Cruddur app components `Desktop Navigation` and `Desktop Sidebar`:
@@ -286,7 +288,7 @@ React.useEffect(()=>{
 import { Auth } from 'aws-amplify';
 ```
 -	Delete the `import Cookies from js-cooke` because we are not using cookies.
--	Replace the block of code that starts with `const signOut = async () => {` because it contains code about cookies, which we are not using. And replace the entire block of code with:
+-	Delete the block of code that starts with `const signOut = async () => {` because it contains code about cookies, which we are not using. And replace the entire block of code with:
 ```js
 const signOut = async () => {
   try {
@@ -298,11 +300,133 @@ const signOut = async () => {
 }
 ```
 -	Run Docker `Compose Up` while in the `react-js: bash` terminal to check that the Cruddur app is working
-![env vars frontend shell]()
+
+![env vars frontend shell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/env-vars-frontend-shell.png)
 
 
-Browserslist: caniuse-lite is outdated. Please run:
-  npx update-browserslist-db@latest
+### Signin Page
+-	Open the `SigninPage.js`. It is in ` /frontend-react-js/src/pages/`
+-	Remove the import statement for cookies and replace with:
+```js
+import { Auth } from 'aws-amplify';
+```
+-	Deleted the block of code starting with `const onsubmit = async (event) => {`
+-	Replace that block of code with:
+```js
+const onsubmit = async (event) => {
+  setCognitoErrors('')
+  event.preventDefault();
+  try {
+    Auth.signIn(username, password)
+      .then(user => {
+        localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+        window.location.href = "/"
+      })
+      .catch(err => { console.log('Error!', err) });
+  } catch (error) {
+    if (error.code == 'UserNotConfirmedException') {
+      window.location.href = "/confirm"
+    }
+    setCognitoErrors(error.message)
+  }
+  return false
+}
+```
+
+-	Replace the line `setCognitoErrors('')` with `setErrors('')`
+
+-	Replace the line `setCognitoErrors(error.message)` with `setErrors('')`
+
+-	I replaced `username` with `email` to be consistent with the line of code in the file `const[email, setEmail] = React.useState(‘’)`
+
+
+![const onsubmit](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/const-onsubmit.png)
+
+
+NOTE: In the block of code `username` means the User email. If you look up the API, it will refer to email as username.
+
+
+-	Made changes to the block of code one more time because Andrew found that when he started up the frontend and backend containers, that the Sign In page on app did not throw the `User Not Confirmed` error when a User put in the wrong or unknown username and/or password.
+-	Added `console.log(‘onsubmit’)` to output a message to the web console to track any errors that may occur while signing into the app.
+-	
+NOTE:  Adding console.log into a file will allow you to use a web browser’s INSPECT tool to look at console events.  To access INSPECT go to the front-end URL for the app and right click to select INSPECT.
+
+-	Here is the correct code to replace the existing `const onsubmit = async (event) =>{` code block:
+```js
+Errors('')
+    console.log('onsubmit')
+    event.preventDefault();
+    Auth.signIn(email, password)
+    .then(user => {
+      localStorage.setItem("access_token", user.signInUserSession.accessToken.jwtToken)
+      window.location.href = "/"
+    })
+    .catch (error => {
+      if (error.code == 'UserNotConfirmedException') {
+        window.location.href = "/confirm"
+      }
+      setErrors(error.message)
+    });
+    return false
+  }
+```
+Note:  Before I continued to “Create a User”,  Andrew mentioned that when we create our cruddur-user-pool we didn’t add the attribute “preferred username” in addition to the “name” attribute. Per Andrew’s recommendation I deleted my user pool and recreated a new cruddur-user-pool with the added preferred username attribute.  
+
+![preferred username](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/preferred-username.png)
+
+![new cruddur user pool](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/new-cruddur-user-pool.png)
+
+-	Then, I went into `app.js` and `docker-compose.yml ` to put in my new `user_pool_id` and `user_pool_client_id`.  
+-	I can now create a user.
+
+### Create a User
+-	Went to my Amazon Cognito User pool `cruddur-user-pool` and click on it’s name.
+-	In the `Users` section click `Create User` 
+-	In the `Create user` section I made the following selections and clicked `create user`:
+
+![Create User me](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/create-user-me.png)
+
+
+![user created](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/user-created.png)
+
+### Stop AWS Forced Password Change for New User
+-	Confirmed that the aws-cli bash terminal recognizes my awsbootcamp UserID, Account Number, and ARN.
+-	While in the frontend-react-js directory run this command in the CLI. Replace X’s your password:
+```sh
+aws cognito-idp admin-set-user-password - -username suzettebecraft - -password XXXXXXX - -user-pool-id us-east-1_JJOgfD6jG - -permanent
+```
+
+![force password undone](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/force-password-undone.png)
+
+-	If you go to the app frontend URL and sign into the Cruddur app  you will no longer get the “Cannot read properties of null ( reading ‘accessToken’)” error because we got rid of the AWS force-password-change feature.
+-	Next I signed into the Cruddur app with my email and password to access a Cruddur session.
+
+![sign in with my email](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/signin-with-myemail.png)
+
+-	Now try to sign out of the Cruddur app.  `Sign Out` is accessed by clicking on `My Name`.
+
+![Sign Out](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/sign-out.png)
+
+-	Put the following `console.log` command in the Sign In block of code in the `SigninPage.js` file to track any possible errors.  
+```js
+Console.log(‘user’, user)
+```
+
+![inspect logs](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/console-log.png)
+
+-	Sign in to the Cruddur app and then right click webpage and choose INSPECT to see console log for any errors.
+
+### Add Preferred Username to User Account 
+
+![my name](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/my-name.png)
+
+-	The `My Name` and `@handle` are fillers for the fields Username and Preferred Username, respectively.  
+-	To add the values to those attributes for my User account I went to AWS Cognito User Pool in my awsbootcamp AWS account and clicked on the username,suzettebecraft.
+-	In `User Attributes` click on `Edit`. In `Edit User` I added my name , Suzette Becraft, and my preferred name, suzettebecraft. Then, `SAVE CHANGES`.
+-	Run Docker `Compose Up` to reset the app environment.   I now see the name and preferred name/handle after signing into the app.
+
+![suzette handle](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/suzette-handle.png)
+
 
 
 
