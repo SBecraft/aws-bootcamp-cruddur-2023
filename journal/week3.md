@@ -399,9 +399,13 @@ aws cognito-idp admin-set-user-password - -username suzettebecraft - -password X
 ![force password undone](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/force-password-undone.png)
 
 -	If you go to the app frontend URL and sign into the Cruddur app  you will no longer get the “Cannot read properties of null ( reading ‘accessToken’)” error because we got rid of the AWS force-password-change feature.
--	Next I signed into the Cruddur app with my email and password to access a Cruddur session.
+-	Here is my signin to the Cruddur app with my email and password to access a Cruddur session.
 
 ![sign in with my email](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/signin-with-myemail.png)
+
+- I am able to sign in successfully.  Here is my Cruddur account.
+
+![me in app as user](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/me-in-app-as-user.png)
 
 -	Now try to sign out of the Cruddur app.  `Sign Out` is accessed by clicking on `My Name`.
 
