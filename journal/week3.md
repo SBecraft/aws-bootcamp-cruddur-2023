@@ -7,7 +7,9 @@ Table of Contents
 -	[Amazon Cognito in Identity Access Management](#amazon-cognito-in-identity-access-management)
 -	[Amazon Cognito Security Best Practices](#amazon-cognito-security-best-practices)
 -	[Provision An Amazon Cognito User Pool](#provision-an-amazon-cognito-user-pool)
--	[Install and configure Amplify client-side library for Amazon Congito](#install-and-configure-amplify-client-side-library-for-amazon-cognito)-	
+-	[Install and Configure Amplify Client-Side Library for Amazon Congito](#install-and-configure-amplify-client-side-library-for-amazon-cognito)
+- [Cruddur App Signin Page](#cruddur-app-signin-page)	
+- [Create a User](#create-a-user)- []
 -	[References](#references)
 
 
@@ -179,7 +181,7 @@ NOTE:
 ![user pool success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/user-pool-success.png)
 
 
-## Install and configure Amplify client-side library for Amazon Congito
+## Install and Configure Amplify Client-Side Library for Amazon Congito
 
 [AWS Amplify]( https://aws.amazon.com/amplify/?trk=9eb02e4d-80e0-4f27-a621-b90b3c870bf3&sc_channel=ps&ef_id=EAIaIQobChMI-qGi0djvgQMVJkVyCh0hgQ7ZEAAYASAAEgIOCfD_BwE:G:s&s_kwcid=AL!4422!3!651751060764!e!!g!!aws%20amplify!19852662236!145019201417)
 
@@ -230,7 +232,7 @@ Amplify.configure({
 -	Delete the User `aws_cognito_identity_pool_id` line of code from both the `App.js` and `docker-compose.yml` files because we are not working with identity pool.
 
 
-###  Conditionally Show Components Based On Logged In Or Logged Out
+### Show Conditional Elements and Data Based On Logged In Or Logged Out
 -	Open the `HomeFeedPage.js` file
 -	Add the import statement:
 ```js
@@ -304,7 +306,7 @@ const signOut = async () => {
 ![env vars frontend shell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/env-vars-frontend-shell.png)
 
 
-### Signin Page
+## Cruddur App Signin Page
 -	Open the `SigninPage.js`. It is in ` /frontend-react-js/src/pages/`
 -	Remove the import statement for cookies and replace with:
 ```js
@@ -379,7 +381,7 @@ Note:  Before I continued to “Create a User”,  Andrew mentioned that when we
 -	Then, I went into `app.js` and `docker-compose.yml ` to put in my new `user_pool_id` and `user_pool_client_id`.  
 -	I can now create a user.
 
-### Create a User
+## Create a User
 -	Went to my Amazon Cognito User pool `cruddur-user-pool` and click on it’s name.
 -	In the `Users` section click `Create User` 
 -	In the `Create user` section I made the following selections and clicked `create user`:
