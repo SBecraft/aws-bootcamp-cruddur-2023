@@ -9,7 +9,7 @@ Table of Contents
 -	[Provision An Amazon Cognito User Pool](#provision-an-amazon-cognito-user-pool)
 -	[Install and Configure Amplify Client-Side Library for Amazon Congito](#install-and-configure-amplify-client-side-library-for-amazon-cognito)
 - [Cruddur App Signin Page](#cruddur-app-signin-page)	
-- [Create a User](#create-a-user)- []
+- [Create a User](#create-a-user)
 -	[References](#references)
 
 
