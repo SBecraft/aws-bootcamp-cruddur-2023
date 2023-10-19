@@ -304,9 +304,7 @@ const signOut = async () => {
   }
 }
 ```
--	Run Docker `Compose Up` while in the `react-js: bash` terminal to check that the Cruddur app is working
-
-![env vars frontend shell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/env-vars-frontend-shell.png)
+-	Ran Docker `Compose Up` while in the `react-js: bash` terminal to check that the Cruddur app is working. And it is.
 
 
 ## Cruddur App Signin Page
@@ -379,7 +377,6 @@ Note:  Before I continued to “Create a User”,  Andrew mentioned that when we
 
 ![preferred username](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/preferred-username.png)
 
-![new cruddur user pool](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/new-cruddur-user-pool.png)
 
 -	Then, I went into `app.js` and `docker-compose.yml ` to put in my new `user_pool_id` and `user_pool_client_id`.  
 -	I can now create a user.
