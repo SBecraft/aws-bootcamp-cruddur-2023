@@ -10,6 +10,9 @@ Table of Contents
 -	[Install and Configure Amplify Client-Side Library for Amazon Congito](#install-and-configure-amplify-client-side-library-for-amazon-cognito)
 - [Cruddur App Signin Page](#cruddur-app-signin-page)	
 - [Create a User](#create-a-user)
+-	[Signup Page](#signup-page)
+-	[Confirmation Page](#confirmation-page)
+-	[Account Recovery Page](#account-recovery-page)
 -	[References](#references)
 
 
@@ -420,7 +423,7 @@ Console.log(‘user’, user)
 
 ![inspect logs](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/console-log.png)
 
--	Sign in to the Cruddur app and then right click webpage and choose INSPECT to see console log for any errors.
+-	Sign in to the Cruddur app and then right click webpage and choose INSPECT to see console log for any errors, if they arise.
 
 ### Add Preferred Username to User Account 
 
@@ -434,7 +437,210 @@ Console.log(‘user’, user)
 ![suzette handle](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/suzette-handle.png)
 
 
+## Signup Page
+-	In the `SignupPage.js` file found in frontend-react, replace `import Cookies from ‘js-cookie’ with:
+```js
+import { Auth } from 'aws-amplify';
+```
+-	Replace the `const onsubmit = async (event) => {`  block of code with:
+```js
+const onsubmit = async (event) => {
+  event.preventDefault();
+  setCognitoErrors('')
+  try {
+      const { user } = await Auth.signUp({
+        username: email,
+        password: password,
+        attributes: {
+            name: name,
+            email: email,
+            preferred_username: username,
+        },
+        autoSignIn: { // optional - enables auto sign in after user is confirmed
+            enabled: true,
+        }
+      });
+      console.log(user);
+      window.location.href = `/confirm?email=${email}`
+  } catch (error) {
+      console.log(error);
+      setCognitoErrors(error.message)
+  }
+  return false
+}
+```
 
+![signup-const](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/signup-const.png)
+
+-	Change both `setCognitoErrors(‘’)` and `setCognitoErrors(error.message)` in the above code to:
+```js
+setErrors(‘’)
+```
+```js
+setErrors(error.message)
+```
+-  Realized the `const onsubmit` code block was indented properly.  I shifted the block of lines under `try {`:
+
+![shift code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/shift-code.png)
+
+## Confirmation Page
+-	In the `ConfirmationPage.js` file found in frontend-react, replace `import Cookies from ‘js-cookie’ with:
+```js
+import { Auth } from 'aws-amplify';
+```
+-	Delete the `const resend-code` block of code in the file and replace with:
+```js
+const resend_code = async (event) => {
+  setCognitoErrors('')
+  try {
+    await Auth.resendSignUp(email);
+    console.log('code resent successfully');
+    setCodeSent(true)
+  } catch (err) {
+    // does not return a code
+    // does cognito always return english
+    // for this to be an okay match?
+    console.log(err)
+    if (err.message == 'Username cannot be empty'){
+      setCognitoErrors("You need to provide an email in order to send Resend Activiation Code")   
+    } else if (err.message == "Username/client id combination not found."){
+      setCognitoErrors("Email is invalid or cannot be found.")   
+    }
+  }
+}
+```
+-	Change `setCognitoErrors(‘’)` in the above code to:
+```js
+setErrors(‘’)
+```
+
+![resend code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/resend-code.png)
+
+-	Now replace the block of code under `const onsubmit = async (event) => {` with:
+```js
+const onsubmit = async (event) => {
+  event.preventDefault();
+  setCognitoErrors('')
+  try {
+    await Auth.confirmSignUp(email, code);
+    window.location.href = "/"
+  } catch (error) {
+    setCognitoErrors(error.message)
+  }
+  return false
+}
+```
+-	Change both `setCognitoErrors(‘’)` and `setCognitoErrors(error.message)` in the above code to:
+```js
+setErrors(‘’)
+```
+```js
+setErrors(error.message)
+```
+-	Docker `Compose Up` to open port 3000 to reach Cruddur URL (frontend of app), if not already up.
+-	On the homepage of app, signed up with a valid email  that I can access.
+-	App won’t complete sign up because it sees the preferred username as an email.
+-	Added the following three console.log() statements in the `SignupPage.js` file to help determine origin of error.
+-	I did some investigation into my awsbootcamp account in AWS and found that I had Username and Email as Cognito sign-in options when it was supposed to be just Email.
+-	Now, I need to delete my `cruddur-user-pool` and recreate it.
+-	Click on `Create New User Pool`
+-	Configure ` Cognito user pool sign-in options` as Email only.
+
+![redo user pool](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/redo-user-pool.png)
+
+-	After I configured the new `cruddur-user-pool` I restarted Docker to refresh the app.  
+-	I do not have any users in my Cognito user pool, so I will sign up with the email that I used before.
+-	Click on `Join Now!`
+
+![join now](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/join-now.png)
+
+-	Sign up to create a Cruddur account.
+
+![Suzette create account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/suzette-create-account.png)
+
+-	I now see the `Confirm your Email` page.
+
+![confirm email](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/confirm-email.png)
+
+-	I checked my email account and see there is an email from no-reply@ verificationemail.com with a code for me to submit when I confirm my email on the Cruddur app.
+
+![received code](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/received-code.png)
+
+-	Next, I entered my email and the confirmation code on the `Confirm your Email` app page.
+-	 In AWS Cognito, under cruddur-user-pool, you can see that I created a user account for myself.
+
+![new user me](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/new-user-me.png)
+
+-	I can login to the Cruddur app successfully.
+
+![Success login again](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/success-login-again.png)
+
+-	Sign out of app.
+
+![sign out with Suzette handle](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/sign-out-with-suzette-handle.png)
+
+## Account Recovery Page
+-	I set up a recovery page for when users forget their password.
+-	At the `Sign into your Cruddur account` page you can click on `Forgot Password?` to set up a new password.
+
+![app sign in web page](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/app-signin-webpage.png)
+
+![recover password](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/recover-password.png)
+
+
+-	In the `RecoveryPage.js` file add:
+```js
+import { Auth } from 'aws-amplify';
+
+```
+-	Delete the `const onsubmit_send_code` code block and replace with the following:
+```js
+const onsubmit_send_code = async (event) => {
+  event.preventDefault();
+  setCognitoErrors('')
+  Auth.forgotPassword(username)
+  .then((data) => setFormState('confirm_code') )
+  .catch((err) => setCognitoErrors(err.message) );
+  return false
+}
+```
+-	Replace `setCognitoErrors(‘’)` with:
+```js
+setErrors(‘’)
+```
+-Replace `setCognitoErrors(err.message)` with:
+```js
+setErrors(err.message)
+```
+-	Delete the `const onsubmit_cinfirm_code` code block and replace with the following:
+```js
+const onsubmit_confirm_code = async (event) => {
+  event.preventDefault();
+  setCognitoErrors('')
+  if (password == passwordAgain){
+    Auth.forgotPasswordSubmit(username, code, password)
+    .then((data) => setFormState('success'))
+    .catch((err) => setCognitoErrors(err.message) );
+  } else {
+    setCognitoErrors('Passwords do not match')
+  }
+  return false
+}
+```
+-	Replace `setCognitoErrors(‘’)` with:
+```js
+setErrors(‘’)
+```
+-Replace `setCognitoErrors(err.message)` with:
+```js
+setErrors(err.message)
+```
+-	Refresh Cruddur `Recover your Password` webpage and entered my email.
+-	Now I can reset my password with a verification code I received in an email.
+-	
+![reset my password two](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/reset-my-password.png)
+
+-	I can sign in with my new password successfully.
 
 
 ## References
