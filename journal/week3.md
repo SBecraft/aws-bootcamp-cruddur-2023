@@ -634,7 +634,7 @@ setErrors(err.message)
 ```
 -	Refresh Cruddur `Recover your Password` webpage and entered my email.
 -	Now I can reset my password with a verification code I received in an email.
--	
+
 ![reset my password two](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/reset-my-password.png)
 
 -	I can sign in with my new password successfully.
