@@ -49,7 +49,7 @@ Observability in AWS is the way you would break down an application into multipl
 -	Application Health
 -	Minimize operational costs
 -	Increase in customer satisfaction when applications function properly
--	
+  
 ### 3 Pillars of Observability
 -	Metrics
 -	Traces
