@@ -136,7 +136,7 @@ gp env HONEYCOMB_SERVICE_NAME="Cruddur"
 Env | grep HONEY
 ```
 
-![both env vars honeycomb](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/both-env-vars-honeycomb.png)
+![both env vars honeycomb](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/both-env-vars-honeycomb-new.png)
 
 &NewLine;
 &NewLine;
@@ -531,7 +531,7 @@ aws xray create-group \
 aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 ```
 
-![sampling rule](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/sampling-rule.png)
+![sampling rule](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/sampling-rule-new.png)
 
 -	View new `backend-flask` group and sampling rule in AWS X-Ray Console at:
 `https://us-east-1.console.aws.amazon.com/cloudwatch/home?region=us-east-1#xray:settings`
@@ -565,13 +565,13 @@ aws xray create-sampling-rule --cli-input-json file://aws/json/xray.json
 
 #### Determine if X-RAY Daemon sent data to AWS X-RAY
 -	After running the `amazon/aws-xray-daemon` logs I could see that the X-RAY Daemon successfully sent a batch data to AWS X-Ray
--	
-![success xray daemon](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/success%20xray%20daemon.png)
+
+![success xray daemon](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/success-xray-daemon-new.png)
 
 -	After refreshing the Cruddur backend URL on port 4567 there were successful data traces with the X-Ray Daemon.
 -	Proof our X-Ray Daemon Service can collect data from the backend and send data traces to AWS X-RAY.  
 
-![aws xray query success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/aws-xray-query-success.png)
+![aws xray query success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/aws-xray-query-success-new.png)
 
 ### Instrument AWS X-Ray Subsegments
 Implemented an X-Ray subsegment for the service called `user activities` so when a Cruddur app user hits a specific API route, that data will be sent to AWS X-Ray to be queried and analyzed.
@@ -645,7 +645,7 @@ def data_show_activity(activity_uuid):
 -	Went into my awsbootcamp account in the AWS console and searched `X-Ray` to navigate to my trace information.
 -	Here is  the service map showing a connection between the client and my cruddur app.
 
-![service map](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map.png)
+![service map](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-new.png)
 
 &NewLine;
 &NewLine;
@@ -655,7 +655,7 @@ def data_show_activity(activity_uuid):
 &nbsp;
 - Cloudwatch log queries:
   
-![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2.png)
+![service map 2](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/service-map-2-new.png)
 
 &NewLine;
 &NewLine;
@@ -809,7 +809,7 @@ gp env ROLLBAR_ACCESS_TOKEN="your access token here"
 env | grep ROLLBAR
 ```
   
-![env grep rollbar](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/env-grep-rollbar.png)
+![env grep rollbar](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-2-assets/env-grep-rollbar-new.png)
 
 -	Now to instrument rollbar.  Add the following code to `app.py` file
 ```py
