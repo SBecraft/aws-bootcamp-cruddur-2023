@@ -98,7 +98,7 @@ aws –cli -auto-prompt
 aws sts get-caller-identity
 ```
   
-![IAM User Security Credentials Verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/cloudshell-screenshot.png)
+![IAM User Security Credentials Verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/cloudshell-screenshot-new.png)
 
 &NewLine;
 &NewLine;
@@ -175,7 +175,7 @@ gp env AWS_DEFAULT_REGION=us-east-1
 aws sts get-caller-identity
 ```
 
-![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp.png)
+![IAM User Security Credentials verified in Cloudshell](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/security-credentials-awsbootcamp-new.png)
 
 &NewLine;
 &NewLine;
@@ -206,7 +206,7 @@ aws sns create-topic --name billing-alarm
 ```
 - This command returned a TopicARN.
 
-![Topic Arn](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/correct-topic-arn.png)
+![Topic Arn](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/correct-topic-arn-new.png)
 
 - Created a subscription with the TopicARN and my Email.
 
@@ -219,7 +219,7 @@ aws sns subscribe \
 
 - Checked my email and confirmed the subscription exists.
 
-![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscription-confirmed.png)
+![Proof of working billing alarm](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-0-assets/subscription-confirmed-new.png)
 
 - Proof of subscription in AWS console:
 
