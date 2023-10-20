@@ -735,7 +735,7 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 - I did not use `Automatic rotation” per the bootcamp instructor so that we could avoid setting up Lamda at this time and move on to AWS Inspector.  I created the Secret without automatic rotation.
 - Proof I created a Secret in AWS Secret Manager:
 
-![Saved Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/saved-secret-secretmanager.png)
+![Saved Secret secret manager](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/saved-secret-secretmanager-new.png)
 
 &NewLine;
 &NewLine;
