@@ -124,7 +124,7 @@ Proof of successful Python install:
  python3 -m flask run –host=0.0.0.0  --port 4567
 ```
 
-![Python3 flask](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/python3-flask.png)
+![Python3 flask](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/python3-flask-new.png)
 
 &NewLine;
 &NewLine;
@@ -143,7 +143,7 @@ EXPOSE ${PORT}
 
 - Here is the 404 Error displayed in the terminal.
 
-![404 Errors](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/404-errors.png)
+![404 Errors](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/404-errors-new.png)
 
 - Set frontend and backend environment variable for the endpoints which will remain set when the container is running.
 
@@ -207,7 +207,6 @@ cd ..
 docker build -t  backend-flask ./backend-flask
 ```
 
-![Build backend container](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/build-backend-container.png)
 
 - Proof that docker image was created:
 
@@ -239,7 +238,7 @@ docker run --rm -p 4567:4567 -it backend-flask
 
 - I got a 404-ERROR as expected because I still need to reset the environment variables.
 
-![Image after running container](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/image-after-running-container.png)
+![Image after running container](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/image-after-running-container-new)
 
 
 - Stop the container either by `CTRL + C`.  OR click on the container file under CONTAINERS in the docker extension, right click on STOP.
@@ -462,10 +461,7 @@ NOTE:
 
 ![Correct Unlocked Ports](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/correct-unlocked-ports.png)
 
--	Open a new terminal and run the command ‘aws` to confirm AWS CLI is still installed.
-![AWS CLI Confirmed](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/aws-cli-confirmed.png)
-
-
+-	Open a new terminal and run the command ‘aws sts get-caller-identity` to confirm AWS CLI is still installed.
 -	Now to check that I can interact with the database using database task code from the challenge “100 Days of Cloud” at  https://github.com/100DaysOfCloud/challenge-dynamodb-local
 -	I chose List Tables task with the following code:
 ```sh
@@ -724,9 +720,9 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 
 ![Create Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/create-secret-type.png)
 
-- Configure secret with Secret name `docker/password/dev` and Tag as key value pair `Purpose` and `Docker-test`
+- Configure secret with Secret name and Tag as key value pair `Purpose` and `Docker-test`
 
-![Configure Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/configure-secret.png)
+![Configure Secret](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/configure-secret-new.png)
 
 &NewLine;
 &NewLine;
@@ -755,7 +751,7 @@ Note:  Snyk is looking at files within the `SBeraft/docker-goof` repository and 
 - Click on `Get Started`
 - On Activate Inspector page click on “Activate Inspector` in lower right-hand corner of webpage.
 
-![Inspector Successful Setup](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/inspector-successful-setup.png)
+![Inspector Successful Setup](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-1-assets/inspector-successful-setup-new.png)
 
 
 &NewLine;
