@@ -181,7 +181,7 @@ NOTE:
 -	Once a User pool has been created it cannot be altered.  If needed, a User pool can be torn done and a new one created with a different configuration.
 -	Click `Create user pool`
 
-![user pool success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/user-pool-success.png)
+![user pool success](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/user-pool-success-new.png)
 
 
 ## Install and Configure Amplify Client-Side Library for Amazon Congito
@@ -386,10 +386,10 @@ Note:  Before I continued to “Create a User”,  Andrew mentioned that when we
 -	In the `Users` section click `Create User` 
 -	In the `Create user` section I made the following selections and clicked `create user`:
 
-![Create User me](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/create-user-me.png)
+![Create User me](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/create-user-me-new.png)
 
 
-![user created](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/user-created.png)
+![user created](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/user-created-new.png)
 
 ### Stop AWS Forced Password Change for New User
 -	Confirmed that the aws-cli bash terminal recognizes my awsbootcamp UserID, Account Number, and ARN.
@@ -403,7 +403,7 @@ aws cognito-idp admin-set-user-password - -username suzettebecraft - -password X
 -	If you go to the app frontend URL and sign into the Cruddur app  you will no longer get the “Cannot read properties of null ( reading ‘accessToken’)” error because we got rid of the AWS force-password-change feature.
 -	Here is my signin to the Cruddur app with my email and password to access a Cruddur session.
 
-![sign in with my email](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/signin-with-myemail.png)
+![sign in with my email](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/signin-with-myemail-new.png)
 
 - I am able to sign in successfully.  Here is my Cruddur account.
 
@@ -553,7 +553,7 @@ setErrors(error.message)
 
 -	Sign up to create a Cruddur account.
 
-![Suzette create account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/suzette-create-account.png)
+![Suzette create account](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/suzette-create-account-new.png)
 
 -	I now see the `Confirm your Email` page.
 
@@ -566,7 +566,7 @@ setErrors(error.message)
 -	Next, I entered my email and the confirmation code on the `Confirm your Email` app page.
 -	 In AWS Cognito, under cruddur-user-pool, you can see that I created a user account for myself.
 
-![new user me](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/new-user-me.png)
+![new user me](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/new-user-me-new.png)
 
 -	I can login to the Cruddur app successfully.
 
@@ -632,12 +632,14 @@ setErrors(‘’)
 ```js
 setErrors(err.message)
 ```
--	Refresh Cruddur `Recover your Password` webpage and entered my email.
+-	Refreshed Cruddur `Recover your Password` webpage and entered my email.
 -	Now I can reset my password with a verification code I received in an email.
 
 ![reset my password two](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/reset-my-password.png)
 
 -	I can sign in with my new password successfully.
+
+![me in app as user](https://github.com/SBecraft/aws-bootcamp-cruddur-2023/blob/main/_docs/assets/week-3-assets/me-in-app-as-user.png)
 
 
 ## References
